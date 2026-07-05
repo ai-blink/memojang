@@ -1,7 +1,17 @@
 namespace Memojang.Tests;
 
+using System.Globalization;
+using System.Windows;
+using Memojang.App.Localization;
+
 public class ScaffoldTests
 {
+    public ScaffoldTests()
+    {
+        CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en");
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("en");
+    }
+
     [Fact]
     public void App_UsesExpectedNamespace()
     {
@@ -108,6 +118,7 @@ public class ScaffoldTests
 
         Assert.True(result.IsEnabled);
         Assert.False(result.IsProtected);
+        Assert.Equal("PrivacyStatusUnavailable", result.StatusKey);
         Assert.Equal("Capture status unavailable", result.StatusText);
         Assert.Equal("Capture status unavailable", result.DetailText);
     }
@@ -118,10 +129,38 @@ public class ScaffoldTests
         var result = new App.WindowsInterop.CaptureExclusionResult(
             IsEnabled: true,
             IsProtected: false,
-            StatusText: "Capture exclusion unavailable",
+            StatusKey: "PrivacyStatusExclusionUnavailable",
             ErrorCode: 5);
 
         Assert.Equal("Capture exclusion unavailable (Win32 5)", result.DetailText);
+    }
+
+    [Theory]
+    [InlineData("ko-KR", "ko")]
+    [InlineData("pt-BR", "pt")]
+    [InlineData("zh-CN", "zh")]
+    [InlineData("de-DE", "en")]
+    public void AppCultureService_SelectsSupportedLanguageOrEnglishFallback(string requested, string expected)
+    {
+        CultureInfo selected = AppCultureService.SelectSupportedCulture(CultureInfo.GetCultureInfo(requested));
+
+        Assert.Equal(expected, selected.Name);
+    }
+
+    [Fact]
+    public void UiText_UsesCultureSpecificResource()
+    {
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("ko");
+
+        Assert.Equal("파일(_F)", UiText.Get("MenuFile"));
+    }
+
+    [Fact]
+    public void UiText_UsesRightToLeftFlowDirectionForArabic()
+    {
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("ar");
+
+        Assert.Equal(FlowDirection.RightToLeft, UiText.FlowDirection);
     }
 
     [Theory]

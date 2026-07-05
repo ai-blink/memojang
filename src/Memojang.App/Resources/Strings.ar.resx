@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="MenuOpen" xml:space="preserve"><value>فتح(_O)...</value></data>
+  <data name="FindNoMatches" xml:space="preserve"><value>لا توجد نتائج</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>تغييرات غير محفوظة</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>ملف(_F)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>النظام(_S)</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>الالتقاط مرئي</value></data>
+  <data name="MenuView" xml:space="preserve"><value>عرض(_V)</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>داكن(_D)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>الخصوصية(_P)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>فاتح(_L)</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>السطر {0}، العمود {1}</value></data>
+  <data name="MenuEdit" xml:space="preserve"><value>تحرير(_E)</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>لا توجد تغييرات</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>هل تريد حفظ التغييرات قبل المتابعة؟</value></data>
+  <data name="MenuSave" xml:space="preserve"><value>حفظ(_S)</value></data>
+</root>

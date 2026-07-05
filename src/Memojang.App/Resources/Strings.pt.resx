@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="MenuOpen" xml:space="preserve"><value>Abrir(_O)...</value></data>
+  <data name="FindNoMatches" xml:space="preserve"><value>Sem correspondencias</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Alteracoes nao salvas</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>Arquivo(_F)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Sistema(_S)</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>Captura visivel</value></data>
+  <data name="MenuView" xml:space="preserve"><value>Exibir(_V)</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Escuro(_D)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Privacidade(_P)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Claro(_L)</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>Ln {0}, Col {1}</value></data>
+  <data name="MenuEdit" xml:space="preserve"><value>Editar(_E)</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>Sem alteracoes</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>Salvar alteracoes antes de continuar?</value></data>
+  <data name="MenuSave" xml:space="preserve"><value>Salvar(_S)</value></data>
+</root>

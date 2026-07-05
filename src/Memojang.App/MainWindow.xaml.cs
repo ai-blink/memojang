@@ -3,9 +3,12 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Input;
 using Microsoft.Win32;
+using Memojang.App.Localization;
 using Memojang.App.Shell;
+using Memojang.App.Theme;
 using Memojang.App.WindowsInterop;
 using CancelEventArgs = System.ComponentModel.CancelEventArgs;
+using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace Memojang.App;
 
@@ -21,6 +24,8 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        FlowDirection = UiText.FlowDirection;
+        ApplyLocalizedText();
         SourceInitialized += MainWindow_SourceInitialized;
         UpdateStatus(EditorStatus.Initial);
         UpdateTitle();
@@ -83,8 +88,8 @@ public partial class MainWindow : Window
 
         var dialog = new OpenFileDialog
         {
-            Filter = "Text documents|*.txt;*.md;*.markdown|All files|*.*",
-            Title = "Open"
+            Filter = UiText.Get("DialogTextDocumentFilter"),
+            Title = UiText.Get("DialogOpenTitle")
         };
 
         if (dialog.ShowDialog(this) != true)
@@ -178,7 +183,7 @@ public partial class MainWindow : Window
     {
         if (!MarkdownTableHelper.TryAddRow(EditorTextBox.Text, EditorTextBox.CaretIndex, GetLineEndingValue(), out string updatedText))
         {
-            MessageBox.Show(this, "Place the cursor inside a Markdown table first.", "Memojang", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(this, UiText.Get("MessageCursorInsideTable"), "Memojang", MessageBoxButton.OK, MessageBoxImage.Information);
             return;
         }
 
@@ -197,6 +202,19 @@ public partial class MainWindow : Window
     private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
     {
         Close();
+    }
+
+    private void ThemeMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        AppTheme requestedTheme = sender == ThemeDarkMenuItem
+            ? AppTheme.Dark
+            : sender == ThemeLightMenuItem
+                ? AppTheme.Light
+                : AppTheme.System;
+
+        AppThemeService.Apply(Application.Current, requestedTheme);
+        UpdateThemeMenuState(requestedTheme);
+        UpdatePreview();
     }
 
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
@@ -259,9 +277,9 @@ public partial class MainWindow : Window
         {
             var dialog = new SaveFileDialog
             {
-                Filter = "Text documents|*.txt;*.md;*.markdown|All files|*.*",
-                FileName = string.IsNullOrWhiteSpace(targetPath) ? "Untitled.txt" : Path.GetFileName(targetPath),
-                Title = "Save"
+                Filter = UiText.Get("DialogTextDocumentFilter"),
+                FileName = string.IsNullOrWhiteSpace(targetPath) ? UiText.Get("UntitledFileName") : Path.GetFileName(targetPath),
+                Title = UiText.Get("DialogSaveTitle")
             };
 
             if (dialog.ShowDialog(this) != true)
@@ -317,7 +335,7 @@ public partial class MainWindow : Window
 
         var result = MessageBox.Show(
             this,
-            "Save changes before continuing?",
+            UiText.Get("PromptSaveChanges"),
             "Memojang",
             MessageBoxButton.YesNoCancel,
             MessageBoxImage.Warning);
@@ -370,7 +388,7 @@ public partial class MainWindow : Window
 
         if (matchIndex < 0)
         {
-            FindStatusText.Text = string.IsNullOrEmpty(query) ? string.Empty : "No matches";
+            FindStatusText.Text = string.IsNullOrEmpty(query) ? string.Empty : UiText.Get("FindNoMatches");
             return;
         }
 
@@ -409,13 +427,13 @@ public partial class MainWindow : Window
 
         if (result.Count == 0)
         {
-            FindStatusText.Text = string.IsNullOrEmpty(FindTextBox.Text) ? string.Empty : "No matches";
+            FindStatusText.Text = string.IsNullOrEmpty(FindTextBox.Text) ? string.Empty : UiText.Get("FindNoMatches");
             return;
         }
 
         EditorTextBox.Text = result.Text;
         EditorTextBox.CaretIndex = 0;
-        FindStatusText.Text = $"Replaced {result.Count}";
+        FindStatusText.Text = UiText.Format("FindReplacedCount", result.Count);
         EditorTextBox.Focus();
     }
 
@@ -437,5 +455,64 @@ public partial class MainWindow : Window
         }
 
         PreviewViewer.Document = MarkdownPreviewDocumentFactory.Create(EditorTextBox.Text);
+    }
+
+    private void ApplyLocalizedText()
+    {
+        FileMenuItem.Header = UiText.Get("MenuFile");
+        NewMenuItem.Header = UiText.Get("MenuNew");
+        OpenMenuItem.Header = UiText.Get("MenuOpen");
+        SaveMenuItem.Header = UiText.Get("MenuSave");
+        SaveAsMenuItem.Header = UiText.Get("MenuSaveAs");
+        ExitMenuItem.Header = UiText.Get("MenuExit");
+        EditMenuItem.Header = UiText.Get("MenuEdit");
+        UndoMenuItem.Header = UiText.Get("MenuUndo");
+        CutMenuItem.Header = UiText.Get("MenuCut");
+        CopyMenuItem.Header = UiText.Get("MenuCopy");
+        PasteMenuItem.Header = UiText.Get("MenuPaste");
+        FindMenuItem.Header = UiText.Get("MenuFind");
+        FindNextMenuItem.Header = UiText.Get("MenuFindNext");
+        TimeDateMenuItem.Header = UiText.Get("MenuTimeDate");
+        ViewMenuItem.Header = UiText.Get("MenuView");
+        WordWrapMenuItem.Header = UiText.Get("MenuWordWrap");
+        StatusBarMenuItem.Header = UiText.Get("MenuStatusBar");
+        PreviewMenuItem.Header = UiText.Get("MenuMarkdownPreview");
+        ThemeMenuItem.Header = UiText.Get("MenuAppTheme");
+        ThemeSystemMenuItem.Header = UiText.Get("ThemeSystem");
+        ThemeLightMenuItem.Header = UiText.Get("ThemeLight");
+        ThemeDarkMenuItem.Header = UiText.Get("ThemeDark");
+        MarkdownMenuItem.Header = UiText.Get("MenuMarkdown");
+        InsertTableMenuItem.Header = UiText.Get("MenuInsertTable");
+        AddTableRowMenuItem.Header = UiText.Get("MenuAddTableRow");
+        PrivacyMenuItem.Header = UiText.Get("MenuPrivacy");
+        CaptureExclusionMenuItem.Header = UiText.Get("MenuCaptureExclusion");
+        HelpMenuItem.Header = UiText.Get("MenuHelp");
+        AboutMenuItem.Header = UiText.Get("MenuAbout");
+
+        FindLabelText.Text = UiText.Get("FindLabel");
+        ReplaceLabelText.Text = UiText.Get("ReplaceLabel");
+        FindNextButton.Content = UiText.Get("FindNextButton");
+        ReplaceButton.Content = UiText.Get("ReplaceButton");
+        ReplaceAllButton.Content = UiText.Get("ReplaceAllButton");
+        CloseFindButton.Content = UiText.Get("CloseButton");
+        PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");
+
+        UpdateThemeMenuState(AppThemeService.RequestedTheme);
+    }
+
+    private void UpdateThemeMenuState(AppTheme requestedTheme)
+    {
+        foreach (MenuItem item in new[] { ThemeSystemMenuItem, ThemeLightMenuItem, ThemeDarkMenuItem })
+        {
+            item.IsChecked = false;
+        }
+
+        MenuItem selectedItem = requestedTheme switch
+        {
+            AppTheme.Dark => ThemeDarkMenuItem,
+            AppTheme.Light => ThemeLightMenuItem,
+            _ => ThemeSystemMenuItem
+        };
+        selectedItem.IsChecked = true;
     }
 }

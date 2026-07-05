@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="MenuOpen" xml:space="preserve"><value>Buka(_O)...</value></data>
+  <data name="FindNoMatches" xml:space="preserve"><value>Tidak ada hasil</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Perubahan belum disimpan</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>File(_F)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Sistem(_S)</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>Tangkapan terlihat</value></data>
+  <data name="MenuView" xml:space="preserve"><value>Tampilan(_V)</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Gelap(_D)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Privasi(_P)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Terang(_L)</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>Brs {0}, Kol {1}</value></data>
+  <data name="MenuEdit" xml:space="preserve"><value>Edit(_E)</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>Tidak ada perubahan</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>Simpan perubahan sebelum melanjutkan?</value></data>
+  <data name="MenuSave" xml:space="preserve"><value>Simpan(_S)</value></data>
+</root>

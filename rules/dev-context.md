@@ -16,9 +16,12 @@ Current state:
 - Markdown table helper commands can insert a starter table and add a source-preserving empty row to the current table.
 - Privacy menu can request window capture exclusion and reports visible/excluded/limited/unavailable status in the status bar, with Win32 detail in the tooltip when available.
 - V1 preview folder publish is configured with `PreviewFolder.pubxml` and documented in `docs/PREVIEW_BUILD.md`.
+- UI text now uses resource-backed strings with startup culture selection for Korean, English, Japanese, Hindi, Chinese, French, Arabic, Spanish, Bengali, Portuguese, Russian, and Indonesian. Unsupported Windows UI languages fall back to English, and Arabic applies right-to-left flow.
+- Theme foundation now has system/light/dark resource dictionaries and a compact View > App theme selector; startup follows the Windows app theme by default.
 
 Immediate next step:
 - Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
+- After the privacy matrix, add a small persistent settings slice for theme/language override if needed.
 
 Known blockers:
 - No active blockers.

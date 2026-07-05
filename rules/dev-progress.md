@@ -2,7 +2,7 @@
 
 ## Current
 
-2026-07-06: Find/replace panel added with `Ctrl+F`, `F3`, wraparound search, replace current, and replace all. Privacy mode diagnostics also include tooltip detail for Win32 failures before manual capture matrix checks.
+2026-07-06: UI localization and theme foundations added. Startup now selects a supported UI language from the Windows UI culture with English fallback, applies RTL flow for Arabic, and applies a system/light/dark theme resource structure. Privacy manual capture matrix checks remain pending.
 
 ## Completed
 
@@ -19,10 +19,12 @@
 - 2026-07-06: Basic Notepad-like shortcuts implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Find panel and wraparound search implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Replace current/all added to the find panel and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
+- 2026-07-06: Localization and theme foundation added for Korean, English, Japanese, Hindi, Chinese, French, Arabic, Spanish, Bengali, Portuguese, Russian, and Indonesian; verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, `dotnet publish .\src\Memojang.App\Memojang.App.csproj -p:PublishProfile=PreviewFolder`, published exe smoke, and `git diff --check`.
 
 ## Next
 
 - Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
+- Add a small persistent settings slice for theme/language override after the manual privacy matrix.
 
 ## Blockers
 

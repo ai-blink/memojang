@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
+using Memojang.App.Localization;
 
 namespace Memojang.App.Shell;
 
@@ -10,8 +11,11 @@ public static class MarkdownPreviewDocumentFactory
     {
         var document = new FlowDocument
         {
+            Background = GetBrush("AppPreviewBackgroundBrush", Brushes.White),
             FontFamily = new FontFamily("Segoe UI"),
             FontSize = 14,
+            Foreground = GetBrush("AppTextBrush", Brushes.Black),
+            FlowDirection = UiText.FlowDirection,
             PagePadding = new Thickness(0)
         };
 
@@ -68,7 +72,7 @@ public static class MarkdownPreviewDocumentFactory
                 string text = columnIndex < rows[rowIndex].Count ? rows[rowIndex][columnIndex] : string.Empty;
                 tableRow.Cells.Add(new TableCell(new Paragraph(new Run(text)))
                 {
-                    BorderBrush = Brushes.Gainsboro,
+                    BorderBrush = GetBrush("AppBorderBrush", Brushes.Gainsboro),
                     BorderThickness = new Thickness(0, 0, 1, 1),
                     FontWeight = rowIndex == 0 ? FontWeights.SemiBold : FontWeights.Normal,
                     Padding = new Thickness(6, 4, 6, 4)
@@ -77,5 +81,10 @@ public static class MarkdownPreviewDocumentFactory
         }
 
         return table;
+    }
+
+    private static Brush GetBrush(string key, Brush fallback)
+    {
+        return Application.Current?.TryFindResource(key) as Brush ?? fallback;
     }
 }
