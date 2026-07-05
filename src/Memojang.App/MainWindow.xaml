@@ -4,8 +4,98 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Memojang" Height="450" Width="800">
-    <Grid>
+        Title="Memojang" Height="720" Width="1080" MinHeight="420" MinWidth="640"
+        Closing="MainWindow_Closing">
+    <DockPanel Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Click="NewMenuItem_Click" />
+                <MenuItem Header="_Open..." Click="OpenMenuItem_Click" />
+                <MenuItem Header="_Save" Click="SaveMenuItem_Click" />
+                <MenuItem Header="Save _As..." Click="SaveAsMenuItem_Click" />
+                <Separator />
+                <MenuItem Header="E_xit" Click="ExitMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Undo" Command="ApplicationCommands.Undo" CommandTarget="{Binding ElementName=EditorTextBox}" />
+                <Separator />
+                <MenuItem Header="Cu_t" Command="ApplicationCommands.Cut" CommandTarget="{Binding ElementName=EditorTextBox}" />
+                <MenuItem Header="_Copy" Command="ApplicationCommands.Copy" CommandTarget="{Binding ElementName=EditorTextBox}" />
+                <MenuItem Header="_Paste" Command="ApplicationCommands.Paste" CommandTarget="{Binding ElementName=EditorTextBox}" />
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Word wrap" IsCheckable="True" IsChecked="True" IsEnabled="False" />
+                <MenuItem Header="_Status bar" IsCheckable="True" IsChecked="True" IsEnabled="False" />
+                <Separator />
+                <MenuItem x:Name="PreviewMenuItem" Header="_Markdown preview" IsCheckable="True" Click="PreviewMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="_Markdown">
+                <MenuItem Header="Insert _table" Click="InsertTableMenuItem_Click" />
+                <MenuItem Header="Add table _row" Click="AddTableRowMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="_Privacy">
+                <MenuItem x:Name="CaptureExclusionMenuItem"
+                          Header="_Exclude window from capture"
+                          IsCheckable="True"
+                          Click="CaptureExclusionMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About Memojang" IsEnabled="False" />
+            </MenuItem>
+        </Menu>
 
-    </Grid>
+        <StatusBar DockPanel.Dock="Bottom" MinHeight="28">
+            <StatusBarItem>
+                <TextBlock x:Name="CaretStatusText" MinWidth="92" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem>
+                <TextBlock x:Name="ChangeStatusText" MinWidth="116" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem>
+                <TextBlock x:Name="PrivacyStatusText" MinWidth="148" Text="Capture visible" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock x:Name="EncodingStatusText" MinWidth="56" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock x:Name="LineEndingStatusText" MinWidth="44" />
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition x:Name="PreviewColumn" Width="0" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="EditorTextBox"
+                     Grid.Column="0"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     BorderThickness="0"
+                     FontFamily="Consolas"
+                     FontSize="14"
+                     HorizontalScrollBarVisibility="Auto"
+                     Padding="12"
+                     SpellCheck.IsEnabled="False"
+                     TextChanged="EditorTextBox_TextChanged"
+                     SelectionChanged="EditorTextBox_SelectionChanged"
+                     TextWrapping="NoWrap"
+                     VerticalScrollBarVisibility="Auto" />
+
+            <Border x:Name="PreviewPane"
+                    Grid.Column="1"
+                    BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"
+                    BorderThickness="1,0,0,0"
+                    Visibility="Collapsed">
+                <FlowDocumentScrollViewer x:Name="PreviewViewer"
+                                          IsToolBarVisible="False"
+                                          Padding="18" />
+            </Border>
+        </Grid>
+    </DockPanel>
 </Window>

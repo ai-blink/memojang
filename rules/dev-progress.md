@@ -2,18 +2,23 @@
 
 ## Current
 
-2026-07-06: App-dev workflow init completed. Created `CLAUDE.md`, `doc/INTENT.md`, `rules/dev-*`, templates, diagram index, and `.codex/state/dev-docs-done`; validation evidence is in the final response for this run.
+2026-07-06: V1 preview folder publish configured and smoke-tested. The app now has a reproducible `dotnet publish` path for a framework-dependent Windows x64 preview build.
 
 ## Completed
 
 - 2026-07-06: Initial Git repository created and pushed to `origin/main` with `README.md` in commit `e01bc2f`.
 - 2026-07-06: Program plan saved at `notes/plans/2026-07-06-memojang-program-plan.md`; UX structure, secret scan, and planning-artifact shape passed after init normalization.
+- 2026-07-06: `.NET 10 WPF` solution scaffolded in commit `8e3ab8e feat(project): scaffold Memojang WPF app`; build and tests passed.
+- 2026-07-06: Minimal editor shell implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
+- 2026-07-06: Basic file commands and line-ending detection implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
+- 2026-07-06: Dirty-document discard prompts implemented and verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and a process-start smoke run.
+- 2026-07-06: Markdown preview foundation implemented and verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and a process-start smoke run.
+- 2026-07-06: Markdown table helper and capture exclusion foundation implemented and verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and a process-start smoke run.
+- 2026-07-06: V1 preview folder publish configured with `PreviewFolder.pubxml`, documented in `docs/PREVIEW_BUILD.md`, and verified by running the published executable.
 
 ## Next
 
-- Validate dev-docs init with file existence checks, `git diff --check`, secret scan, and roadmap shape check.
-- Commit docs initialization when requested.
-- Scaffold `.NET 10 WPF` app and first tests.
+- Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
 
 ## Blockers
 
