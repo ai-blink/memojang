@@ -14,7 +14,7 @@ Current state:
 - Dirty documents now prompt before new/open/exit discard, and the app has a process-start smoke check.
 - Markdown preview foundation is wired behind a View menu toggle, with lightweight heading, paragraph, and pipe-table rendering.
 - Markdown table helper commands can insert a starter table and add a source-preserving empty row to the current table.
-- Privacy menu can request window capture exclusion and reports visible/excluded/limited/unavailable status in the status bar.
+- Privacy menu can request window capture exclusion and reports visible/excluded/limited/unavailable status in the status bar, with Win32 detail in the tooltip when available.
 - V1 preview folder publish is configured with `PreviewFolder.pubxml` and documented in `docs/PREVIEW_BUILD.md`.
 
 Immediate next step:

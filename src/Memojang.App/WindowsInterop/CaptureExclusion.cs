@@ -2,7 +2,14 @@ using System.Runtime.InteropServices;
 
 namespace Memojang.App.WindowsInterop;
 
-public sealed record CaptureExclusionResult(bool IsEnabled, bool IsProtected, string StatusText);
+public sealed record CaptureExclusionResult(
+    bool IsEnabled,
+    bool IsProtected,
+    string StatusText,
+    int? ErrorCode = null)
+{
+    public string DetailText => ErrorCode is null ? StatusText : $"{StatusText} (Win32 {ErrorCode})";
+}
 
 public static class CaptureExclusion
 {
@@ -21,7 +28,7 @@ public static class CaptureExclusion
         {
             return SetWindowDisplayAffinity(windowHandle, WdaNone)
                 ? new CaptureExclusionResult(false, false, "Capture visible")
-                : new CaptureExclusionResult(false, false, "Capture reset failed");
+                : new CaptureExclusionResult(false, false, "Capture reset failed", Marshal.GetLastWin32Error());
         }
 
         if (SetWindowDisplayAffinity(windowHandle, WdaExcludeFromCapture))
@@ -34,7 +41,7 @@ public static class CaptureExclusion
             return new CaptureExclusionResult(true, true, "Capture limited");
         }
 
-        return new CaptureExclusionResult(true, false, "Capture exclusion unavailable");
+        return new CaptureExclusionResult(true, false, "Capture exclusion unavailable", Marshal.GetLastWin32Error());
     }
 
     [DllImport("user32.dll", SetLastError = true)]

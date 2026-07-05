@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Memojang" Height="720" Width="1080" MinHeight="420" MinWidth="640"
-        Closing="MainWindow_Closing">
+        Closing="MainWindow_Closing"
+        PreviewKeyDown="MainWindow_PreviewKeyDown">
     <DockPanel Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Click="NewMenuItem_Click" />
-                <MenuItem Header="_Open..." Click="OpenMenuItem_Click" />
-                <MenuItem Header="_Save" Click="SaveMenuItem_Click" />
-                <MenuItem Header="Save _As..." Click="SaveAsMenuItem_Click" />
+                <MenuItem Header="_New" InputGestureText="Ctrl+N" Click="NewMenuItem_Click" />
+                <MenuItem Header="_Open..." InputGestureText="Ctrl+O" Click="OpenMenuItem_Click" />
+                <MenuItem Header="_Save" InputGestureText="Ctrl+S" Click="SaveMenuItem_Click" />
+                <MenuItem Header="Save _As..." InputGestureText="Ctrl+Shift+S" Click="SaveAsMenuItem_Click" />
                 <Separator />
                 <MenuItem Header="E_xit" Click="ExitMenuItem_Click" />
             </MenuItem>
@@ -22,6 +23,8 @@
                 <MenuItem Header="Cu_t" Command="ApplicationCommands.Cut" CommandTarget="{Binding ElementName=EditorTextBox}" />
                 <MenuItem Header="_Copy" Command="ApplicationCommands.Copy" CommandTarget="{Binding ElementName=EditorTextBox}" />
                 <MenuItem Header="_Paste" Command="ApplicationCommands.Paste" CommandTarget="{Binding ElementName=EditorTextBox}" />
+                <Separator />
+                <MenuItem Header="_Time/Date" InputGestureText="F5" Click="TimeDateMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="_View">
                 <MenuItem Header="_Word wrap" IsCheckable="True" IsChecked="True" IsEnabled="False" />

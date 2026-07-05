@@ -2,7 +2,7 @@
 
 ## Current
 
-2026-07-06: V1 preview folder publish configured and smoke-tested. The app now has a reproducible `dotnet publish` path for a framework-dependent Windows x64 preview build.
+2026-07-06: Notepad-like shortcuts added for new/open/save/save-as and F5 time/date insertion. Privacy mode diagnostics also include tooltip detail for Win32 failures before manual capture matrix checks.
 
 ## Completed
 
@@ -15,6 +15,8 @@
 - 2026-07-06: Markdown preview foundation implemented and verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and a process-start smoke run.
 - 2026-07-06: Markdown table helper and capture exclusion foundation implemented and verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and a process-start smoke run.
 - 2026-07-06: V1 preview folder publish configured with `PreviewFolder.pubxml`, documented in `docs/PREVIEW_BUILD.md`, and verified by running the published executable.
+- 2026-07-06: Capture exclusion diagnostics improved and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
+- 2026-07-06: Basic Notepad-like shortcuts implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 
 ## Next
 

@@ -109,5 +109,18 @@ public class ScaffoldTests
         Assert.True(result.IsEnabled);
         Assert.False(result.IsProtected);
         Assert.Equal("Capture status unavailable", result.StatusText);
+        Assert.Equal("Capture status unavailable", result.DetailText);
+    }
+
+    [Fact]
+    public void CaptureExclusion_DetailText_IncludesWin32ErrorWhenPresent()
+    {
+        var result = new App.WindowsInterop.CaptureExclusionResult(
+            IsEnabled: true,
+            IsProtected: false,
+            StatusText: "Capture exclusion unavailable",
+            ErrorCode: 5);
+
+        Assert.Equal("Capture exclusion unavailable (Win32 5)", result.DetailText);
     }
 }

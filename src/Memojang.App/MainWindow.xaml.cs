@@ -2,6 +2,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Interop;
+using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
 using Memojang.App.Shell;
@@ -22,6 +23,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        SourceInitialized += MainWindow_SourceInitialized;
         UpdateStatus(EditorStatus.Initial);
         UpdateTitle();
         EditorTextBox.Focus();
@@ -107,6 +109,11 @@ public partial class MainWindow : Window
         SaveDocument(saveAs: true);
     }
 
+    private void TimeDateMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        InsertTimeDate();
+    }
+
     private void PreviewMenuItem_Click(object sender, RoutedEventArgs e)
     {
         bool isPreviewVisible = PreviewMenuItem.IsChecked;
@@ -151,6 +158,43 @@ public partial class MainWindow : Window
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
         e.Cancel = !ConfirmDiscardUnsavedChanges();
+    }
+
+    private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        bool isControl = Keyboard.Modifiers == ModifierKeys.Control;
+        bool isControlShift = Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift);
+
+        if (isControl && e.Key == Key.N)
+        {
+            NewMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.O)
+        {
+            OpenMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.S)
+        {
+            SaveMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
+        else if (isControlShift && e.Key == Key.S)
+        {
+            SaveAsMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
+        else if (e.Key == Key.F5)
+        {
+            InsertTimeDate();
+            e.Handled = true;
+        }
+    }
+
+    private void MainWindow_SourceInitialized(object? sender, EventArgs e)
+    {
+        ApplyCaptureExclusion();
     }
 
     private bool SaveDocument(bool saveAs)
@@ -242,12 +286,22 @@ public partial class MainWindow : Window
         };
     }
 
+    private void InsertTimeDate()
+    {
+        string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+        int selectionStart = EditorTextBox.SelectionStart;
+        EditorTextBox.SelectedText = timestamp;
+        EditorTextBox.CaretIndex = selectionStart + timestamp.Length;
+        EditorTextBox.Focus();
+    }
+
     private void ApplyCaptureExclusion()
     {
         var helper = new WindowInteropHelper(this);
         CaptureExclusionResult result = CaptureExclusion.Apply(helper.Handle, _captureExclusionEnabled);
 
         PrivacyStatusText.Text = result.StatusText;
+        PrivacyStatusText.ToolTip = result.DetailText;
         CaptureExclusionMenuItem.IsChecked = result.IsEnabled && result.IsProtected;
     }
 
