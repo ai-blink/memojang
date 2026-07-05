@@ -1,0 +1,29 @@
+# Dev Decisions
+
+## Vision
+
+- D-001: Memojang targets Windows 11 Notepad-like speed and familiarity, not a heavy IDE or word processor.
+- D-002: Markdown/table support is a focused extension of Notepad-like editing, not a full document suite.
+
+## Layer Boundaries
+
+- D-003: Markdown source remains the saved truth; previews and table helpers must round-trip to source.
+- D-004: Windows capture exclusion lives behind `WindowsInterop` and reports status to UI instead of being treated as guaranteed DRM.
+
+## Executor Policy
+
+- D-005: `CLAUDE.md` is the only canonical project instruction entrypoint; do not add authoritative `AGENTS.md`.
+- D-006: Non-trivial work must define finish line, acceptance checks, scope limit, review budget, and stop rule.
+
+## Security
+
+- D-007: Capture protection must be described as best-effort OS capture exclusion with known limits, not absolute content protection.
+- D-008: WebView2 preview, if used, must use local controlled content and block remote surfaces by default.
+
+## Workflow
+
+- D-009: Live progress belongs in `rules/dev-progress.md`; milestone roadmap belongs in `rules/dev-roadmap.md`.
+
+## Infra
+
+- D-010: Target runtime is .NET 10 LTS with WPF unless a later explicit plan changes the stack.

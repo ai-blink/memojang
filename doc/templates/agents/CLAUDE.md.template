@@ -1,0 +1,20 @@
+# <Project Name>
+
+<One or two lines describing the product and stack.>
+
+> This file is the single canonical project instruction entrypoint. Do not add a competing authoritative `AGENTS.md`.
+
+## Index
+
+- Intent: `doc/INTENT.md`
+- Progress: `rules/dev-progress.md`
+- Roadmap: `rules/dev-roadmap.md`
+- Architecture: `rules/dev-arch.md`
+- Decisions: `rules/dev-decisions.md`
+- Context: `rules/dev-context.md`
+
+## Completion Discipline
+
+- Define finish line, acceptance checks, scope limit, review budget, and stop rule for non-trivial work.
+- Fix blockers only; record follow-ups separately.
+- Stop after acceptance checks pass and update live docs.
