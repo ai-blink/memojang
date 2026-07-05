@@ -5,7 +5,7 @@ Product feel: Windows 11 Notepad-like, quiet, fast, familiar.
 UI principles:
 - The editing canvas is the primary experience; toolbars must stay compact.
 - Prefer familiar Windows menu, tab, status bar, and shortcut behavior.
-- Support familiar editor shortcuts such as `Ctrl+N`, `Ctrl+O`, `Ctrl+S`, `Ctrl+Shift+S`, and `F5` time/date insertion.
+- Support familiar editor shortcuts such as `Ctrl+N`, `Ctrl+O`, `Ctrl+S`, `Ctrl+Shift+S`, `Ctrl+F`, `F3`, and `F5` time/date insertion.
 - Markdown controls should help source editing, not hide the source permanently.
 - Table editing should feel like a small helper, not a spreadsheet clone.
 - Privacy mode must be visible in the status bar when enabled and must show failure clearly.

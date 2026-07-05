@@ -24,6 +24,9 @@
                 <MenuItem Header="_Copy" Command="ApplicationCommands.Copy" CommandTarget="{Binding ElementName=EditorTextBox}" />
                 <MenuItem Header="_Paste" Command="ApplicationCommands.Paste" CommandTarget="{Binding ElementName=EditorTextBox}" />
                 <Separator />
+                <MenuItem Header="_Find" InputGestureText="Ctrl+F" Click="FindMenuItem_Click" />
+                <MenuItem Header="Find _next" InputGestureText="F3" Click="FindNextMenuItem_Click" />
+                <Separator />
                 <MenuItem Header="_Time/Date" InputGestureText="F5" Click="TimeDateMenuItem_Click" />
             </MenuItem>
             <MenuItem Header="_View">
@@ -46,6 +49,33 @@
                 <MenuItem Header="_About Memojang" IsEnabled="False" />
             </MenuItem>
         </Menu>
+
+        <Border x:Name="FindPanel"
+                DockPanel.Dock="Top"
+                BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"
+                BorderThickness="0,0,0,1"
+                Padding="8"
+                Visibility="Collapsed">
+            <DockPanel LastChildFill="False">
+                <TextBlock Text="Find"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0" />
+                <TextBox x:Name="FindTextBox"
+                         Width="240"
+                         KeyDown="FindTextBox_KeyDown" />
+                <Button Content="Next"
+                        Margin="8,0,0,0"
+                        MinWidth="72"
+                        Click="FindNextButton_Click" />
+                <Button Content="Close"
+                        Margin="8,0,0,0"
+                        MinWidth="72"
+                        Click="CloseFindButton_Click" />
+                <TextBlock x:Name="FindStatusText"
+                           VerticalAlignment="Center"
+                           Margin="12,0,0,0" />
+            </DockPanel>
+        </Border>
 
         <StatusBar DockPanel.Dock="Bottom" MinHeight="28">
             <StatusBarItem>

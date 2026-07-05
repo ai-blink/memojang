@@ -2,7 +2,7 @@
 
 ## Current
 
-2026-07-06: Notepad-like shortcuts added for new/open/save/save-as and F5 time/date insertion. Privacy mode diagnostics also include tooltip detail for Win32 failures before manual capture matrix checks.
+2026-07-06: Find panel added with `Ctrl+F`, `F3`, and wraparound search. Privacy mode diagnostics also include tooltip detail for Win32 failures before manual capture matrix checks.
 
 ## Completed
 
@@ -17,6 +17,7 @@
 - 2026-07-06: V1 preview folder publish configured with `PreviewFolder.pubxml`, documented in `docs/PREVIEW_BUILD.md`, and verified by running the published executable.
 - 2026-07-06: Capture exclusion diagnostics improved and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Basic Notepad-like shortcuts implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
+- 2026-07-06: Find panel and wraparound search implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 
 ## Next
 

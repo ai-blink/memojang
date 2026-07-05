@@ -114,6 +114,42 @@ public partial class MainWindow : Window
         InsertTimeDate();
     }
 
+    private void FindMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        ShowFindPanel();
+    }
+
+    private void FindNextMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        FindNext();
+    }
+
+    private void FindNextButton_Click(object sender, RoutedEventArgs e)
+    {
+        FindNext();
+    }
+
+    private void CloseFindButton_Click(object sender, RoutedEventArgs e)
+    {
+        FindPanel.Visibility = Visibility.Collapsed;
+        EditorTextBox.Focus();
+    }
+
+    private void FindTextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+        {
+            FindNext();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.Escape)
+        {
+            FindPanel.Visibility = Visibility.Collapsed;
+            EditorTextBox.Focus();
+            e.Handled = true;
+        }
+    }
+
     private void PreviewMenuItem_Click(object sender, RoutedEventArgs e)
     {
         bool isPreviewVisible = PreviewMenuItem.IsChecked;
@@ -188,6 +224,16 @@ public partial class MainWindow : Window
         else if (e.Key == Key.F5)
         {
             InsertTimeDate();
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.F)
+        {
+            ShowFindPanel();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.F3)
+        {
+            FindNext();
             e.Handled = true;
         }
     }
@@ -293,6 +339,36 @@ public partial class MainWindow : Window
         EditorTextBox.SelectedText = timestamp;
         EditorTextBox.CaretIndex = selectionStart + timestamp.Length;
         EditorTextBox.Focus();
+    }
+
+    private void ShowFindPanel()
+    {
+        FindPanel.Visibility = Visibility.Visible;
+
+        if (!string.IsNullOrEmpty(EditorTextBox.SelectedText))
+        {
+            FindTextBox.Text = EditorTextBox.SelectedText;
+        }
+
+        FindTextBox.SelectAll();
+        FindTextBox.Focus();
+    }
+
+    private void FindNext()
+    {
+        string query = FindTextBox.Text;
+        int startIndex = EditorTextBox.SelectionStart + Math.Max(EditorTextBox.SelectionLength, 1);
+        int matchIndex = TextSearch.FindNext(EditorTextBox.Text, query, startIndex, StringComparison.CurrentCultureIgnoreCase);
+
+        if (matchIndex < 0)
+        {
+            FindStatusText.Text = string.IsNullOrEmpty(query) ? string.Empty : "No matches";
+            return;
+        }
+
+        EditorTextBox.Focus();
+        EditorTextBox.Select(matchIndex, query.Length);
+        FindStatusText.Text = string.Empty;
     }
 
     private void ApplyCaptureExclusion()

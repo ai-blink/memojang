@@ -123,4 +123,16 @@ public class ScaffoldTests
 
         Assert.Equal("Capture exclusion unavailable (Win32 5)", result.DetailText);
     }
+
+    [Theory]
+    [InlineData("alpha beta gamma", "beta", 0, 6)]
+    [InlineData("alpha beta alpha", "alpha", 6, 11)]
+    [InlineData("alpha beta alpha", "alpha", 16, 0)]
+    [InlineData("alpha beta", "delta", 0, -1)]
+    public void TextSearch_FindNext_FindsAndWraps(string text, string query, int startIndex, int expected)
+    {
+        int match = App.Shell.TextSearch.FindNext(text, query, startIndex, StringComparison.OrdinalIgnoreCase);
+
+        Assert.Equal(expected, match);
+    }
 }
