@@ -1,6 +1,6 @@
 # Session Handoff — memojang
 
-- Written: 2026-07-05T20:31:38.581232+00:00
+- Written: 2026-07-05T21:29:23.187784+00:00
 - Trigger: stop
 - Source: codex
 - CWD: C:\ai\projects\memojang
@@ -8,25 +8,20 @@
 
 ## Objective
 
-다이어그램 작성과 인덱스 링크까지 완료했습니다. 커밋은 하지 않았습니다.
+커밋 완료했습니다.
 
-변경한 파일:
-- [architecture-overview.md](C:/ai/projects/memojang/docs/diagrams/architecture-overview.md): V1 목표 아키텍처 Mermaid 다이어그램 추가
-- [README.md](C:/ai/projects/memojang/docs/diagrams/README.md): 다이어그램 인덱스가 새 다이어그램 파일을 가리키도록 갱신
-- [ARCHITECTURE.md](C:/ai/projects/memojang/docs/ARCHITECTURE.md): 인덱스와 아키텍처 다이어그램 링크 추가
-- [dev-arch.md](C:/ai/projects/memojang/rules/dev-arch.md): 다이어그램 인덱스를 Markdown 링크로 정리
+커밋:
+`6019066 feat(app): add V1 preview editor shell`
 
-검증:
-- `git diff --check`: 통과
-- `mmdc -i docs/diagrams/architecture-overview.md ...`: Mermaid 1개 차트 렌더링 성공
-
-다이어그램은 현재 WPF 스캐폴드와 V1 예정 레이어를 구분해서 표시했고, 기능 구현 완료처럼 보이지 않도록 “target architecture”라고 명시해 두었습니다.
+커밋에는 앱 코드, 테스트, preview build 문서/설정, dev 문서 갱신만 포함했습니다. `notes/transfers/memojang/*` 자동 handoff 파일들은 작업과 무관해서 커밋에서 제외했고, 현재 작업트리에 그대로 남아 있습니다.
 
 ## Current state
 
 - CWD: C:\ai\projects\memojang
-- Changed files: 없음
-- Recent commits: e01bc2f first commit
+- Changed files: notes/transfers/memojang/latest_context.md
+- Recent commits: 6019066 feat(app): add V1 preview editor shell
+8e3ab8e feat(project): scaffold Memojang WPF app
+e01bc2f first commit
 
 ## Direct next action
 
@@ -34,7 +29,7 @@ Inspect the first files / first command below, then take an implementation, veri
 
 ## Allowed files
 
-Files directly required by the fresh user request.
+notes/transfers/memojang/latest_context.md
 
 ## Forbidden actions
 
@@ -51,7 +46,7 @@ Stop if the next action requires destructive/secret/OS/driver/cloud/prod/DB muta
 
 ## First files / first command
 
-git status --short
+notes/transfers/memojang/latest_context.md
 
 ## Anti-loop clause
 
@@ -59,19 +54,12 @@ If two consecutive turns are proxy-only, the next action must be implementation,
 
 ## 현재 목표
 
-다이어그램 작성과 인덱스 링크까지 완료했습니다. 커밋은 하지 않았습니다.
+커밋 완료했습니다.
 
-변경한 파일:
-- [architecture-overview.md](C:/ai/projects/memojang/docs/diagrams/architecture-overview.md): V1 목표 아키텍처 Mermaid 다이어그램 추가
-- [README.md](C:/ai/projects/memojang/docs/diagrams/README.md): 다이어그램 인덱스가 새 다이어그램 파일을 가리키도록 갱신
-- [ARCHITECTURE.md](C:/ai/projects/memojang/docs/ARCHITECTURE.md): 인덱스와 아키텍처 다이어그램 링크 추가
-- [dev-arch.md](C:/ai/projects/memojang/rules/dev-arch.md): 다이어그램 인덱스를 Markdown 링크로 정리
+커밋:
+`6019066 feat(app): add V1 preview editor shell`
 
-검증:
-- `git diff --check`: 통과
-- `mmdc -i docs/diagrams/architecture-overview.md ...`: Mermaid 1개 차트 렌더링 성공
-
-다이어그램은 현재 WPF 스캐폴드와 V1 예정 레이어를 구분해서 표시했고, 기능 구현 완료처럼 보이지 않도록 “target architecture”라고 명시해 두었습니다.
+커밋에는 앱 코드, 테스트, preview build 문서/설정, dev 문서 갱신만 포함했습니다. `notes/transfers/memojang/*` 자동 handoff 파일들은 작업과 무관해서 커밋에서 제외했고, 현재 작업트리에 그대로 남아 있습니다.
 
 ## 미해결 이슈
 
@@ -91,5 +79,7 @@ If two consecutive turns are proxy-only, the next action must be implementation,
 
 ## 변경/커밋
 
-- 미커밋: 없음
-- 최근 커밋: e01bc2f first commit
+- 미커밋: notes/transfers/memojang/latest_context.md
+- 최근 커밋: 6019066 feat(app): add V1 preview editor shell
+8e3ab8e feat(project): scaffold Memojang WPF app
+e01bc2f first commit
