@@ -135,4 +135,17 @@ public class ScaffoldTests
 
         Assert.Equal(expected, match);
     }
+
+    [Fact]
+    public void TextSearch_ReplaceAll_ReplacesCaseInsensitiveMatches()
+    {
+        var result = App.Shell.TextSearch.ReplaceAll(
+            "Alpha beta alpha",
+            "alpha",
+            "one",
+            StringComparison.OrdinalIgnoreCase);
+
+        Assert.Equal("one beta one", result.Text);
+        Assert.Equal(2, result.Count);
+    }
 }

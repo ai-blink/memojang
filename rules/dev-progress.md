@@ -2,7 +2,7 @@
 
 ## Current
 
-2026-07-06: Find panel added with `Ctrl+F`, `F3`, and wraparound search. Privacy mode diagnostics also include tooltip detail for Win32 failures before manual capture matrix checks.
+2026-07-06: Find/replace panel added with `Ctrl+F`, `F3`, wraparound search, replace current, and replace all. Privacy mode diagnostics also include tooltip detail for Win32 failures before manual capture matrix checks.
 
 ## Completed
 
@@ -18,6 +18,7 @@
 - 2026-07-06: Capture exclusion diagnostics improved and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Basic Notepad-like shortcuts implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Find panel and wraparound search implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
+- 2026-07-06: Replace current/all added to the find panel and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 
 ## Next
 

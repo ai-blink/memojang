@@ -4,7 +4,7 @@
 |---|---|---|
 | Initialize app-dev workflow docs and templates | Done | This init run; validated with `git diff --check`, secret scan, and plan validator |
 | Scaffold .NET 10 WPF solution | Done | Commit `8e3ab8e`; `dotnet build .\Memojang.sln`; `dotnet test .\Memojang.sln` |
-| Implement Notepad-like minimal shell | Done | `MainWindow` menu/editor/status bar, core shortcuts, and find panel; `dotnet build .\Memojang.sln`; `dotnet test .\Memojang.sln` |
+| Implement Notepad-like minimal shell | Done | `MainWindow` menu/editor/status bar, core shortcuts, and find/replace panel; `dotnet build .\Memojang.sln`; `dotnet test .\Memojang.sln` |
 | Add basic file editing commands | Done | New/open/save/save-as, dirty-state reset, line-ending detection; `dotnet build .\Memojang.sln`; `dotnet test .\Memojang.sln` |
 | Add save-before-discard prompts and app smoke pass | Done | Dirty new/open/exit prompts; process-start smoke run; `dotnet build .\Memojang.sln`; `dotnet test .\Memojang.sln` |
 | Add Markdown preview foundation | Done | View toggle; heading/paragraph/pipe-table preview; parser tests; process-start smoke run |

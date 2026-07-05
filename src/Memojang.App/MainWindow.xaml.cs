@@ -1,9 +1,7 @@
 using System.IO;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Interop;
 using System.Windows.Input;
-using System.Windows.Media;
 using Microsoft.Win32;
 using Memojang.App.Shell;
 using Memojang.App.WindowsInterop;
@@ -127,6 +125,16 @@ public partial class MainWindow : Window
     private void FindNextButton_Click(object sender, RoutedEventArgs e)
     {
         FindNext();
+    }
+
+    private void ReplaceButton_Click(object sender, RoutedEventArgs e)
+    {
+        ReplaceCurrent();
+    }
+
+    private void ReplaceAllButton_Click(object sender, RoutedEventArgs e)
+    {
+        ReplaceAll();
     }
 
     private void CloseFindButton_Click(object sender, RoutedEventArgs e)
@@ -371,6 +379,46 @@ public partial class MainWindow : Window
         FindStatusText.Text = string.Empty;
     }
 
+    private void ReplaceCurrent()
+    {
+        string query = FindTextBox.Text;
+        if (string.IsNullOrEmpty(query))
+        {
+            return;
+        }
+
+        if (!EditorTextBox.SelectedText.Equals(query, StringComparison.CurrentCultureIgnoreCase))
+        {
+            FindNext();
+            return;
+        }
+
+        int selectionStart = EditorTextBox.SelectionStart;
+        EditorTextBox.SelectedText = ReplaceTextBox.Text;
+        EditorTextBox.CaretIndex = selectionStart + ReplaceTextBox.Text.Length;
+        FindNext();
+    }
+
+    private void ReplaceAll()
+    {
+        var result = TextSearch.ReplaceAll(
+            EditorTextBox.Text,
+            FindTextBox.Text,
+            ReplaceTextBox.Text,
+            StringComparison.CurrentCultureIgnoreCase);
+
+        if (result.Count == 0)
+        {
+            FindStatusText.Text = string.IsNullOrEmpty(FindTextBox.Text) ? string.Empty : "No matches";
+            return;
+        }
+
+        EditorTextBox.Text = result.Text;
+        EditorTextBox.CaretIndex = 0;
+        FindStatusText.Text = $"Replaced {result.Count}";
+        EditorTextBox.Focus();
+    }
+
     private void ApplyCaptureExclusion()
     {
         var helper = new WindowInteropHelper(this);
@@ -388,74 +436,6 @@ public partial class MainWindow : Window
             return;
         }
 
-        var document = new FlowDocument
-        {
-            FontFamily = new FontFamily("Segoe UI"),
-            FontSize = 14,
-            PagePadding = new Thickness(0)
-        };
-
-        foreach (MarkdownPreviewBlock block in MarkdownPreviewParser.Parse(EditorTextBox.Text))
-        {
-            document.Blocks.Add(CreatePreviewBlock(block));
-        }
-
-        PreviewViewer.Document = document;
-    }
-
-    private static Block CreatePreviewBlock(MarkdownPreviewBlock block)
-    {
-        return block.Kind switch
-        {
-            MarkdownPreviewBlockKind.Heading => new Paragraph(new Run(block.Text))
-            {
-                FontSize = block.HeadingLevel == 1 ? 24 : 20,
-                FontWeight = FontWeights.SemiBold,
-                Margin = new Thickness(0, 0, 0, 10)
-            },
-            MarkdownPreviewBlockKind.Table => CreateTablePreview(block.TableRows ?? []),
-            _ => new Paragraph(new Run(block.Text))
-            {
-                Margin = new Thickness(0, 0, 0, 8)
-            }
-        };
-    }
-
-    private static Block CreateTablePreview(IReadOnlyList<IReadOnlyList<string>> rows)
-    {
-        var table = new Table
-        {
-            CellSpacing = 0,
-            Margin = new Thickness(0, 4, 0, 12)
-        };
-
-        int columnCount = rows.Count == 0 ? 0 : rows.Max(row => row.Count);
-        for (int i = 0; i < columnCount; i++)
-        {
-            table.Columns.Add(new TableColumn());
-        }
-
-        var group = new TableRowGroup();
-        table.RowGroups.Add(group);
-
-        for (int rowIndex = 0; rowIndex < rows.Count; rowIndex++)
-        {
-            var tableRow = new TableRow();
-            group.Rows.Add(tableRow);
-
-            for (int columnIndex = 0; columnIndex < columnCount; columnIndex++)
-            {
-                string text = columnIndex < rows[rowIndex].Count ? rows[rowIndex][columnIndex] : string.Empty;
-                tableRow.Cells.Add(new TableCell(new Paragraph(new Run(text)))
-                {
-                    BorderBrush = Brushes.Gainsboro,
-                    BorderThickness = new Thickness(0, 0, 1, 1),
-                    FontWeight = rowIndex == 0 ? FontWeights.SemiBold : FontWeights.Normal,
-                    Padding = new Thickness(6, 4, 6, 4)
-                });
-            }
-        }
-
-        return table;
+        PreviewViewer.Document = MarkdownPreviewDocumentFactory.Create(EditorTextBox.Text);
     }
 }
