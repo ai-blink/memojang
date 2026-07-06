@@ -1,6 +1,6 @@
 # Dev Context
 
-Date: 2026-07-06
+Date: 2026-07-07
 
 Branch: `main`
 
@@ -19,10 +19,15 @@ Current state:
 - UI localization/theme foundation is present. Startup selects a supported culture from Windows UI culture with English fallback, applies RTL for Arabic, and uses light/dark resource dictionaries.
 - The shell now uses custom WPF chrome: a tab-like title row, compact localized menu row, lightweight Markdown/editor toolbar, custom minimize/maximize/close controls, and drag-to-move handling.
 - Harness-launched WPF sessions may miss `WINDIR`/`WinDir`; `App` now fills them from `SystemRoot`/Windows special folder before WPF font cache initialization.
+- Document/image V1 slice is implemented: `.txt`/`.md` mode detection, status bar mode text, 200ms Markdown preview debounce, Markdown image parsing/preview, missing-image placeholder, sidecar assets folder copy/link insertion, and `.txt` image attachment blocking.
+- Markdown preview polish is implemented in the WPF `FlowDocument` renderer: themed dark/light preview text, `***` separators, fenced code boxes, `md`/`markdown` fenced boxes with nested Markdown/table rendering, empty-heading edge handling, bold emphasis, highlighted `skillhooks`, and unordered list markers (`▶`, `●`, `○`, `▪`) without changing saved source text.
+- Toolbar/shell polish is implemented: flatter tab/menu borders, Korean capture-exclusion wording, a left/right capture-exclusion toggle, themed scrollbars, and basic Markdown edit buttons for heading/list/bold/italic/strike/link/table/image/preview.
+- External editor research is saved at `notes/research/document-editor-preview-image-patterns-2026-07-07.md`.
+- Implementation plan is saved at `notes/plans/2026-07-07-document-preview-image-plan.md`.
 
 Immediate next step:
 - Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
-- Review toolbar command scope so V1 toolbar buttons only expose implemented actions.
+- Manually check saved `.md` image drag/drop/menu insertion and `.txt` image blocking in a visible desktop session.
 
 Known blockers:
 - No active blockers.

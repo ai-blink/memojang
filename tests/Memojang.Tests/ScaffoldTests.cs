@@ -87,6 +87,89 @@ public class ScaffoldTests
     }
 
     [Fact]
+    public void MarkdownPreviewParser_ParsesThematicBreak()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("Before\n***\nAfter");
+
+        Assert.Collection(
+            blocks,
+            before => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.Paragraph, before.Kind),
+            thematicBreak => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.ThematicBreak, thematicBreak.Kind),
+            after => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.Paragraph, after.Kind));
+    }
+
+    [Fact]
+    public void MarkdownPreviewParser_ParsesStandaloneHashAsEmptyHeading()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("#");
+
+        var block = Assert.Single(blocks);
+        Assert.Equal(App.Shell.MarkdownPreviewBlockKind.EmptyHeading, block.Kind);
+        Assert.Equal(1, block.HeadingLevel);
+        Assert.Equal("#", block.Text);
+    }
+
+    [Fact]
+    public void MarkdownPreviewParser_KeepsConsecutiveEmptyHeadingsSeparate()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("#\n#\n#\nAfter");
+
+        Assert.Collection(
+            blocks,
+            first => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.EmptyHeading, first.Kind),
+            second => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.EmptyHeading, second.Kind),
+            third => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.EmptyHeading, third.Kind),
+            after => Assert.Equal(App.Shell.MarkdownPreviewBlockKind.Paragraph, after.Kind));
+    }
+
+    [Fact]
+    public void MarkdownPreviewParser_ParsesFencedCodeBlock()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("```jsonl\n#\n***\n```");
+
+        var block = Assert.Single(blocks);
+        Assert.Equal(App.Shell.MarkdownPreviewBlockKind.CodeBlock, block.Kind);
+        Assert.Equal("jsonl", block.CodeLanguage);
+        Assert.Equal("#\n***", block.Text);
+    }
+
+    [Fact]
+    public void MarkdownPreviewParser_ParsesNestedUnorderedList()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("- Parent\n  - Child\n- Plain");
+
+        var block = Assert.Single(blocks);
+        Assert.Equal(App.Shell.MarkdownPreviewBlockKind.UnorderedList, block.Kind);
+        Assert.NotNull(block.ListItems);
+        Assert.Equal(2, block.ListItems.Count);
+        Assert.Equal("Parent", block.ListItems[0].Text);
+        Assert.Single(block.ListItems[0].Children);
+        Assert.Equal("Child", block.ListItems[0].Children[0].Text);
+        Assert.Equal(2, block.ListItems[0].Children[0].Level);
+        Assert.Equal("Plain", block.ListItems[1].Text);
+    }
+
+    [Fact]
+    public void MarkdownPreviewParser_DoesNotParseOrderedListAsUnorderedList()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("1. Keep numbering");
+
+        var block = Assert.Single(blocks);
+        Assert.Equal(App.Shell.MarkdownPreviewBlockKind.Paragraph, block.Kind);
+        Assert.Equal("1. Keep numbering", block.Text);
+    }
+
+    [Fact]
+    public void MarkdownPreviewParser_DoesNotParseHyphenInsideCodeBlockAsList()
+    {
+        var blocks = App.Shell.MarkdownPreviewParser.Parse("```text\n- Keep source\n```");
+
+        var block = Assert.Single(blocks);
+        Assert.Equal(App.Shell.MarkdownPreviewBlockKind.CodeBlock, block.Kind);
+        Assert.Equal("- Keep source", block.Text);
+    }
+
+    [Fact]
     public void MarkdownTableHelper_InsertsStarterTableAtCaret()
     {
         string updated = App.Shell.MarkdownTableHelper.InsertStarterTable("Hello", 5, "\n");

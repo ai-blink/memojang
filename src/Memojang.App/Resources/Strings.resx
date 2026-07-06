@@ -6,6 +6,7 @@
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <data name="CloseButton" xml:space="preserve"><value>Close</value></data>
   <data name="DialogOpenTitle" xml:space="preserve"><value>Open</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|All files|*.*</value></data>
   <data name="DialogSaveTitle" xml:space="preserve"><value>Save</value></data>
   <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Text documents|*.txt;*.md;*.markdown|All files|*.*</value></data>
   <data name="FindLabel" xml:space="preserve"><value>Find</value></data>
@@ -25,12 +26,13 @@
   <data name="MenuFindNext" xml:space="preserve"><value>Find _next</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Help</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Insert _table</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>Insert _image...</value></data>
   <data name="MenuMarkdown" xml:space="preserve"><value>_Markdown</value></data>
   <data name="MenuMarkdownPreview" xml:space="preserve"><value>_Markdown preview</value></data>
   <data name="MenuNew" xml:space="preserve"><value>_New</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>_Open...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>_Paste</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>_Privacy</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Capture e_xclusion</value></data>
   <data name="MenuSave" xml:space="preserve"><value>_Save</value></data>
   <data name="MenuSaveAs" xml:space="preserve"><value>Save _As...</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>_Status bar</value></data>
@@ -39,6 +41,8 @@
   <data name="MenuView" xml:space="preserve"><value>_View</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>_Word wrap</value></data>
   <data name="MessageCursorInsideTable" xml:space="preserve"><value>Place the cursor inside a Markdown table first.</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Images can be attached to Markdown documents.</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
   <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Capture excluded</value></data>
   <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Capture exclusion unavailable</value></data>
   <data name="PrivacyStatusLimited" xml:space="preserve"><value>Capture limited</value></data>
@@ -51,7 +55,12 @@
   <data name="ReplaceLabel" xml:space="preserve"><value>Replace</value></data>
   <data name="StatusCaret" xml:space="preserve"><value>Ln {0}, Col {1}</value></data>
   <data name="StatusNoChanges" xml:space="preserve"><value>No changes</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>Text</value></data>
   <data name="StatusUnsavedChanges" xml:space="preserve"><value>Unsaved changes</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>Image</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>Preview</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>Exclude capture</value></data>
   <data name="ThemeDark" xml:space="preserve"><value>_Dark</value></data>
   <data name="ThemeLight" xml:space="preserve"><value>_Light</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>_System</value></data>

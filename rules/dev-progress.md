@@ -2,7 +2,7 @@
 
 ## Current
 
-2026-07-06: Shell chrome polish is in progress. The app now has a custom tab-like title bar, compact localized menu row, lightweight Markdown/editor toolbar, improved dark/light menu contrast, and a startup guard for missing `WINDIR`/`WinDir` environment variables in harness-launched WPF sessions. Privacy manual capture matrix checks remain pending.
+2026-07-07: Document mode, Markdown image support, and visible UI feedback passes are in progress-complete for the V1 slice. The app detects `Text` vs `Markdown`, shows document mode in the status bar, debounces Markdown preview updates, previews local Markdown image syntax with missing-image placeholders, can copy inserted Markdown images into a sidecar assets folder, localizes the visible Markdown/capture-exclusion toolbar labels in Korean, wires basic Markdown toolbar buttons, applies themed scrollbars, keeps preview text readable in dark theme, renders Markdown thematic breaks, fenced code blocks, unordered list markers, bold emphasis, and empty-heading edge cases, and reduces tab/menu border separation toward the Windows Notepad target. Verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, app launch smoke, and `git diff --check`. Privacy manual capture matrix checks remain pending.
 
 ## Completed
 
@@ -21,11 +21,14 @@
 - 2026-07-06: Replace current/all added to the find panel and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Localization and theme foundation added for supported UI languages, with English fallback, Arabic RTL flow, and system/light/dark resource dictionaries.
 - 2026-07-06: Custom title/tab chrome, compact menus, menu popup contrast fixes, and a small toolbar were added; verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and app launch smoke.
+- 2026-07-07: External document editor image/preview research and V1 plan added; Markdown document mode, debounced preview, image preview, sidecar asset copy/link insertion, `.txt` image blocking, and focused tests were implemented and verified.
+- 2026-07-07: User-visible toolbar polish applied: Korean labels now avoid stray English in the Korean UI, privacy wording is now security-oriented, basic Markdown toolbar buttons perform edits, and the tab/menu chrome is visually flatter.
+- 2026-07-07: Preview/toolbar feedback pass applied: dark preview foreground follows the app theme, scrollbars use themed styling, capture exclusion is exposed as a left/right toolbar toggle, bold Markdown emphasis is rendered, `skillhooks` emphasis is blue, and `***` renders as a separator block.
 
 ## Next
 
 - Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
-- Tighten toolbar commands so visible controls map to implemented Markdown helpers only.
+- Manually check saved `.md` drag/drop image insertion and `.txt` image blocking in a visible desktop session.
 
 ## Blockers
 

@@ -27,3 +27,9 @@
 ## Infra
 
 - D-010: Target runtime is .NET 10 LTS with WPF unless a later explicit plan changes the stack.
+
+## Documents
+
+- D-011: V1 keeps `.txt` as plain text and enables image attachment only for `.md`/`.markdown` documents.
+- D-012: V1 Markdown images use a document-local sidecar assets folder with relative links; custom Memojang package extensions remain V2 candidates.
+- D-013: Markdown source remains unchanged for preview-only polish; list markers, fenced Markdown box rendering, emphasis styling, and empty-heading handling are renderer behavior only.

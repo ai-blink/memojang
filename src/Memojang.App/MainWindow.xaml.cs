@@ -1,14 +1,12 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using System.Windows.Interop;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
 using Memojang.App.Localization;
 using Memojang.App.Shell;
 using Memojang.App.Theme;
-using Memojang.App.WindowsInterop;
 using CancelEventArgs = System.ComponentModel.CancelEventArgs;
 using MenuItem = System.Windows.Controls.MenuItem;
 
@@ -28,6 +26,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         FlowDirection = UiText.FlowDirection;
         ApplyLocalizedText();
+        InitializeDocumentModeAndPreview();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;
         UpdateStatus(EditorStatus.Initial);
@@ -45,7 +44,7 @@ public partial class MainWindow : Window
         }
 
         UpdateStatusFromEditor();
-        UpdatePreview();
+        SchedulePreviewUpdate();
     }
 
     private void EditorTextBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -69,6 +68,7 @@ public partial class MainWindow : Window
         ChangeStatusText.Text = status.ChangeText;
         EncodingStatusText.Text = status.EncodingName;
         LineEndingStatusText.Text = status.LineEndingName;
+        DocumentModeStatusText.Text = DocumentModeDetector.GetStatusText(_documentMode);
     }
 
     private void NewMenuItem_Click(object sender, RoutedEventArgs e)
@@ -120,58 +120,18 @@ public partial class MainWindow : Window
         InsertTimeDate();
     }
 
-    private void FindMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        ShowFindPanel();
-    }
-
-    private void FindNextMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        FindNext();
-    }
-
-    private void FindNextButton_Click(object sender, RoutedEventArgs e)
-    {
-        FindNext();
-    }
-
-    private void ReplaceButton_Click(object sender, RoutedEventArgs e)
-    {
-        ReplaceCurrent();
-    }
-
-    private void ReplaceAllButton_Click(object sender, RoutedEventArgs e)
-    {
-        ReplaceAll();
-    }
-
-    private void CloseFindButton_Click(object sender, RoutedEventArgs e)
-    {
-        FindPanel.Visibility = Visibility.Collapsed;
-        EditorTextBox.Focus();
-    }
-
-    private void FindTextBox_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Enter)
-        {
-            FindNext();
-            e.Handled = true;
-        }
-        else if (e.Key == Key.Escape)
-        {
-            FindPanel.Visibility = Visibility.Collapsed;
-            EditorTextBox.Focus();
-            e.Handled = true;
-        }
-    }
-
     private void PreviewMenuItem_Click(object sender, RoutedEventArgs e)
     {
+        if (_documentMode != DocumentMode.Markdown)
+        {
+            PreviewMenuItem.IsChecked = false;
+            return;
+        }
+
         bool isPreviewVisible = PreviewMenuItem.IsChecked;
         PreviewColumn.Width = isPreviewVisible ? new GridLength(1, GridUnitType.Star) : new GridLength(0);
         PreviewPane.Visibility = isPreviewVisible ? Visibility.Visible : Visibility.Collapsed;
-        UpdatePreview();
+        SchedulePreviewUpdate();
     }
 
     private void ToolbarPreviewButton_Click(object sender, RoutedEventArgs e)
@@ -200,18 +160,6 @@ public partial class MainWindow : Window
         EditorTextBox.Text = updatedText;
         EditorTextBox.CaretIndex = Math.Min(EditorTextBox.Text.Length, caretIndex);
         EditorTextBox.Focus();
-    }
-
-    private void CaptureExclusionMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        _captureExclusionEnabled = CaptureExclusionMenuItem.IsChecked;
-        ApplyCaptureExclusion();
-    }
-
-    private void ToolbarPrivacyButton_Click(object sender, RoutedEventArgs e)
-    {
-        CaptureExclusionMenuItem.IsChecked = !CaptureExclusionMenuItem.IsChecked;
-        CaptureExclusionMenuItem_Click(sender, e);
     }
 
     private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
@@ -287,7 +235,7 @@ public partial class MainWindow : Window
 
         AppThemeService.Apply(Application.Current, requestedTheme);
         UpdateThemeMenuState(requestedTheme);
-        UpdatePreview();
+        SchedulePreviewUpdate();
     }
 
     private void UpdateThemeMenuState(AppTheme requestedTheme)
@@ -346,6 +294,10 @@ public partial class MainWindow : Window
             ShowFindPanel();
             e.Handled = true;
         }
+        else if (isControl && e.Key == Key.V && TryPasteImageAttachment())
+        {
+            e.Handled = true;
+        }
         else if (e.Key == Key.F3)
         {
             FindNext();
@@ -384,6 +336,7 @@ public partial class MainWindow : Window
         _hasUnsavedChanges = false;
         _encodingName = "UTF-8";
         _lineEndingName = LineEnding.Detect(EditorTextBox.Text);
+        UpdateDocumentModeFromPath();
         UpdateTitle();
         UpdateStatusFromEditor();
         return true;
@@ -399,6 +352,7 @@ public partial class MainWindow : Window
         _hasUnsavedChanges = hasUnsavedChanges;
         _encodingName = "UTF-8";
         _lineEndingName = LineEnding.Detect(text);
+        UpdateDocumentModeFromPath();
         UpdateTitle();
         UpdateStatusFromEditor();
         UpdatePreview();
@@ -457,86 +411,6 @@ public partial class MainWindow : Window
         EditorTextBox.Focus();
     }
 
-    private void ShowFindPanel()
-    {
-        FindPanel.Visibility = Visibility.Visible;
-
-        if (!string.IsNullOrEmpty(EditorTextBox.SelectedText))
-        {
-            FindTextBox.Text = EditorTextBox.SelectedText;
-        }
-
-        FindTextBox.SelectAll();
-        FindTextBox.Focus();
-    }
-
-    private void FindNext()
-    {
-        string query = FindTextBox.Text;
-        int startIndex = EditorTextBox.SelectionStart + Math.Max(EditorTextBox.SelectionLength, 1);
-        int matchIndex = TextSearch.FindNext(EditorTextBox.Text, query, startIndex, StringComparison.CurrentCultureIgnoreCase);
-
-        if (matchIndex < 0)
-        {
-            FindStatusText.Text = string.IsNullOrEmpty(query) ? string.Empty : UiText.Get("FindNoMatches");
-            return;
-        }
-
-        EditorTextBox.Focus();
-        EditorTextBox.Select(matchIndex, query.Length);
-        FindStatusText.Text = string.Empty;
-    }
-
-    private void ReplaceCurrent()
-    {
-        string query = FindTextBox.Text;
-        if (string.IsNullOrEmpty(query))
-        {
-            return;
-        }
-
-        if (!EditorTextBox.SelectedText.Equals(query, StringComparison.CurrentCultureIgnoreCase))
-        {
-            FindNext();
-            return;
-        }
-
-        int selectionStart = EditorTextBox.SelectionStart;
-        EditorTextBox.SelectedText = ReplaceTextBox.Text;
-        EditorTextBox.CaretIndex = selectionStart + ReplaceTextBox.Text.Length;
-        FindNext();
-    }
-
-    private void ReplaceAll()
-    {
-        var result = TextSearch.ReplaceAll(
-            EditorTextBox.Text,
-            FindTextBox.Text,
-            ReplaceTextBox.Text,
-            StringComparison.CurrentCultureIgnoreCase);
-
-        if (result.Count == 0)
-        {
-            FindStatusText.Text = string.IsNullOrEmpty(FindTextBox.Text) ? string.Empty : UiText.Get("FindNoMatches");
-            return;
-        }
-
-        EditorTextBox.Text = result.Text;
-        EditorTextBox.CaretIndex = 0;
-        FindStatusText.Text = UiText.Format("FindReplacedCount", result.Count);
-        EditorTextBox.Focus();
-    }
-
-    private void ApplyCaptureExclusion()
-    {
-        var helper = new WindowInteropHelper(this);
-        CaptureExclusionResult result = CaptureExclusion.Apply(helper.Handle, _captureExclusionEnabled);
-
-        PrivacyStatusText.Text = result.StatusText;
-        PrivacyStatusText.ToolTip = result.DetailText;
-        CaptureExclusionMenuItem.IsChecked = result.IsEnabled && result.IsProtected;
-    }
-
     private void UpdatePreview()
     {
         if (!PreviewMenuItem.IsChecked)
@@ -544,7 +418,13 @@ public partial class MainWindow : Window
             return;
         }
 
-        PreviewViewer.Document = MarkdownPreviewDocumentFactory.Create(EditorTextBox.Text);
+        var document = MarkdownPreviewDocumentFactory.Create(EditorTextBox.Text, _currentFilePath);
+        if (TryFindResource("AppTextBrush") is Brush textBrush)
+        {
+            document.Foreground = textBrush;
+        }
+
+        PreviewViewer.Document = document;
     }
 
     private void ApplyLocalizedText()
@@ -574,6 +454,7 @@ public partial class MainWindow : Window
         MarkdownMenuItem.Header = UiText.Get("MenuMarkdown");
         InsertTableMenuItem.Header = UiText.Get("MenuInsertTable");
         AddTableRowMenuItem.Header = UiText.Get("MenuAddTableRow");
+        InsertImageMenuItem.Header = UiText.Get("MenuInsertImage");
         PrivacyMenuItem.Header = UiText.Get("MenuPrivacy");
         CaptureExclusionMenuItem.Header = UiText.Get("MenuCaptureExclusion");
         HelpMenuItem.Header = UiText.Get("MenuHelp");
@@ -585,6 +466,9 @@ public partial class MainWindow : Window
         ReplaceButton.Content = UiText.Get("ReplaceButton");
         ReplaceAllButton.Content = UiText.Get("ReplaceAllButton");
         CloseFindButton.Content = UiText.Get("CloseButton");
+        ToolbarImageButton.Content = UiText.Get("ToolbarImage");
+        ToolbarPreviewButton.Content = UiText.Get("ToolbarPreview");
+        ToolbarPrivacyButton.Content = UiText.Get("ToolbarPrivacy");
         PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");
 
         UpdateThemeMenuState(AppThemeService.RequestedTheme);

@@ -50,7 +50,7 @@
             </Style.Triggers>
         </Style>
         <Style x:Key="MenuBarItemStyle" TargetType="MenuItem">
-            <Setter Property="Background" Value="{DynamicResource AppControlBrush}" />
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="10,4" />
@@ -115,7 +115,7 @@
         <Border DockPanel.Dock="Top"
                 Background="{DynamicResource AppTopBarBrush}"
                 BorderBrush="{DynamicResource AppBorderBrush}"
-                BorderThickness="0,0,0,1">
+                BorderThickness="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
@@ -225,6 +225,8 @@
             <MenuItem x:Name="MarkdownMenuItem" Header="_Markdown" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="InsertTableMenuItem" Header="Insert _table" Click="InsertTableMenuItem_Click" />
                 <MenuItem x:Name="AddTableRowMenuItem" Header="Add table _row" Click="AddTableRowMenuItem_Click" />
+                <Separator />
+                <MenuItem x:Name="InsertImageMenuItem" Header="Insert _image..." Click="InsertImageMenuItem_Click" />
             </MenuItem>
             <MenuItem x:Name="PrivacyMenuItem" Header="_Privacy" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="CaptureExclusionMenuItem"
@@ -239,45 +241,59 @@
                 <Border Grid.Row="2"
                         Background="{DynamicResource AppTopBarBrush}"
                         BorderBrush="{DynamicResource AppBorderBrush}"
-                        BorderThickness="0,1,0,0"
+                        BorderThickness="0,1,0,1"
                         Padding="8,3"
                         shell:WindowChrome.IsHitTestVisibleInChrome="True">
                     <DockPanel LastChildFill="False">
-                        <Button x:Name="ToolbarHeadingButton"
-                                Content="H1⌄"
-                                Style="{StaticResource ToolbarButtonStyle}" />
-                        <Button x:Name="ToolbarListButton"
-                                Content="☷⌄"
-                                Style="{StaticResource ToolbarButtonStyle}" />
-                        <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
-                        <Button x:Name="ToolbarBoldButton"
-                                Content="B"
-                                FontWeight="Bold"
-                                Style="{StaticResource ToolbarButtonStyle}" />
-                        <Button x:Name="ToolbarItalicButton"
-                                Content="I"
-                                FontStyle="Italic"
-                                Style="{StaticResource ToolbarButtonStyle}" />
-                        <Button x:Name="ToolbarStrikeButton"
-                                Content="S"
-                                Style="{StaticResource ToolbarButtonStyle}" />
-                        <Button x:Name="ToolbarLinkButton"
-                                Content="🔗"
-                                Style="{StaticResource ToolbarButtonStyle}" />
-                        <Button x:Name="ToolbarTableButton"
-                                Content="▦⌄"
-                                Style="{StaticResource ToolbarButtonStyle}"
-                                Click="InsertTableMenuItem_Click" />
-                        <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
-                        <Button x:Name="ToolbarPreviewButton"
-                                Content="미리보기"
-                                Style="{StaticResource ToolbarButtonStyle}"
-                                Click="ToolbarPreviewButton_Click" />
-                        <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
-                        <Button x:Name="ToolbarPrivacyButton"
-                                Content="캡처 제외"
-                                Style="{StaticResource ToolbarButtonStyle}"
-                                Click="ToolbarPrivacyButton_Click" />
+                        <StackPanel x:Name="MarkdownToolbarPanel"
+                                    Orientation="Horizontal"
+                                    DockPanel.Dock="Left">
+                            <Button x:Name="ToolbarHeadingButton"
+                                    Content="H1"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarHeadingButton_Click" />
+                            <Button x:Name="ToolbarListButton"
+                                    Content="☷"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarListButton_Click" />
+                            <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                            <Button x:Name="ToolbarBoldButton"
+                                    Content="B"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarBoldButton_Click" />
+                            <Button x:Name="ToolbarItalicButton"
+                                    Content="I"
+                                    FontStyle="Italic"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarItalicButton_Click" />
+                            <Button x:Name="ToolbarStrikeButton"
+                                    Content="S"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarStrikeButton_Click" />
+                            <Button x:Name="ToolbarLinkButton"
+                                    Content="🔗"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarLinkButton_Click" />
+                            <Button x:Name="ToolbarTableButton"
+                                    Content="▦"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="InsertTableMenuItem_Click" />
+                            <Button x:Name="ToolbarImageButton"
+                                    Content="이미지"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarImageButton_Click" />
+                            <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                            <Button x:Name="ToolbarPreviewButton"
+                                    Content="미리 보기"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarPreviewButton_Click" />
+                            <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                        </StackPanel>
+                        <ToggleButton x:Name="ToolbarPrivacyButton"
+                                      Content="캡처시 제외"
+                                      Style="{StaticResource CaptureExclusionToggleStyle}"
+                                      Click="ToolbarPrivacyButton_Click" />
                     </DockPanel>
                 </Border>
             </Grid>
@@ -350,6 +366,10 @@
                 <TextBlock x:Name="PrivacyStatusText" MinWidth="148" Text="Capture visible" />
             </StatusBarItem>
             <Separator />
+            <StatusBarItem>
+                <TextBlock x:Name="DocumentModeStatusText" MinWidth="72" Text="Text" />
+            </StatusBarItem>
+            <Separator />
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock x:Name="EncodingStatusText" MinWidth="56" />
             </StatusBarItem>
@@ -369,6 +389,7 @@
                     Grid.Column="0"
                     AcceptsReturn="True"
                     AcceptsTab="True"
+                     AllowDrop="True"
                      Background="{DynamicResource AppEditorBackgroundBrush}"
                      BorderThickness="0"
                      FontFamily="Consolas"
@@ -378,6 +399,8 @@
                      Padding="12"
                      SpellCheck.IsEnabled="False"
                      TextChanged="EditorTextBox_TextChanged"
+                     Drop="EditorTextBox_Drop"
+                     PreviewDragOver="EditorTextBox_PreviewDragOver"
                      SelectionChanged="EditorTextBox_SelectionChanged"
                      TextWrapping="NoWrap"
                      VerticalScrollBarVisibility="Auto" />

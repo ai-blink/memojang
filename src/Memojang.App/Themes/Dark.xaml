@@ -12,6 +12,13 @@
     <SolidColorBrush x:Key="AppEditorBackgroundBrush" Color="#1F1F1F" />
     <SolidColorBrush x:Key="AppEditorForegroundBrush" Color="#F3F3F3" />
     <SolidColorBrush x:Key="AppPreviewBackgroundBrush" Color="#242424" />
+    <SolidColorBrush x:Key="AppAccentBrush" Color="#4CC2FF" />
+    <SolidColorBrush x:Key="AppScrollBarTrackBrush" Color="#242424" />
+    <SolidColorBrush x:Key="AppScrollBarThumbBrush" Color="#6A6A6A" />
+    <SolidColorBrush x:Key="AppScrollBarThumbHoverBrush" Color="#858585" />
+    <SolidColorBrush x:Key="AppScrollBarThumbPressedBrush" Color="#A0A0A0" />
+    <SolidColorBrush x:Key="AppToggleTrackOffBrush" Color="#5A5A5A" />
+    <SolidColorBrush x:Key="AppToggleThumbBrush" Color="#F3F3F3" />
     <SolidColorBrush x:Key="{x:Static SystemColors.MenuBrushKey}" Color="#2B2B2B" />
     <SolidColorBrush x:Key="{x:Static SystemColors.MenuTextBrushKey}" Color="#F3F3F3" />
     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#0E639C" />
