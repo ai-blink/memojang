@@ -2,7 +2,7 @@
 
 ## Current
 
-2026-07-06: UI localization and theme foundations added. Startup now selects a supported UI language from the Windows UI culture with English fallback, applies RTL flow for Arabic, and applies a system/light/dark theme resource structure. Privacy manual capture matrix checks remain pending.
+2026-07-06: Shell chrome polish is in progress. The app now has a custom tab-like title bar, compact localized menu row, lightweight Markdown/editor toolbar, improved dark/light menu contrast, and a startup guard for missing `WINDIR`/`WinDir` environment variables in harness-launched WPF sessions. Privacy manual capture matrix checks remain pending.
 
 ## Completed
 
@@ -19,12 +19,13 @@
 - 2026-07-06: Basic Notepad-like shortcuts implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Find panel and wraparound search implemented and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
 - 2026-07-06: Replace current/all added to the find panel and verified with `dotnet build .\Memojang.sln` and `dotnet test .\Memojang.sln`.
-- 2026-07-06: Localization and theme foundation added for Korean, English, Japanese, Hindi, Chinese, French, Arabic, Spanish, Bengali, Portuguese, Russian, and Indonesian; verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, `dotnet publish .\src\Memojang.App\Memojang.App.csproj -p:PublishProfile=PreviewFolder`, published exe smoke, and `git diff --check`.
+- 2026-07-06: Localization and theme foundation added for supported UI languages, with English fallback, Arabic RTL flow, and system/light/dark resource dictionaries.
+- 2026-07-06: Custom title/tab chrome, compact menus, menu popup contrast fixes, and a small toolbar were added; verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, and app launch smoke.
 
 ## Next
 
 - Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
-- Add a small persistent settings slice for theme/language override after the manual privacy matrix.
+- Tighten toolbar commands so visible controls map to implemented Markdown helpers only.
 
 ## Blockers
 

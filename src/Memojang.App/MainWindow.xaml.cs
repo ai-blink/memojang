@@ -1,7 +1,9 @@
 using System.IO;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Input;
+using System.Windows.Media;
 using Microsoft.Win32;
 using Memojang.App.Localization;
 using Memojang.App.Shell;
@@ -27,6 +29,7 @@ public partial class MainWindow : Window
         FlowDirection = UiText.FlowDirection;
         ApplyLocalizedText();
         SourceInitialized += MainWindow_SourceInitialized;
+        StateChanged += MainWindow_StateChanged;
         UpdateStatus(EditorStatus.Initial);
         UpdateTitle();
         EditorTextBox.Focus();
@@ -171,6 +174,12 @@ public partial class MainWindow : Window
         UpdatePreview();
     }
 
+    private void ToolbarPreviewButton_Click(object sender, RoutedEventArgs e)
+    {
+        PreviewMenuItem.IsChecked = !PreviewMenuItem.IsChecked;
+        PreviewMenuItem_Click(sender, e);
+    }
+
     private void InsertTableMenuItem_Click(object sender, RoutedEventArgs e)
     {
         int caretIndex = EditorTextBox.CaretIndex;
@@ -199,9 +208,73 @@ public partial class MainWindow : Window
         ApplyCaptureExclusion();
     }
 
+    private void ToolbarPrivacyButton_Click(object sender, RoutedEventArgs e)
+    {
+        CaptureExclusionMenuItem.IsChecked = !CaptureExclusionMenuItem.IsChecked;
+        CaptureExclusionMenuItem_Click(sender, e);
+    }
+
     private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
     {
         Close();
+    }
+
+    private void MinimizeWindowButton_Click(object sender, RoutedEventArgs e)
+    {
+        WindowState = WindowState.Minimized;
+    }
+
+    private void MaximizeRestoreWindowButton_Click(object sender, RoutedEventArgs e)
+    {
+        ToggleMaximizeRestore();
+    }
+
+    private void TitleBar_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        if (IsInsideButton(e.OriginalSource as DependencyObject))
+        {
+            return;
+        }
+
+        if (e.ClickCount == 2)
+        {
+            ToggleMaximizeRestore();
+            e.Handled = true;
+            return;
+        }
+
+        try
+        {
+            DragMove();
+            e.Handled = true;
+        }
+        catch (InvalidOperationException)
+        {
+            // DragMove can throw if the mouse button state changes during routing.
+        }
+    }
+
+    private static bool IsInsideButton(DependencyObject? source)
+    {
+        for (DependencyObject? current = source; current is not null; current = VisualTreeHelper.GetParent(current))
+        {
+            if (current is ButtonBase)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void MainWindow_StateChanged(object? sender, EventArgs e)
+    {
+        MaximizeRestoreButton.Content = WindowState == WindowState.Maximized ? "❐" : "□";
+    }
+
+    private void ToggleMaximizeRestore()
+    {
+        WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
     }
 
     private void ThemeMenuItem_Click(object sender, RoutedEventArgs e)
@@ -215,6 +288,22 @@ public partial class MainWindow : Window
         AppThemeService.Apply(Application.Current, requestedTheme);
         UpdateThemeMenuState(requestedTheme);
         UpdatePreview();
+    }
+
+    private void UpdateThemeMenuState(AppTheme requestedTheme)
+    {
+        foreach (MenuItem item in new[] { ThemeSystemMenuItem, ThemeLightMenuItem, ThemeDarkMenuItem })
+        {
+            item.IsChecked = false;
+        }
+
+        MenuItem selectedItem = requestedTheme switch
+        {
+            AppTheme.Dark => ThemeDarkMenuItem,
+            AppTheme.Light => ThemeLightMenuItem,
+            _ => ThemeSystemMenuItem
+        };
+        selectedItem.IsChecked = true;
     }
 
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
@@ -324,6 +413,7 @@ public partial class MainWindow : Window
         string dirtyMarker = _hasUnsavedChanges ? "*" : string.Empty;
 
         Title = $"{dirtyMarker}{documentName} - Memojang";
+        TabTitleText.Text = $"{dirtyMarker}{documentName}";
     }
 
     private bool ConfirmDiscardUnsavedChanges()
@@ -498,21 +588,5 @@ public partial class MainWindow : Window
         PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");
 
         UpdateThemeMenuState(AppThemeService.RequestedTheme);
-    }
-
-    private void UpdateThemeMenuState(AppTheme requestedTheme)
-    {
-        foreach (MenuItem item in new[] { ThemeSystemMenuItem, ThemeLightMenuItem, ThemeDarkMenuItem })
-        {
-            item.IsChecked = false;
-        }
-
-        MenuItem selectedItem = requestedTheme switch
-        {
-            AppTheme.Dark => ThemeDarkMenuItem,
-            AppTheme.Light => ThemeLightMenuItem,
-            _ => ThemeSystemMenuItem
-        };
-        selectedItem.IsChecked = true;
     }
 }

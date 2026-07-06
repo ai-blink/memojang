@@ -29,7 +29,7 @@ public static class AppThemeService
         string themeName = IsDarkThemeActive ? "Dark" : "Light";
         dictionaries.Add(new ResourceDictionary
         {
-            Source = new Uri($"/Themes/{themeName}.xaml", UriKind.Relative)
+            Source = new Uri($"pack://application:,,,/Themes/{themeName}.xaml", UriKind.Absolute)
         });
     }
 

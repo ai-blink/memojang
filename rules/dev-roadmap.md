@@ -11,4 +11,5 @@
 | Add Markdown table helper | Done | Starter table insertion, add-row helper, source-preserving command tests |
 | Add capture exclusion privacy mode | In progress | Privacy toggle, honest status text, and Win32 tooltip detail implemented; Snipping Tool/OBS/Recall manual matrix still needed |
 | Package V1 preview build | Done | `PreviewFolder.pubxml`; `dotnet publish`; published exe smoke run |
-| Add localization and theme foundation | Done | Resource-backed UI text, Windows culture selection with English fallback, Arabic RTL flow, and system/light/dark theme resources; build, tests, publish, and published exe smoke passed |
+| Add localization and theme foundation | Done | Resource-backed UI text, Windows culture selection with English fallback, Arabic RTL flow, and system/light/dark dictionaries; build and tests passed |
+| Polish custom shell chrome and toolbar | In progress | Tab-like title row, compact menu row, menu contrast fixes, window drag controls, and lightweight toolbar implemented; toolbar command scope still needs tightening |

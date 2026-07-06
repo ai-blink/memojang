@@ -3,15 +3,194 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
         mc:Ignorable="d"
         Title="Memojang" Height="720" Width="1080" MinHeight="420" MinWidth="640"
+        WindowStyle="None"
+        ResizeMode="CanResize"
         Closing="MainWindow_Closing"
         PreviewKeyDown="MainWindow_PreviewKeyDown">
+    <shell:WindowChrome.WindowChrome>
+        <shell:WindowChrome CaptionHeight="0"
+                            CornerRadius="0"
+                            GlassFrameThickness="0"
+                            ResizeBorderThickness="6" />
+    </shell:WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style x:Key="TopBarButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="MinWidth" Value="44" />
+            <Setter Property="Padding" Value="10,4" />
+            <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource AppMenuHoverBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WindowCloseButtonStyle" TargetType="Button" BasedOn="{StaticResource TopBarButtonStyle}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#C42B1C" />
+                    <Setter Property="Foreground" Value="#FFFFFF" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MenuBarItemStyle" TargetType="MenuItem">
+            <Setter Property="Background" Value="{DynamicResource AppControlBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="10,4" />
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="False" />
+            <Style.Triggers>
+                <Trigger Property="IsHighlighted" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource AppMenuHoverBrush}" />
+                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+                </Trigger>
+                <Trigger Property="IsSubmenuOpen" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource AppMenuHoverBrush}" />
+                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="{DynamicResource AppDisabledTextBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="MenuItem" BasedOn="{StaticResource MenuBarItemStyle}" />
+        <Style TargetType="ContextMenu">
+            <Setter Property="Background" Value="{DynamicResource AppControlBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style TargetType="Separator">
+            <Setter Property="Margin" Value="0,4" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Separator">
+                        <Border Height="1"
+                                Margin="8,0"
+                                Background="{DynamicResource AppBorderBrush}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToolbarButtonStyle" TargetType="Button" BasedOn="{StaticResource TopBarButtonStyle}">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="MinWidth" Value="36" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Padding" Value="8,2" />
+            <Setter Property="Margin" Value="2,0" />
+            <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        </Style>
+        <Style x:Key="ToolbarSeparatorStyle" TargetType="Separator">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Separator">
+                        <Border Width="1"
+                                Height="22"
+                                Margin="8,0"
+                                Background="{DynamicResource AppBorderBrush}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <DockPanel Background="{DynamicResource AppWindowBrush}">
-        <Menu DockPanel.Dock="Top"
-              Background="{DynamicResource AppControlBrush}"
-              Foreground="{DynamicResource AppTextBrush}">
-            <MenuItem x:Name="FileMenuItem" Header="_File">
+        <Border DockPanel.Dock="Top"
+                Background="{DynamicResource AppTopBarBrush}"
+                BorderBrush="{DynamicResource AppBorderBrush}"
+                BorderThickness="0,0,0,1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="38" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0"
+                      Background="Transparent"
+                      PreviewMouseLeftButtonDown="TitleBar_PreviewMouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0"
+                            Width="360"
+                            Margin="8,6,0,0"
+                            Padding="12,0"
+                            Background="{DynamicResource AppTabBrush}"
+                            CornerRadius="8,8,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="▤"
+                                       Foreground="#4CC2FF"
+                                       FontSize="16"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,10,0" />
+                            <TextBlock x:Name="TabTitleText"
+                                       Grid.Column="1"
+                                       Text="Untitled"
+                                       Foreground="{DynamicResource AppTextBrush}"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"
+                                       TextTrimming="CharacterEllipsis"
+                                       VerticalAlignment="Center" />
+                            <Button Grid.Column="2"
+                                    Content="×"
+                                    Style="{StaticResource TopBarButtonStyle}"
+                                    MinWidth="34"
+                                    Click="ExitMenuItem_Click" />
+                        </Grid>
+                    </Border>
+                    <Button Grid.Column="1"
+                            Content="+"
+                            Style="{StaticResource TopBarButtonStyle}"
+                            Margin="12,4,0,0"
+                            Click="NewMenuItem_Click" />
+                    <StackPanel Grid.Column="3"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <Button Content="—"
+                                Style="{StaticResource TopBarButtonStyle}"
+                                Click="MinimizeWindowButton_Click" />
+                        <Button x:Name="MaximizeRestoreButton"
+                                Content="□"
+                                Style="{StaticResource TopBarButtonStyle}"
+                                Click="MaximizeRestoreWindowButton_Click" />
+                        <Button Content="×"
+                                Style="{StaticResource WindowCloseButtonStyle}"
+                                Click="ExitMenuItem_Click" />
+                    </StackPanel>
+                </Grid>
+
+                <Menu Grid.Row="1"
+                      Background="{DynamicResource AppTopBarBrush}"
+                      Foreground="{DynamicResource AppTextBrush}"
+                      ItemContainerStyle="{StaticResource MenuBarItemStyle}"
+                      shell:WindowChrome.IsHitTestVisibleInChrome="True">
+            <MenuItem x:Name="FileMenuItem" Header="_File" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="NewMenuItem" Header="_New" InputGestureText="Ctrl+N" Click="NewMenuItem_Click" />
                 <MenuItem x:Name="OpenMenuItem" Header="_Open..." InputGestureText="Ctrl+O" Click="OpenMenuItem_Click" />
                 <MenuItem x:Name="SaveMenuItem" Header="_Save" InputGestureText="Ctrl+S" Click="SaveMenuItem_Click" />
@@ -19,7 +198,7 @@
                 <Separator />
                 <MenuItem x:Name="ExitMenuItem" Header="E_xit" Click="ExitMenuItem_Click" />
             </MenuItem>
-            <MenuItem x:Name="EditMenuItem" Header="_Edit">
+            <MenuItem x:Name="EditMenuItem" Header="_Edit" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="UndoMenuItem" Header="_Undo" Command="ApplicationCommands.Undo" CommandTarget="{Binding ElementName=EditorTextBox}" />
                 <Separator />
                 <MenuItem x:Name="CutMenuItem" Header="Cu_t" Command="ApplicationCommands.Cut" CommandTarget="{Binding ElementName=EditorTextBox}" />
@@ -31,7 +210,7 @@
                 <Separator />
                 <MenuItem x:Name="TimeDateMenuItem" Header="_Time/Date" InputGestureText="F5" Click="TimeDateMenuItem_Click" />
             </MenuItem>
-            <MenuItem x:Name="ViewMenuItem" Header="_View">
+            <MenuItem x:Name="ViewMenuItem" Header="_View" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="WordWrapMenuItem" Header="_Word wrap" IsCheckable="True" IsChecked="True" IsEnabled="False" />
                 <MenuItem x:Name="StatusBarMenuItem" Header="_Status bar" IsCheckable="True" IsChecked="True" IsEnabled="False" />
                 <Separator />
@@ -43,20 +222,66 @@
                     <MenuItem x:Name="ThemeDarkMenuItem" Header="_Dark" IsCheckable="True" Click="ThemeMenuItem_Click" />
                 </MenuItem>
             </MenuItem>
-            <MenuItem x:Name="MarkdownMenuItem" Header="_Markdown">
+            <MenuItem x:Name="MarkdownMenuItem" Header="_Markdown" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="InsertTableMenuItem" Header="Insert _table" Click="InsertTableMenuItem_Click" />
                 <MenuItem x:Name="AddTableRowMenuItem" Header="Add table _row" Click="AddTableRowMenuItem_Click" />
             </MenuItem>
-            <MenuItem x:Name="PrivacyMenuItem" Header="_Privacy">
+            <MenuItem x:Name="PrivacyMenuItem" Header="_Privacy" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="CaptureExclusionMenuItem"
                           Header="_Exclude window from capture"
                           IsCheckable="True"
                           Click="CaptureExclusionMenuItem_Click" />
             </MenuItem>
-            <MenuItem x:Name="HelpMenuItem" Header="_Help">
+            <MenuItem x:Name="HelpMenuItem" Header="_Help" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="AboutMenuItem" Header="_About Memojang" IsEnabled="False" />
             </MenuItem>
         </Menu>
+                <Border Grid.Row="2"
+                        Background="{DynamicResource AppTopBarBrush}"
+                        BorderBrush="{DynamicResource AppBorderBrush}"
+                        BorderThickness="0,1,0,0"
+                        Padding="8,3"
+                        shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                    <DockPanel LastChildFill="False">
+                        <Button x:Name="ToolbarHeadingButton"
+                                Content="H1⌄"
+                                Style="{StaticResource ToolbarButtonStyle}" />
+                        <Button x:Name="ToolbarListButton"
+                                Content="☷⌄"
+                                Style="{StaticResource ToolbarButtonStyle}" />
+                        <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                        <Button x:Name="ToolbarBoldButton"
+                                Content="B"
+                                FontWeight="Bold"
+                                Style="{StaticResource ToolbarButtonStyle}" />
+                        <Button x:Name="ToolbarItalicButton"
+                                Content="I"
+                                FontStyle="Italic"
+                                Style="{StaticResource ToolbarButtonStyle}" />
+                        <Button x:Name="ToolbarStrikeButton"
+                                Content="S"
+                                Style="{StaticResource ToolbarButtonStyle}" />
+                        <Button x:Name="ToolbarLinkButton"
+                                Content="🔗"
+                                Style="{StaticResource ToolbarButtonStyle}" />
+                        <Button x:Name="ToolbarTableButton"
+                                Content="▦⌄"
+                                Style="{StaticResource ToolbarButtonStyle}"
+                                Click="InsertTableMenuItem_Click" />
+                        <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                        <Button x:Name="ToolbarPreviewButton"
+                                Content="미리보기"
+                                Style="{StaticResource ToolbarButtonStyle}"
+                                Click="ToolbarPreviewButton_Click" />
+                        <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                        <Button x:Name="ToolbarPrivacyButton"
+                                Content="캡처 제외"
+                                Style="{StaticResource ToolbarButtonStyle}"
+                                Click="ToolbarPrivacyButton_Click" />
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
 
         <Border x:Name="FindPanel"
                 DockPanel.Dock="Top"

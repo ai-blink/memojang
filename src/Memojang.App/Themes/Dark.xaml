@@ -4,8 +4,19 @@
     <SolidColorBrush x:Key="AppTextBrush" Color="#F3F3F3" />
     <SolidColorBrush x:Key="AppMutedTextBrush" Color="#B8B8B8" />
     <SolidColorBrush x:Key="AppControlBrush" Color="#2B2B2B" />
+    <SolidColorBrush x:Key="AppTopBarBrush" Color="#202020" />
+    <SolidColorBrush x:Key="AppTabBrush" Color="#2A2A2A" />
+    <SolidColorBrush x:Key="AppMenuHoverBrush" Color="#363636" />
+    <SolidColorBrush x:Key="AppDisabledTextBrush" Color="#777777" />
     <SolidColorBrush x:Key="AppBorderBrush" Color="#454545" />
     <SolidColorBrush x:Key="AppEditorBackgroundBrush" Color="#1F1F1F" />
     <SolidColorBrush x:Key="AppEditorForegroundBrush" Color="#F3F3F3" />
     <SolidColorBrush x:Key="AppPreviewBackgroundBrush" Color="#242424" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.MenuBrushKey}" Color="#2B2B2B" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.MenuTextBrushKey}" Color="#F3F3F3" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#0E639C" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#2B2B2B" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="#F3F3F3" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.GrayTextBrushKey}" Color="#B8B8B8" />
 </ResourceDictionary>

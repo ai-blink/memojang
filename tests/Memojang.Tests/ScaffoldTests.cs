@@ -136,10 +136,10 @@ public class ScaffoldTests
     }
 
     [Theory]
-    [InlineData("ko-KR", "ko")]
-    [InlineData("pt-BR", "pt")]
-    [InlineData("zh-CN", "zh")]
-    [InlineData("de-DE", "en")]
+    [InlineData("ko-KR", "ko-KR")]
+    [InlineData("pt-BR", "pt-BR")]
+    [InlineData("zh-CN", "zh-CN")]
+    [InlineData("de-DE", "en-US")]
     public void AppCultureService_SelectsSupportedLanguageOrEnglishFallback(string requested, string expected)
     {
         CultureInfo selected = AppCultureService.SelectSupportedCulture(CultureInfo.GetCultureInfo(requested));
@@ -150,7 +150,7 @@ public class ScaffoldTests
     [Fact]
     public void UiText_UsesCultureSpecificResource()
     {
-        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("ko");
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("ko-KR");
 
         Assert.Equal("파일(_F)", UiText.Get("MenuFile"));
     }
@@ -158,7 +158,7 @@ public class ScaffoldTests
     [Fact]
     public void UiText_UsesRightToLeftFlowDirectionForArabic()
     {
-        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("ar");
+        CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("ar-SA");
 
         Assert.Equal(FlowDirection.RightToLeft, UiText.FlowDirection);
     }

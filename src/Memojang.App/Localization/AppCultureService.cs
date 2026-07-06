@@ -36,15 +36,17 @@ public static class AppCultureService
         {
             if (SupportedLanguages.Contains(culture.Name))
             {
-                return CultureInfo.GetCultureInfo(culture.Name);
+                return culture;
             }
 
             if (SupportedLanguages.Contains(culture.TwoLetterISOLanguageName))
             {
-                return CultureInfo.GetCultureInfo(culture.TwoLetterISOLanguageName);
+                return requestedCulture.IsNeutralCulture
+                    ? CultureInfo.CreateSpecificCulture(culture.TwoLetterISOLanguageName)
+                    : requestedCulture;
             }
         }
 
-        return CultureInfo.GetCultureInfo("en");
+        return CultureInfo.GetCultureInfo("en-US");
     }
 }
