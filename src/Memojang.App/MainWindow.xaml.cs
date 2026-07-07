@@ -82,39 +82,6 @@ public partial class MainWindow : Window
         SetEditorText(string.Empty, hasUnsavedChanges: false);
     }
 
-    private void OpenMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        if (!ConfirmDiscardUnsavedChanges())
-        {
-            return;
-        }
-
-        var dialog = new OpenFileDialog
-        {
-            Filter = UiText.Get("DialogTextDocumentFilter"),
-            Title = UiText.Get("DialogOpenTitle")
-        };
-
-        if (dialog.ShowDialog(this) != true)
-        {
-            return;
-        }
-
-        string text = File.ReadAllText(dialog.FileName);
-        _currentFilePath = dialog.FileName;
-        SetEditorText(text, hasUnsavedChanges: false);
-    }
-
-    private void SaveMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        SaveDocument(saveAs: false);
-    }
-
-    private void SaveAsMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        SaveDocument(saveAs: true);
-    }
-
     private void TimeDateMenuItem_Click(object sender, RoutedEventArgs e)
     {
         InsertTimeDate();
@@ -308,38 +275,6 @@ public partial class MainWindow : Window
     private void MainWindow_SourceInitialized(object? sender, EventArgs e)
     {
         ApplyCaptureExclusion();
-    }
-
-    private bool SaveDocument(bool saveAs)
-    {
-        string? targetPath = _currentFilePath;
-
-        if (saveAs || string.IsNullOrWhiteSpace(targetPath))
-        {
-            var dialog = new SaveFileDialog
-            {
-                Filter = UiText.Get("DialogTextDocumentFilter"),
-                FileName = string.IsNullOrWhiteSpace(targetPath) ? UiText.Get("UntitledFileName") : Path.GetFileName(targetPath),
-                Title = UiText.Get("DialogSaveTitle")
-            };
-
-            if (dialog.ShowDialog(this) != true)
-            {
-                return false;
-            }
-
-            targetPath = dialog.FileName;
-        }
-
-        File.WriteAllText(targetPath, EditorTextBox.Text, new System.Text.UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
-        _currentFilePath = targetPath;
-        _hasUnsavedChanges = false;
-        _encodingName = "UTF-8";
-        _lineEndingName = LineEnding.Detect(EditorTextBox.Text);
-        UpdateDocumentModeFromPath();
-        UpdateTitle();
-        UpdateStatusFromEditor();
-        return true;
     }
 
     private void SetEditorText(string text, bool hasUnsavedChanges)

@@ -24,6 +24,8 @@
 - 2026-07-07: External document editor image/preview research and V1 plan added; Markdown document mode, debounced preview, image preview, sidecar asset copy/link insertion, `.txt` image blocking, and focused tests were implemented and verified.
 - 2026-07-07: User-visible toolbar polish applied: Korean labels now avoid stray English in the Korean UI, privacy wording is now security-oriented, basic Markdown toolbar buttons perform edits, and the tab/menu chrome is visually flatter.
 - 2026-07-07: Preview/toolbar feedback pass applied: dark preview foreground follows the app theme, scrollbars use themed styling, capture exclusion is exposed as a left/right toolbar toggle, bold Markdown emphasis is rendered, `skillhooks` emphasis is blue, and `***` renders as a separator block.
+- 2026-07-07: File association opening fixed: startup file-path args now load the target document, menu open shares the same load path, save-as defaults `.txt`/`.md` by document mode, and focused tests pass with `dotnet test .\tests\Memojang.Tests\Memojang.Tests.csproj -p:OutDir=C:\ai\projects\memojang\artifacts\test-bin\`. Full-solution Debug output was locked by running `Memojang.App` processes during verification.
+- 2026-07-07: `.txt` default-app launch was verified end-to-end after fixing the real startup failure: `MainWindow.xaml` referenced `Assets/Memojang.ico`, but the icon was not included as a WPF `Resource`. `Memojang.ico` is now included in the project, startup document loading runs after the window is shown, diagnostics write to `%LOCALAPPDATA%\Memojang\startup.log`, and Windows shell-open of a `.txt` file succeeds. Verified with `dotnet build .\Memojang.sln`, focused tests, and a shell-open smoke run.
 
 ## Next
 

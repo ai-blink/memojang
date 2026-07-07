@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
         mc:Ignorable="d"
-        Title="Memojang" Height="720" Width="1080" MinHeight="420" MinWidth="640"
+        Title="Memojang" Icon="Assets/Memojang.ico" Height="720" Width="1080" MinHeight="420" MinWidth="640"
         WindowStyle="None"
         ResizeMode="CanResize"
         Closing="MainWindow_Closing"

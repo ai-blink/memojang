@@ -8,7 +8,7 @@
   <data name="DialogOpenTitle" xml:space="preserve"><value>열기</value></data>
   <data name="DialogImageFilter" xml:space="preserve"><value>이미지|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|모든 파일|*.*</value></data>
   <data name="DialogSaveTitle" xml:space="preserve"><value>저장</value></data>
-  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>텍스트 문서|*.txt;*.md;*.markdown|모든 파일|*.*</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>텍스트 문서|*.txt|마크다운 문서|*.md;*.markdown|모든 파일|*.*</value></data>
   <data name="FindLabel" xml:space="preserve"><value>찾기</value></data>
   <data name="FindNextButton" xml:space="preserve"><value>다음</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>일치 항목 없음</value></data>
@@ -42,6 +42,7 @@
   <data name="MenuWordWrap" xml:space="preserve"><value>자동 줄 바꿈(_W)</value></data>
   <data name="MessageCursorInsideTable" xml:space="preserve"><value>먼저 마크다운 표 안에 커서를 놓으세요.</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>이미지는 마크다운 문서에서 사용할 수 있습니다.</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>파일을 열 수 없습니다: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>이미지를 첨부하려면 먼저 이 문서를 마크다운으로 저장하세요.</value></data>
   <data name="PrivacyStatusExcluded" xml:space="preserve"><value>캡처 제외됨</value></data>
   <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>캡처 제외 사용 불가</value></data>

@@ -8,7 +8,7 @@
   <data name="DialogOpenTitle" xml:space="preserve"><value>Open</value></data>
   <data name="DialogImageFilter" xml:space="preserve"><value>Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|All files|*.*</value></data>
   <data name="DialogSaveTitle" xml:space="preserve"><value>Save</value></data>
-  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Text documents|*.txt;*.md;*.markdown|All files|*.*</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Text documents|*.txt|Markdown documents|*.md;*.markdown|All files|*.*</value></data>
   <data name="FindLabel" xml:space="preserve"><value>Find</value></data>
   <data name="FindNextButton" xml:space="preserve"><value>Next</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>No matches</value></data>
@@ -42,6 +42,7 @@
   <data name="MenuWordWrap" xml:space="preserve"><value>_Word wrap</value></data>
   <data name="MessageCursorInsideTable" xml:space="preserve"><value>Place the cursor inside a Markdown table first.</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Images can be attached to Markdown documents.</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>Could not open the file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
   <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Capture excluded</value></data>
   <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Capture exclusion unavailable</value></data>

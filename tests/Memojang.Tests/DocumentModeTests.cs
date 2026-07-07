@@ -15,4 +15,20 @@ public class DocumentModeTests
     {
         Assert.Equal(expected, DocumentModeDetector.FromPath(path));
     }
+
+    [Theory]
+    [InlineData(DocumentMode.PlainText, ".txt")]
+    [InlineData(DocumentMode.Markdown, ".md")]
+    public void DocumentModeDetector_ReturnsDefaultSaveExtension(DocumentMode mode, string expectedExtension)
+    {
+        Assert.Equal(expectedExtension, DocumentModeDetector.GetDefaultExtension(mode));
+    }
+
+    [Theory]
+    [InlineData(DocumentMode.PlainText, 1)]
+    [InlineData(DocumentMode.Markdown, 2)]
+    public void DocumentModeDetector_ReturnsSaveDialogFilterIndex(DocumentMode mode, int expectedFilterIndex)
+    {
+        Assert.Equal(expectedFilterIndex, DocumentModeDetector.GetSaveDialogFilterIndex(mode));
+    }
 }
