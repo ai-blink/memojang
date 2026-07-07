@@ -2,6 +2,8 @@
 
 ## Current
 
+2026-07-08: Review follow-up applied for save/image attachment hardening, Text/Markdown mode UI gating, and custom chrome basics. Save failures now surface localized errors instead of escaping to the UI thread, image attachment and clipboard image write failures show localized errors, unsaved image insertion now forces Markdown Save As defaults, Text mode hides/disables Markdown-specific toolbar/menu actions, and the custom title bar uses system window commands with Alt+Space/right-click system menu access plus accessible window-button names. Verified with `dotnet build .\Memojang.sln -c Release`, `dotnet test .\Memojang.sln -c Release --no-build`, and `git diff --check`. Privacy manual capture matrix checks remain pending.
+
 2026-07-07: Document mode, Markdown image support, and visible UI feedback passes are in progress-complete for the V1 slice. The app detects `Text` vs `Markdown`, shows document mode in the status bar, debounces Markdown preview updates, previews local Markdown image syntax with missing-image placeholders, can copy inserted Markdown images into a sidecar assets folder, localizes the visible Markdown/capture-exclusion toolbar labels in Korean, wires basic Markdown toolbar buttons, applies themed scrollbars, keeps preview text readable in dark theme, renders Markdown thematic breaks, fenced code blocks, unordered list markers, bold emphasis, and empty-heading edge cases, and reduces tab/menu border separation toward the Windows Notepad target. Verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln`, app launch smoke, and `git diff --check`. Privacy manual capture matrix checks remain pending.
 
 ## Completed

@@ -41,8 +41,10 @@
   <data name="MenuView" xml:space="preserve"><value>_View</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>_Word wrap</value></data>
   <data name="MessageCursorInsideTable" xml:space="preserve"><value>Place the cursor inside a Markdown table first.</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>Could not attach the image: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Images can be attached to Markdown documents.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Could not open the file: {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>Could not save the file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
   <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Capture excluded</value></data>
   <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Capture exclusion unavailable</value></data>

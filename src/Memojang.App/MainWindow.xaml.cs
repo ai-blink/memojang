@@ -136,7 +136,7 @@ public partial class MainWindow : Window
 
     private void MinimizeWindowButton_Click(object sender, RoutedEventArgs e)
     {
-        WindowState = WindowState.Minimized;
+        SystemCommands.MinimizeWindow(this);
     }
 
     private void MaximizeRestoreWindowButton_Click(object sender, RoutedEventArgs e)
@@ -169,6 +169,12 @@ public partial class MainWindow : Window
         }
     }
 
+    private void TitleBar_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+    {
+        ShowSystemMenu(e.GetPosition(this));
+        e.Handled = true;
+    }
+
     private static bool IsInsideButton(DependencyObject? source)
     {
         for (DependencyObject? current = source; current is not null; current = VisualTreeHelper.GetParent(current))
@@ -189,7 +195,13 @@ public partial class MainWindow : Window
 
     private void ToggleMaximizeRestore()
     {
-        WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        if (WindowState == WindowState.Maximized)
+        {
+            SystemCommands.RestoreWindow(this);
+            return;
+        }
+
+        SystemCommands.MaximizeWindow(this);
     }
 
     private void ThemeMenuItem_Click(object sender, RoutedEventArgs e)
@@ -231,7 +243,12 @@ public partial class MainWindow : Window
         bool isControl = Keyboard.Modifiers == ModifierKeys.Control;
         bool isControlShift = Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift);
 
-        if (isControl && e.Key == Key.N)
+        if (Keyboard.Modifiers == ModifierKeys.Alt && e.SystemKey == Key.Space)
+        {
+            ShowSystemMenu(new Point(0, 40));
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.N)
         {
             NewMenuItem_Click(sender, e);
             e.Handled = true;
@@ -270,6 +287,11 @@ public partial class MainWindow : Window
             FindNext();
             e.Handled = true;
         }
+    }
+
+    private void ShowSystemMenu(Point clientPoint)
+    {
+        SystemCommands.ShowSystemMenu(this, PointToScreen(clientPoint));
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e)

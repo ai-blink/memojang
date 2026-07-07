@@ -39,10 +39,10 @@ public partial class MainWindow
         bool isMarkdown = _documentMode == DocumentMode.Markdown;
 
         DocumentModeStatusText.Text = DocumentModeDetector.GetStatusText(_documentMode);
-        MarkdownToolbarPanel.Visibility = Visibility.Visible;
-        MarkdownMenuItem.IsEnabled = true;
+        MarkdownToolbarPanel.Visibility = isMarkdown ? Visibility.Visible : Visibility.Collapsed;
+        MarkdownMenuItem.IsEnabled = isMarkdown;
         PreviewMenuItem.IsEnabled = isMarkdown;
-        ToolbarTableButton.IsEnabled = true;
+        ToolbarTableButton.IsEnabled = isMarkdown;
         ToolbarImageButton.IsEnabled = isMarkdown;
         ToolbarPreviewButton.IsEnabled = isMarkdown;
 
@@ -146,18 +146,31 @@ public partial class MainWindow
         }
 
         string targetPath = MarkdownImageAttachmentService.GetAvailableImagePath(_currentFilePath!, ".png", DateTime.Now);
-        Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
 
-        using (var stream = File.Create(targetPath))
+        try
         {
-            var encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bitmap));
-            encoder.Save(stream);
+            Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
+
+            using (var stream = File.Create(targetPath))
+            {
+                var encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitmap));
+                encoder.Save(stream);
+            }
+
+            InsertMarkdownImageLinks([
+                MarkdownImageAttachmentService.CreateMarkdownImageLink(_currentFilePath!, targetPath, "clipboard image")
+            ]);
+        }
+        catch (IOException ex)
+        {
+            ShowImageAttachmentFailedMessage(ex);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            ShowImageAttachmentFailedMessage(ex);
         }
 
-        InsertMarkdownImageLinks([
-            MarkdownImageAttachmentService.CreateMarkdownImageLink(_currentFilePath!, targetPath, "clipboard image")
-        ]);
         return true;
     }
 
@@ -168,8 +181,21 @@ public partial class MainWindow
             return false;
         }
 
-        IReadOnlyList<MarkdownImageAttachment> attachments =
-            MarkdownImageAttachmentService.CopyImagesToSidecar(_currentFilePath!, imagePaths, DateTime.Now);
+        IReadOnlyList<MarkdownImageAttachment> attachments;
+        try
+        {
+            attachments = MarkdownImageAttachmentService.CopyImagesToSidecar(_currentFilePath!, imagePaths, DateTime.Now);
+        }
+        catch (IOException ex)
+        {
+            ShowImageAttachmentFailedMessage(ex);
+            return false;
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            ShowImageAttachmentFailedMessage(ex);
+            return false;
+        }
 
         if (attachments.Count == 0)
         {
@@ -185,7 +211,7 @@ public partial class MainWindow
         if (string.IsNullOrWhiteSpace(_currentFilePath))
         {
             MessageBox.Show(this, UiText.Get("MessageSaveMarkdownBeforeImages"), "Memojang", MessageBoxButton.OK, MessageBoxImage.Information);
-            if (!SaveDocument(saveAs: true))
+            if (!SaveDocument(saveAs: true, forcedMode: DocumentMode.Markdown))
             {
                 return false;
             }
@@ -198,6 +224,12 @@ public partial class MainWindow
 
         MessageBox.Show(this, UiText.Get("MessageImagesMarkdownOnly"), "Memojang", MessageBoxButton.OK, MessageBoxImage.Information);
         return false;
+    }
+
+    private void ShowImageAttachmentFailedMessage(Exception ex)
+    {
+        AppDiagnostics.Log($"Attach image failure {ex}");
+        MessageBox.Show(this, UiText.Format("MessageAttachImageFailed", ex.Message), "Memojang", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 
     private void InsertMarkdownImageLinks(IEnumerable<string> markdownLinks)

@@ -104,19 +104,20 @@ public partial class MainWindow
         SaveDocument(saveAs: true);
     }
 
-    private bool SaveDocument(bool saveAs)
+    private bool SaveDocument(bool saveAs, DocumentMode? forcedMode = null)
     {
         string? targetPath = _currentFilePath;
+        DocumentMode saveMode = forcedMode ?? _documentMode;
 
         if (saveAs || string.IsNullOrWhiteSpace(targetPath))
         {
             var dialog = new SaveFileDialog
             {
                 AddExtension = true,
-                DefaultExt = DocumentModeDetector.GetDefaultExtension(_documentMode),
+                DefaultExt = DocumentModeDetector.GetDefaultExtension(saveMode),
                 Filter = UiText.Get("DialogTextDocumentFilter"),
-                FilterIndex = DocumentModeDetector.GetSaveDialogFilterIndex(_documentMode),
-                FileName = string.IsNullOrWhiteSpace(targetPath) ? UiText.Get("UntitledFileName") : Path.GetFileName(targetPath),
+                FilterIndex = DocumentModeDetector.GetSaveDialogFilterIndex(saveMode),
+                FileName = CreateDefaultSaveFileName(targetPath, saveMode),
                 Title = UiText.Get("DialogSaveTitle")
             };
 
@@ -128,7 +129,23 @@ public partial class MainWindow
             targetPath = dialog.FileName;
         }
 
-        File.WriteAllText(targetPath, EditorTextBox.Text, new System.Text.UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+        try
+        {
+            File.WriteAllText(targetPath, EditorTextBox.Text, new System.Text.UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+        }
+        catch (IOException ex)
+        {
+            AppDiagnostics.Log($"SaveDocument IO failure path={targetPath} {ex}");
+            MessageBox.Show(this, UiText.Format("MessageSaveFileFailed", ex.Message), "Memojang", MessageBoxButton.OK, MessageBoxImage.Error);
+            return false;
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            AppDiagnostics.Log($"SaveDocument access failure path={targetPath} {ex}");
+            MessageBox.Show(this, UiText.Format("MessageSaveFileFailed", ex.Message), "Memojang", MessageBoxButton.OK, MessageBoxImage.Error);
+            return false;
+        }
+
         _currentFilePath = targetPath;
         _hasUnsavedChanges = false;
         _encodingName = "UTF-8";
@@ -137,5 +154,20 @@ public partial class MainWindow
         UpdateTitle();
         UpdateStatusFromEditor();
         return true;
+    }
+
+    private static string CreateDefaultSaveFileName(string? targetPath, DocumentMode saveMode)
+    {
+        if (!string.IsNullOrWhiteSpace(targetPath))
+        {
+            string fileName = Path.GetFileName(targetPath);
+            return saveMode == DocumentMode.Markdown
+                ? Path.ChangeExtension(fileName, ".md")
+                : fileName;
+        }
+
+        return saveMode == DocumentMode.Markdown
+            ? Path.ChangeExtension(UiText.Get("UntitledFileName"), ".md")
+            : UiText.Get("UntitledFileName");
     }
 }

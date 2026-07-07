@@ -4,9 +4,9 @@
 
 Build a Windows 11-first Notepad-like editor in .NET 10 WPF that opens and edits plain text quickly, shows Markdown and Markdown tables beautifully, supports lightweight document toolbar actions, and can exclude the app window from common screen/image capture paths when privacy mode is enabled.
 
-## Current Blocker
+## Current Status
 
-The repository has only an initial README and a planning artifact. It needs the app skeleton and live project docs before implementation can proceed coherently.
+The .NET 10 WPF app shell and V1 text/Markdown editing slice are implemented. The remaining release-readiness gap is manual capture-exclusion matrix verification for privacy mode across common Windows capture paths.
 
 ## Acceptance Shape
 
