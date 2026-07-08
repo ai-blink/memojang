@@ -20,10 +20,10 @@ public partial class App : Application
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         AppDiagnostics.Log($"Startup args=[{string.Join(", ", e.Args)}]");
         AppCultureService.ApplySystemCulture();
+        AppThemeService.Apply(this, AppTheme.System);
 
         var mainWindow = new MainWindow();
         MainWindow = mainWindow;
-        AppThemeService.Apply(this, AppTheme.System);
         mainWindow.Show();
         mainWindow.Activate();
         AppDiagnostics.Log("MainWindow shown");

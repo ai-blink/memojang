@@ -77,6 +77,111 @@
         </Setter>
     </Style>
 
+    <ControlTemplate x:Key="MemojangMenuItemTemplate" TargetType="{x:Type MenuItem}">
+        <Grid SnapsToDevicePixels="True"
+              shell:WindowChrome.IsHitTestVisibleInChrome="True">
+            <Border x:Name="Root"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    MinWidth="{TemplateBinding MinWidth}"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="IconColumn" Width="28" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition x:Name="GestureColumn" Width="Auto" />
+                        <ColumnDefinition x:Name="ArrowColumn" Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="CheckMark"
+                               Grid.Column="0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="{TemplateBinding Foreground}"
+                               Text="✓"
+                               Visibility="Hidden" />
+                    <ContentPresenter x:Name="HeaderPresenter"
+                                      Grid.Column="1"
+                                      VerticalAlignment="Center"
+                                      ContentSource="Header"
+                                      RecognizesAccessKey="True" />
+                    <TextBlock x:Name="GestureText"
+                               Grid.Column="2"
+                               Margin="24,0,10,0"
+                               VerticalAlignment="Center"
+                               Foreground="{DynamicResource AppMutedTextBrush}"
+                               Text="{TemplateBinding InputGestureText}" />
+                    <Path x:Name="SubmenuArrow"
+                          Grid.Column="3"
+                          Width="5"
+                          Height="9"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Data="M 0 0 L 5 4.5 L 0 9 Z"
+                          Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                          Stretch="Fill"
+                          Visibility="Collapsed" />
+                </Grid>
+            </Border>
+            <Popup x:Name="PART_Popup"
+                   AllowsTransparency="True"
+                   Focusable="False"
+                   IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                   Placement="Right"
+                   PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                   PopupAnimation="Fade">
+                <Border Background="{DynamicResource AppControlBrush}"
+                        BorderBrush="{DynamicResource AppBorderBrush}"
+                        BorderThickness="1"
+                        Padding="2"
+                        SnapsToDevicePixels="True">
+                    <ScrollViewer CanContentScroll="True"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Auto">
+                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle"
+                                        KeyboardNavigation.TabNavigation="Cycle" />
+                    </ScrollViewer>
+                </Border>
+            </Popup>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="InputGestureText" Value="">
+                <Setter TargetName="GestureText" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="Role" Value="TopLevelHeader">
+                <Setter TargetName="IconColumn" Property="Width" Value="0" />
+                <Setter TargetName="GestureColumn" Property="Width" Value="0" />
+                <Setter TargetName="ArrowColumn" Property="Width" Value="0" />
+                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                <Setter TargetName="PART_Popup" Property="Placement" Value="Bottom" />
+            </Trigger>
+            <Trigger Property="Role" Value="TopLevelItem">
+                <Setter TargetName="IconColumn" Property="Width" Value="0" />
+                <Setter TargetName="GestureColumn" Property="Width" Value="0" />
+                <Setter TargetName="ArrowColumn" Property="Width" Value="0" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuItem">
+                <Setter TargetName="Root" Property="MinWidth" Value="240" />
+                <Setter TargetName="Root" Property="Padding" Value="8,6" />
+                <Setter TargetName="ArrowColumn" Property="Width" Value="0" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuHeader">
+                <Setter TargetName="Root" Property="MinWidth" Value="240" />
+                <Setter TargetName="Root" Property="Padding" Value="8,6" />
+                <Setter TargetName="SubmenuArrow" Property="Visibility" Value="Visible" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="GestureText" Property="Foreground" Value="{DynamicResource AppDisabledTextBrush}" />
+                <Setter TargetName="SubmenuArrow" Property="Fill" Value="{DynamicResource AppDisabledTextBrush}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
     <Style x:Key="CaptureExclusionToggleStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />

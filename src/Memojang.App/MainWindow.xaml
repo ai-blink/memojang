@@ -56,7 +56,8 @@
             <Setter Property="Padding" Value="10,4" />
             <Setter Property="MinHeight" Value="28" />
             <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-            <Setter Property="OverridesDefaultStyle" Value="False" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Template" Value="{StaticResource MemojangMenuItemTemplate}" />
             <Style.Triggers>
                 <Trigger Property="IsHighlighted" Value="True">
                     <Setter Property="Background" Value="{DynamicResource AppMenuHoverBrush}" />
@@ -144,12 +145,14 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0"
-                                       Text="▤"
-                                       Foreground="#4CC2FF"
-                                       FontSize="16"
-                                       VerticalAlignment="Center"
-                                       Margin="0,0,10,0" />
+                            <Image Grid.Column="0"
+                                   Source="Assets/Memojang.ico"
+                                   Width="18"
+                                   Height="18"
+                                   Stretch="Uniform"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,10,0" />
                             <TextBlock x:Name="TabTitleText"
                                        Grid.Column="1"
                                        Text="Untitled"

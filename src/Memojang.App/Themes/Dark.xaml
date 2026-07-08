@@ -21,9 +21,21 @@
     <SolidColorBrush x:Key="AppToggleThumbBrush" Color="#F3F3F3" />
     <SolidColorBrush x:Key="{x:Static SystemColors.MenuBrushKey}" Color="#2B2B2B" />
     <SolidColorBrush x:Key="{x:Static SystemColors.MenuTextBrushKey}" Color="#F3F3F3" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.ActiveBorderBrushKey}" Color="#454545" />
     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#0E639C" />
     <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#FFFFFF" />
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#2B2B2B" />
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="#F3F3F3" />
     <SolidColorBrush x:Key="{x:Static SystemColors.GrayTextBrushKey}" Color="#B8B8B8" />
+    <SolidColorBrush x:Key="Menu.Static.Background" Color="#2B2B2B" />
+    <SolidColorBrush x:Key="Menu.Static.Border" Color="#454545" />
+    <SolidColorBrush x:Key="MenuItem.Highlight.Background" Color="#363636" />
+    <SolidColorBrush x:Key="MenuItem.Highlight.Border" Color="#454545" />
+    <SolidColorBrush x:Key="MenuItem.Pressed.Background" Color="#363636" />
+    <SolidColorBrush x:Key="MenuItem.Pressed.Border" Color="#454545" />
+    <SolidColorBrush x:Key="MenuItem.Selected.Background" Color="#363636" />
+    <SolidColorBrush x:Key="MenuItem.Selected.Border" Color="#454545" />
+    <SolidColorBrush x:Key="MenuItem.Submenu.Background" Color="#2B2B2B" />
+    <SolidColorBrush x:Key="MenuItem.Submenu.Border" Color="#454545" />
+    <SolidColorBrush x:Key="MenuItem.Disabled.Foreground" Color="#777777" />
 </ResourceDictionary>
