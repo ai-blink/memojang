@@ -21,6 +21,7 @@ public partial class MainWindow
             string text = File.ReadAllText(filePath);
             _currentFilePath = filePath;
             SetEditorText(text, hasUnsavedChanges: false);
+            AddRecentFile(filePath);
             AppDiagnostics.Log($"OpenDocument sync success path={filePath} length={text.Length}");
             return true;
         }
@@ -51,6 +52,7 @@ public partial class MainWindow
             string text = await File.ReadAllTextAsync(filePath);
             _currentFilePath = filePath;
             SetEditorText(text, hasUnsavedChanges: false);
+            AddRecentFile(filePath);
             Activate();
             AppDiagnostics.Log($"OpenDocument async success path={filePath} length={text.Length}");
             return true;
@@ -151,6 +153,8 @@ public partial class MainWindow
         _encodingName = "UTF-8";
         _lineEndingName = LineEnding.Detect(EditorTextBox.Text);
         UpdateDocumentModeFromPath();
+        PersistActiveDocumentState();
+        AddRecentFile(targetPath);
         UpdateTitle();
         UpdateStatusFromEditor();
         return true;

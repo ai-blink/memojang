@@ -160,56 +160,22 @@
                       PreviewMouseLeftButtonDown="TitleBar_PreviewMouseLeftButtonDown"
                       MouseRightButtonUp="TitleBar_MouseRightButtonUp">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0"
-                            Width="360"
-                            Margin="8,6,0,0"
-                            Padding="12,0"
-                            Background="{DynamicResource AppTabBrush}"
-                            CornerRadius="8,8,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0"
-                                   Source="Assets/Memojang.ico"
-                                   Width="18"
-                                   Height="18"
-                                   Stretch="Uniform"
-                                   RenderOptions.BitmapScalingMode="HighQuality"
-                                   VerticalAlignment="Center"
-                                   Margin="0,0,10,0" />
-                            <TextBlock x:Name="TabTitleText"
-                                       Grid.Column="1"
-                                       Text="Untitled"
-                                       Foreground="{DynamicResource AppTextBrush}"
-                                       FontSize="16"
-                                       FontWeight="SemiBold"
-                                       TextTrimming="CharacterEllipsis"
-                                       VerticalAlignment="Center" />
-                            <Button Grid.Column="2"
-                                    Content="×"
-                                    AutomationProperties.Name="Close document"
-                                    ToolTip="Close document"
-                                    Style="{StaticResource TopBarButtonStyle}"
-                                    MinWidth="34"
-                                    Click="ExitMenuItem_Click" />
-                        </Grid>
-                    </Border>
+                    <ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled"
+                                  shell:WindowChrome.IsHitTestVisibleInChrome="True">
+                        <StackPanel x:Name="TabStripPanel" Orientation="Horizontal" Margin="8,6,0,0" />
+                    </ScrollViewer>
                     <Button Grid.Column="1"
                             Content="+"
                             AutomationProperties.Name="New document"
                             ToolTip="New document"
                             Style="{StaticResource TopBarButtonStyle}"
                             Margin="12,4,0,0"
-                            Click="NewMenuItem_Click" />
-                    <StackPanel Grid.Column="3"
+                            Click="NewTabMenuItem_Click" />
+                    <StackPanel Grid.Column="2"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
                         <Button Content="—"
@@ -237,10 +203,16 @@
                       ItemContainerStyle="{StaticResource MenuBarItemStyle}"
                       shell:WindowChrome.IsHitTestVisibleInChrome="True">
             <MenuItem x:Name="FileMenuItem" Header="_File" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
-                <MenuItem x:Name="NewMenuItem" Header="_New" InputGestureText="Ctrl+N" Click="NewMenuItem_Click" />
+                <MenuItem x:Name="RecentMenuItem" Header="_Recent" />
+                <Separator />
+                <MenuItem x:Name="NewTabMenuItem" Header="New _tab" InputGestureText="Ctrl+T" Click="NewTabMenuItem_Click" />
+                <MenuItem x:Name="NewTextMenuItem" Header="New _text" InputGestureText="Ctrl+N" Click="NewTextMenuItem_Click" />
+                <MenuItem x:Name="NewMarkdownMenuItem" Header="New _Markdown" InputGestureText="Ctrl+Shift+N" Click="NewMarkdownMenuItem_Click" />
+                <Separator />
                 <MenuItem x:Name="OpenMenuItem" Header="_Open..." InputGestureText="Ctrl+O" Click="OpenMenuItem_Click" />
                 <MenuItem x:Name="SaveMenuItem" Header="_Save" InputGestureText="Ctrl+S" Click="SaveMenuItem_Click" />
                 <MenuItem x:Name="SaveAsMenuItem" Header="Save _As..." InputGestureText="Ctrl+Shift+S" Click="SaveAsMenuItem_Click" />
+                <MenuItem x:Name="SaveAllMenuItem" Header="Save A_ll" InputGestureText="Ctrl+Alt+S" Click="SaveAllMenuItem_Click" />
                 <Separator />
                 <MenuItem x:Name="ExitMenuItem" Header="E_xit" Click="ExitMenuItem_Click" />
             </MenuItem>
@@ -253,12 +225,34 @@
                 <Separator />
                 <MenuItem x:Name="FindMenuItem" Header="_Find" InputGestureText="Ctrl+F" Click="FindMenuItem_Click" />
                 <MenuItem x:Name="FindNextMenuItem" Header="Find _next" InputGestureText="F3" Click="FindNextMenuItem_Click" />
+                <MenuItem x:Name="FindPreviousMenuItem" Header="Find _previous" InputGestureText="Shift+F3" Click="FindPreviousMenuItem_Click" />
                 <Separator />
+                <MenuItem x:Name="SelectAllMenuItem" Header="Select _all" InputGestureText="Ctrl+A" Command="ApplicationCommands.SelectAll" CommandTarget="{Binding ElementName=EditorTextBox}" />
+                <MenuItem x:Name="GoToMenuItem" Header="_Go to..." InputGestureText="Ctrl+G" Click="GoToMenuItem_Click" />
                 <MenuItem x:Name="TimeDateMenuItem" Header="_Time/Date" InputGestureText="F5" Click="TimeDateMenuItem_Click" />
+                <Separator />
+                <MenuItem x:Name="SettingsMenuItem" Header="_Settings">
+                    <MenuItem x:Name="FontMenuItem" Header="_Font">
+                        <MenuItem x:Name="FontConsolasMenuItem" Header="Consolas" IsCheckable="True" Click="EditorFontFamilyMenuItem_Click" />
+                        <MenuItem x:Name="FontCascadiaMenuItem" Header="Cascadia Mono" IsCheckable="True" Click="EditorFontFamilyMenuItem_Click" />
+                        <MenuItem x:Name="FontSegoeMenuItem" Header="Segoe UI" IsCheckable="True" Click="EditorFontFamilyMenuItem_Click" />
+                    </MenuItem>
+                    <MenuItem x:Name="FontSizeMenuItem" Header="Font _size">
+                        <MenuItem x:Name="FontSizeSmallMenuItem" Header="_Small" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
+                        <MenuItem x:Name="FontSizeMediumMenuItem" Header="_Medium" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
+                        <MenuItem x:Name="FontSizeLargeMenuItem" Header="_Large" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
+                    </MenuItem>
+                </MenuItem>
             </MenuItem>
             <MenuItem x:Name="ViewMenuItem" Header="_View" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="WordWrapMenuItem" Header="_Word wrap" IsCheckable="True" IsChecked="True" IsEnabled="False" />
                 <MenuItem x:Name="StatusBarMenuItem" Header="_Status bar" IsCheckable="True" IsChecked="True" IsEnabled="False" />
+                <Separator />
+                <MenuItem x:Name="ZoomMenuItem" Header="_Zoom">
+                    <MenuItem x:Name="ZoomInMenuItem" Header="Zoom _in" InputGestureText="Ctrl++" Click="ZoomInMenuItem_Click" />
+                    <MenuItem x:Name="ZoomOutMenuItem" Header="Zoom _out" InputGestureText="Ctrl+-" Click="ZoomOutMenuItem_Click" />
+                    <MenuItem x:Name="ResetZoomMenuItem" Header="_Reset zoom" InputGestureText="Ctrl+0" Click="ResetZoomMenuItem_Click" />
+                </MenuItem>
                 <Separator />
                 <MenuItem x:Name="PreviewMenuItem" Header="_Markdown preview" IsCheckable="True" Click="PreviewMenuItem_Click" />
                 <Separator />
@@ -375,42 +369,17 @@
                 Padding="8"
                 Visibility="Collapsed">
             <DockPanel LastChildFill="False">
-                <TextBlock x:Name="FindLabelText"
-                           Foreground="{DynamicResource AppTextBrush}"
-                           Text="Find"
-                           VerticalAlignment="Center"
-                           Margin="0,0,8,0" />
-                <TextBox x:Name="FindTextBox"
-                         Width="240"
-                         KeyDown="FindTextBox_KeyDown" />
-                <TextBlock x:Name="ReplaceLabelText"
-                           Foreground="{DynamicResource AppTextBrush}"
-                           Text="Replace"
-                           VerticalAlignment="Center"
-                           Margin="12,0,8,0" />
-                <TextBox x:Name="ReplaceTextBox"
-                         Width="220"
-                         KeyDown="FindTextBox_KeyDown" />
-                <Button x:Name="FindNextButton"
-                        Content="Next"
-                        Margin="8,0,0,0"
-                        MinWidth="72"
-                        Click="FindNextButton_Click" />
-                <Button x:Name="ReplaceButton"
-                        Content="Replace"
-                        Margin="8,0,0,0"
-                        MinWidth="72"
-                        Click="ReplaceButton_Click" />
-                <Button x:Name="ReplaceAllButton"
-                        Content="All"
-                        Margin="8,0,0,0"
-                        MinWidth="64"
-                        Click="ReplaceAllButton_Click" />
-                <Button x:Name="CloseFindButton"
-                        Content="Close"
-                        Margin="8,0,0,0"
-                        MinWidth="72"
-                        Click="CloseFindButton_Click" />
+                <TextBlock x:Name="FindLabelText" Foreground="{DynamicResource AppTextBrush}" Text="Find"
+                           VerticalAlignment="Center" Margin="0,0,8,0" />
+                <TextBox x:Name="FindTextBox" Width="240" KeyDown="FindTextBox_KeyDown" />
+                <Button x:Name="FindPreviousButton" Content="Previous" Margin="8,0,0,0" MinWidth="84" Click="FindPreviousButton_Click" />
+                <Button x:Name="FindNextButton" Content="Next" Margin="8,0,0,0" MinWidth="72" Click="FindNextButton_Click" />
+                <TextBlock x:Name="ReplaceLabelText" Foreground="{DynamicResource AppTextBrush}" Text="Replace"
+                           VerticalAlignment="Center" Margin="12,0,8,0" />
+                <TextBox x:Name="ReplaceTextBox" Width="220" KeyDown="FindTextBox_KeyDown" />
+                <Button x:Name="ReplaceButton" Content="Replace" Margin="8,0,0,0" MinWidth="72" Click="ReplaceButton_Click" />
+                <Button x:Name="ReplaceAllButton" Content="All" Margin="8,0,0,0" MinWidth="64" Click="ReplaceAllButton_Click" />
+                <Button x:Name="CloseFindButton" Content="Close" Margin="8,0,0,0" MinWidth="72" Click="CloseFindButton_Click" />
                 <TextBlock x:Name="FindStatusText"
                            Foreground="{DynamicResource AppMutedTextBrush}"
                            VerticalAlignment="Center"
@@ -428,6 +397,10 @@
             <Separator />
             <StatusBarItem>
                 <TextBlock x:Name="ChangeStatusText" MinWidth="116" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem>
+                <TextBlock x:Name="CharacterCountStatusText" MinWidth="88" />
             </StatusBarItem>
             <Separator />
             <StatusBarItem>

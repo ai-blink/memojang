@@ -17,6 +17,16 @@ public partial class MainWindow
         FindNext();
     }
 
+    private void FindPreviousMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        FindPrevious();
+    }
+
+    private void FindPreviousButton_Click(object sender, RoutedEventArgs e)
+    {
+        FindPrevious();
+    }
+
     private void FindNextButton_Click(object sender, RoutedEventArgs e)
     {
         FindNext();
@@ -40,7 +50,12 @@ public partial class MainWindow
 
     private void FindTextBox_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.Key == Key.Enter)
+        if (e.Key == Key.Enter && Keyboard.Modifiers == ModifierKeys.Shift)
+        {
+            FindPrevious();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.Enter)
         {
             FindNext();
             e.Handled = true;
@@ -69,12 +84,41 @@ public partial class MainWindow
     private void FindNext()
     {
         string query = FindTextBox.Text;
+        if (string.IsNullOrEmpty(query))
+        {
+            ShowFindPanel();
+            return;
+        }
+
         int startIndex = EditorTextBox.SelectionStart + Math.Max(EditorTextBox.SelectionLength, 1);
         int matchIndex = TextSearch.FindNext(EditorTextBox.Text, query, startIndex, StringComparison.CurrentCultureIgnoreCase);
 
         if (matchIndex < 0)
         {
             FindStatusText.Text = string.IsNullOrEmpty(query) ? string.Empty : UiText.Get("FindNoMatches");
+            return;
+        }
+
+        EditorTextBox.Focus();
+        EditorTextBox.Select(matchIndex, query.Length);
+        FindStatusText.Text = string.Empty;
+    }
+
+    private void FindPrevious()
+    {
+        string query = FindTextBox.Text;
+        if (string.IsNullOrEmpty(query))
+        {
+            ShowFindPanel();
+            return;
+        }
+
+        int startIndex = EditorTextBox.SelectionStart - 1;
+        int matchIndex = TextSearch.FindPrevious(EditorTextBox.Text, query, startIndex, StringComparison.CurrentCultureIgnoreCase);
+
+        if (matchIndex < 0)
+        {
+            FindStatusText.Text = UiText.Get("FindNoMatches");
             return;
         }
 

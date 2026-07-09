@@ -28,6 +28,7 @@ public partial class MainWindow : Window
         ApplyLocalizedText();
         InitializeViewControls();
         InitializeDocumentModeAndPreview();
+        InitializeTabs();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;
         UpdateStatus(EditorStatus.Initial);
@@ -41,6 +42,7 @@ public partial class MainWindow : Window
         {
             _hasUnsavedChanges = true;
             _lineEndingName = LineEnding.Detect(EditorTextBox.Text);
+            PersistActiveDocumentState();
             UpdateTitle();
         }
 
@@ -50,6 +52,7 @@ public partial class MainWindow : Window
 
     private void EditorTextBox_SelectionChanged(object sender, RoutedEventArgs e)
     {
+        PersistActiveDocumentSelection();
         UpdateStatusFromEditor();
     }
 
@@ -67,20 +70,25 @@ public partial class MainWindow : Window
     {
         CaretStatusText.Text = status.CaretText;
         ChangeStatusText.Text = status.ChangeText;
+        CharacterCountStatusText.Text = UiText.Format("StatusCharacterCount", EditorTextBox.Text.Length);
         EncodingStatusText.Text = status.EncodingName;
         LineEndingStatusText.Text = status.LineEndingName;
         DocumentModeStatusText.Text = DocumentModeDetector.GetStatusText(_documentMode);
     }
 
-    private void NewMenuItem_Click(object sender, RoutedEventArgs e)
+    private void NewTabMenuItem_Click(object sender, RoutedEventArgs e)
     {
-        if (!ConfirmDiscardUnsavedChanges())
-        {
-            return;
-        }
+        CreateNewDocumentTab(DocumentMode.PlainText);
+    }
 
-        _currentFilePath = null;
-        SetEditorText(string.Empty, hasUnsavedChanges: false);
+    private void NewTextMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        CreateNewDocumentTab(DocumentMode.PlainText);
+    }
+
+    private void NewMarkdownMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        CreateNewDocumentTab(DocumentMode.Markdown);
     }
 
     private void TimeDateMenuItem_Click(object sender, RoutedEventArgs e)
@@ -234,22 +242,34 @@ public partial class MainWindow : Window
 
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
-        e.Cancel = !ConfirmDiscardUnsavedChanges();
+        e.Cancel = !ConfirmCloseAllTabs();
     }
 
     private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
     {
         bool isControl = Keyboard.Modifiers == ModifierKeys.Control;
         bool isControlShift = Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift);
+        bool isShift = Keyboard.Modifiers == ModifierKeys.Shift;
+        bool isControlAlt = Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Alt);
 
         if (Keyboard.Modifiers == ModifierKeys.Alt && e.SystemKey == Key.Space)
         {
             ShowSystemMenu(new Point(0, 40));
             e.Handled = true;
         }
+        else if (isControl && e.Key == Key.T)
+        {
+            NewTabMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
         else if (isControl && e.Key == Key.N)
         {
-            NewMenuItem_Click(sender, e);
+            NewTextMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
+        else if (isControlShift && e.Key == Key.N)
+        {
+            NewMarkdownMenuItem_Click(sender, e);
             e.Handled = true;
         }
         else if (isControl && e.Key == Key.O)
@@ -267,6 +287,11 @@ public partial class MainWindow : Window
             SaveAsMenuItem_Click(sender, e);
             e.Handled = true;
         }
+        else if (isControlAlt && e.Key == Key.S)
+        {
+            SaveAllMenuItem_Click(sender, e);
+            e.Handled = true;
+        }
         else if (e.Key == Key.F5)
         {
             InsertTimeDate();
@@ -277,8 +302,38 @@ public partial class MainWindow : Window
             ShowFindPanel();
             e.Handled = true;
         }
+        else if (isControl && e.Key == Key.G)
+        {
+            ShowGoToLineDialog();
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.A)
+        {
+            EditorTextBox.SelectAll();
+            e.Handled = true;
+        }
         else if (isControl && e.Key == Key.V && TryPasteImageAttachment())
         {
+            e.Handled = true;
+        }
+        else if (isControl && (e.Key == Key.Add || e.Key == Key.OemPlus))
+        {
+            AdjustZoom(10);
+            e.Handled = true;
+        }
+        else if (isControl && (e.Key == Key.Subtract || e.Key == Key.OemMinus))
+        {
+            AdjustZoom(-10);
+            e.Handled = true;
+        }
+        else if (isControl && (e.Key == Key.D0 || e.Key == Key.NumPad0))
+        {
+            ResetZoom();
+            e.Handled = true;
+        }
+        else if (isShift && e.Key == Key.F3)
+        {
+            FindPrevious();
             e.Handled = true;
         }
         else if (e.Key == Key.F3)
@@ -309,6 +364,7 @@ public partial class MainWindow : Window
         _encodingName = "UTF-8";
         _lineEndingName = LineEnding.Detect(text);
         UpdateDocumentModeFromPath();
+        PersistActiveDocumentState();
         UpdateTitle();
         UpdateStatusFromEditor();
         UpdatePreview();
@@ -317,13 +373,13 @@ public partial class MainWindow : Window
 
     private void UpdateTitle()
     {
-        string documentName = string.IsNullOrWhiteSpace(_currentFilePath)
-            ? "Untitled"
-            : Path.GetFileName(_currentFilePath);
+        string documentName = _activeDocumentTab is null
+            ? string.IsNullOrWhiteSpace(_currentFilePath) ? "Untitled" : Path.GetFileName(_currentFilePath)
+            : GetDocumentName(_activeDocumentTab);
         string dirtyMarker = _hasUnsavedChanges ? "*" : string.Empty;
 
         Title = $"{dirtyMarker}{documentName} - Memojang";
-        TabTitleText.Text = $"{dirtyMarker}{documentName}";
+        UpdateTabStrip();
     }
 
     private bool ConfirmDiscardUnsavedChanges()
@@ -383,56 +439,4 @@ public partial class MainWindow : Window
         PreviewViewer.Document = document;
     }
 
-    private void ApplyLocalizedText()
-    {
-        FileMenuItem.Header = UiText.Get("MenuFile");
-        NewMenuItem.Header = UiText.Get("MenuNew");
-        OpenMenuItem.Header = UiText.Get("MenuOpen");
-        SaveMenuItem.Header = UiText.Get("MenuSave");
-        SaveAsMenuItem.Header = UiText.Get("MenuSaveAs");
-        ExitMenuItem.Header = UiText.Get("MenuExit");
-        EditMenuItem.Header = UiText.Get("MenuEdit");
-        UndoMenuItem.Header = UiText.Get("MenuUndo");
-        CutMenuItem.Header = UiText.Get("MenuCut");
-        CopyMenuItem.Header = UiText.Get("MenuCopy");
-        PasteMenuItem.Header = UiText.Get("MenuPaste");
-        FindMenuItem.Header = UiText.Get("MenuFind");
-        FindNextMenuItem.Header = UiText.Get("MenuFindNext");
-        TimeDateMenuItem.Header = UiText.Get("MenuTimeDate");
-        ViewMenuItem.Header = UiText.Get("MenuView");
-        WordWrapMenuItem.Header = UiText.Get("MenuWordWrap");
-        StatusBarMenuItem.Header = UiText.Get("MenuStatusBar");
-        PreviewMenuItem.Header = UiText.Get("MenuMarkdownPreview");
-        ThemeMenuItem.Header = UiText.Get("MenuAppTheme");
-        ThemeSystemMenuItem.Header = UiText.Get("ThemeSystem");
-        ThemeLightMenuItem.Header = UiText.Get("ThemeLight");
-        ThemeDarkMenuItem.Header = UiText.Get("ThemeDark");
-        MarkdownMenuItem.Header = UiText.Get("MenuMarkdown");
-        InsertTableMenuItem.Header = UiText.Get("MenuInsertTable");
-        AddTableRowMenuItem.Header = UiText.Get("MenuAddTableRow");
-        InsertImageMenuItem.Header = UiText.Get("MenuInsertImage");
-        PrivacyMenuItem.Header = UiText.Get("MenuPrivacy");
-        CaptureExclusionMenuItem.Header = UiText.Get("MenuCaptureExclusion");
-        HelpMenuItem.Header = UiText.Get("MenuHelp");
-        AboutMenuItem.Header = UiText.Get("MenuAbout");
-
-        FindLabelText.Text = UiText.Get("FindLabel");
-        ReplaceLabelText.Text = UiText.Get("ReplaceLabel");
-        FindNextButton.Content = UiText.Get("FindNextButton");
-        ReplaceButton.Content = UiText.Get("ReplaceButton");
-        ReplaceAllButton.Content = UiText.Get("ReplaceAllButton");
-        CloseFindButton.Content = UiText.Get("CloseButton");
-        ToolbarImageButton.Content = UiText.Get("ToolbarImage");
-        ToolbarPreviewButton.Content = UiText.Get("ToolbarPreview");
-        ToolbarDarkModeButton.Content = UiText.Get("ToolbarDarkMode");
-        ToolbarPrivacyButton.Content = UiText.Get("ToolbarPrivacy");
-        ToolbarSmallFontButton.ToolTip = UiText.Get("ToolbarFontSmall");
-        ToolbarMediumFontButton.ToolTip = UiText.Get("ToolbarFontMedium");
-        ToolbarLargeFontButton.ToolTip = UiText.Get("ToolbarFontLarge");
-        ToolbarDarkModeButton.ToolTip = UiText.Get("ToolbarDarkMode");
-        ZoomLabelText.Text = UiText.Get("StatusZoom");
-        PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");
-
-        UpdateThemeMenuState(AppThemeService.RequestedTheme);
-    }
 }

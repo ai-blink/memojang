@@ -20,6 +20,28 @@ public static class TextSearch
         return safeStart == 0 ? -1 : text.IndexOf(query, 0, comparison);
     }
 
+    public static int FindPrevious(string text, string query, int startIndex, StringComparison comparison)
+    {
+        if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(query) || query.Length > text.Length)
+        {
+            return -1;
+        }
+
+        int lastPossibleStart = text.Length - query.Length;
+        int safeStart = startIndex < 0
+            ? lastPossibleStart
+            : Math.Clamp(startIndex, 0, lastPossibleStart);
+        int searchFrom = safeStart + query.Length - 1;
+        int match = text.LastIndexOf(query, searchFrom, comparison);
+
+        if (match >= 0)
+        {
+            return match;
+        }
+
+        return safeStart == lastPossibleStart ? -1 : text.LastIndexOf(query, text.Length - 1, comparison);
+    }
+
     public static (string Text, int Count) ReplaceAll(string text, string query, string replacement, StringComparison comparison)
     {
         if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(query))

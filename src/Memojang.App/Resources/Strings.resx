@@ -7,12 +7,18 @@
   <data name="CloseButton" xml:space="preserve"><value>Close</value></data>
   <data name="DialogOpenTitle" xml:space="preserve"><value>Open</value></data>
   <data name="DialogImageFilter" xml:space="preserve"><value>Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|All files|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>Go to line</value></data>
   <data name="DialogSaveTitle" xml:space="preserve"><value>Save</value></data>
   <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Text documents|*.txt|Markdown documents|*.md;*.markdown|All files|*.*</value></data>
   <data name="FindLabel" xml:space="preserve"><value>Find</value></data>
   <data name="FindNextButton" xml:space="preserve"><value>Next</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>No matches</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>Previous</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>Replaced {0}</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>_Large</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>_Medium</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>_Small</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>Line number</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>_About Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Add table _row</value></data>
   <data name="MenuAppTheme" xml:space="preserve"><value>App _theme</value></data>
@@ -24,25 +30,42 @@
   <data name="MenuFile" xml:space="preserve"><value>_File</value></data>
   <data name="MenuFind" xml:space="preserve"><value>_Find</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Find _next</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Find _previous</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>_Font</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>Font _size</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>_Go to...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Help</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Insert _table</value></data>
   <data name="MenuInsertImage" xml:space="preserve"><value>Insert _image...</value></data>
   <data name="MenuMarkdown" xml:space="preserve"><value>_Markdown</value></data>
   <data name="MenuMarkdownPreview" xml:space="preserve"><value>_Markdown preview</value></data>
   <data name="MenuNew" xml:space="preserve"><value>_New</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>New _Markdown</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>New _tab</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>New _text</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>No recent files</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>_Open...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>_Paste</value></data>
   <data name="MenuPrivacy" xml:space="preserve"><value>Capture e_xclusion</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>_Recent</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>_Reset zoom</value></data>
   <data name="MenuSave" xml:space="preserve"><value>_Save</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Save A_ll</value></data>
   <data name="MenuSaveAs" xml:space="preserve"><value>Save _As...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>Select _all</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>_Settings</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>_Status bar</value></data>
   <data name="MenuTimeDate" xml:space="preserve"><value>_Time/Date</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>_Undo</value></data>
   <data name="MenuView" xml:space="preserve"><value>_View</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>_Word wrap</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>_Zoom</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>Zoom _in</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>Zoom _out</value></data>
   <data name="MessageCursorInsideTable" xml:space="preserve"><value>Place the cursor inside a Markdown table first.</value></data>
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>Could not attach the image: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Images can be attached to Markdown documents.</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Enter a line number between 1 and {0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Could not open the file: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Could not save the file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
@@ -57,6 +80,7 @@
   <data name="ReplaceButton" xml:space="preserve"><value>Replace</value></data>
   <data name="ReplaceLabel" xml:space="preserve"><value>Replace</value></data>
   <data name="StatusCaret" xml:space="preserve"><value>Ln {0}, Col {1}</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} chars</value></data>
   <data name="StatusNoChanges" xml:space="preserve"><value>No changes</value></data>
   <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
   <data name="StatusDocumentText" xml:space="preserve"><value>Text</value></data>
@@ -69,6 +93,7 @@
   <data name="ToolbarImage" xml:space="preserve"><value>Image</value></data>
   <data name="ToolbarPreview" xml:space="preserve"><value>Preview</value></data>
   <data name="ToolbarPrivacy" xml:space="preserve"><value>Exclude capture</value></data>
+  <data name="OkButton" xml:space="preserve"><value>OK</value></data>
   <data name="ThemeDark" xml:space="preserve"><value>_Dark</value></data>
   <data name="ThemeLight" xml:space="preserve"><value>_Light</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>_System</value></data>
