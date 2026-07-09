@@ -1,5 +1,9 @@
+using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
+using Memojang.App.Localization;
 using Memojang.App.Theme;
 
 namespace Memojang.App;
@@ -9,6 +13,8 @@ public partial class MainWindow
     private const double SmallEditorFontSize = 12;
     private const double MediumEditorFontSize = 14;
     private const double LargeEditorFontSize = 18;
+    private const double MinEditorFontSize = 8;
+    private const double MaxEditorFontSize = 72;
     private const double DefaultZoomPercent = 100;
     private const string DefaultEditorFontFamily = "Consolas";
 
@@ -29,13 +35,8 @@ public partial class MainWindow
 
     private void ToolbarFontSizeButton_Click(object sender, RoutedEventArgs e)
     {
-        double requestedFontSize = sender == ToolbarSmallFontButton
-            ? SmallEditorFontSize
-            : sender == ToolbarLargeFontButton
-                ? LargeEditorFontSize
-                : MediumEditorFontSize;
-
-        SetEditorFontSize(requestedFontSize);
+        double delta = sender == ToolbarSmallFontButton ? -1 : 1;
+        SetEditorFontSize(_editorBaseFontSize + delta);
         EditorTextBox.Focus();
     }
 
@@ -63,6 +64,31 @@ public partial class MainWindow
         EditorTextBox.Focus();
     }
 
+    private void FontSizeCustomMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        ShowFontSizeDialog();
+    }
+
+    private void ToolbarFontSizeTextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+        {
+            ApplyToolbarFontSizeInput();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.Escape)
+        {
+            UpdateFontSizeTextBox();
+            EditorTextBox.Focus();
+            e.Handled = true;
+        }
+    }
+
+    private void ToolbarFontSizeTextBox_LostFocus(object sender, RoutedEventArgs e)
+    {
+        ApplyToolbarFontSizeInput();
+    }
+
     private void SetEditorFontFamily(string fontFamilyName)
     {
         _editorFontFamilyName = fontFamilyName;
@@ -72,19 +98,124 @@ public partial class MainWindow
 
     private void SetEditorFontSize(double fontSize)
     {
-        _editorBaseFontSize = fontSize;
+        _editorBaseFontSize = Math.Clamp(fontSize, MinEditorFontSize, MaxEditorFontSize);
         UpdateFontSizeButtons();
+        UpdateFontSizeTextBox();
         ApplyEditorDisplayScale();
     }
 
     private void UpdateFontSizeButtons()
     {
-        ToolbarSmallFontButton.IsChecked = AreClose(_editorBaseFontSize, SmallEditorFontSize);
-        ToolbarMediumFontButton.IsChecked = AreClose(_editorBaseFontSize, MediumEditorFontSize);
-        ToolbarLargeFontButton.IsChecked = AreClose(_editorBaseFontSize, LargeEditorFontSize);
         FontSizeSmallMenuItem.IsChecked = AreClose(_editorBaseFontSize, SmallEditorFontSize);
         FontSizeMediumMenuItem.IsChecked = AreClose(_editorBaseFontSize, MediumEditorFontSize);
         FontSizeLargeMenuItem.IsChecked = AreClose(_editorBaseFontSize, LargeEditorFontSize);
+    }
+
+    private void UpdateFontSizeTextBox()
+    {
+        ToolbarFontSizeTextBox.Text = _editorBaseFontSize.ToString("0.#", CultureInfo.CurrentCulture);
+    }
+
+    private void ApplyToolbarFontSizeInput()
+    {
+        if (TryApplyFontSizeText(ToolbarFontSizeTextBox.Text))
+        {
+            EditorTextBox.Focus();
+            return;
+        }
+
+        UpdateFontSizeTextBox();
+    }
+
+    private bool TryApplyFontSizeText(string text)
+    {
+        if (!double.TryParse(text, NumberStyles.Float, CultureInfo.CurrentCulture, out double fontSize))
+        {
+            return false;
+        }
+
+        if (fontSize < MinEditorFontSize || fontSize > MaxEditorFontSize)
+        {
+            return false;
+        }
+
+        SetEditorFontSize(fontSize);
+        return true;
+    }
+
+    private void ShowFontSizeDialog()
+    {
+        var fontSizeBox = new TextBox
+        {
+            Width = 160,
+            Text = _editorBaseFontSize.ToString("0.#", CultureInfo.CurrentCulture),
+            Margin = new Thickness(0, 6, 0, 12),
+            HorizontalContentAlignment = HorizontalAlignment.Right
+        };
+
+        var dialog = new Window
+        {
+            Title = UiText.Get("DialogFontSizeTitle"),
+            Owner = this,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            SizeToContent = SizeToContent.WidthAndHeight,
+            ResizeMode = ResizeMode.NoResize
+        };
+
+        var panel = new StackPanel();
+        panel.Children.Add(new TextBlock
+        {
+            Text = UiText.Format("FontSizeNumberLabel", MinEditorFontSize, MaxEditorFontSize),
+            Margin = new Thickness(0, 0, 0, 2)
+        });
+        panel.Children.Add(fontSizeBox);
+
+        var buttons = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            HorizontalAlignment = HorizontalAlignment.Right
+        };
+        var okButton = new Button
+        {
+            Content = UiText.Get("OkButton"),
+            IsDefault = true,
+            MinWidth = 72,
+            Margin = new Thickness(0, 0, 8, 0)
+        };
+        var cancelButton = new Button
+        {
+            Content = UiText.Get("CloseButton"),
+            IsCancel = true,
+            MinWidth = 72
+        };
+
+        okButton.Click += (_, _) =>
+        {
+            if (!TryApplyFontSizeText(fontSizeBox.Text))
+            {
+                MessageBox.Show(this, UiText.Format("MessageInvalidFontSize", MinEditorFontSize, MaxEditorFontSize), "Memojang", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            dialog.DialogResult = true;
+        };
+
+        buttons.Children.Add(okButton);
+        buttons.Children.Add(cancelButton);
+        panel.Children.Add(buttons);
+        dialog.Content = new Border
+        {
+            Padding = new Thickness(16),
+            Child = panel
+        };
+        dialog.Loaded += (_, _) =>
+        {
+            fontSizeBox.SelectAll();
+            fontSizeBox.Focus();
+        };
+
+        dialog.ShowDialog();
+        EditorTextBox.Focus();
     }
 
     private void UpdateFontFamilyMenuState()

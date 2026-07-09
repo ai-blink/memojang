@@ -34,6 +34,7 @@ public partial class MainWindow
         FontSizeSmallMenuItem.Header = UiText.Get("FontSizeSmall");
         FontSizeMediumMenuItem.Header = UiText.Get("FontSizeMedium");
         FontSizeLargeMenuItem.Header = UiText.Get("FontSizeLarge");
+        FontSizeCustomMenuItem.Header = UiText.Get("FontSizeCustom");
         ViewMenuItem.Header = UiText.Get("MenuView");
         WordWrapMenuItem.Header = UiText.Get("MenuWordWrap");
         StatusBarMenuItem.Header = UiText.Get("MenuStatusBar");
@@ -67,8 +68,8 @@ public partial class MainWindow
         ToolbarDarkModeButton.Content = UiText.Get("ToolbarDarkMode");
         ToolbarPrivacyButton.Content = UiText.Get("ToolbarPrivacy");
         ToolbarSmallFontButton.ToolTip = UiText.Get("ToolbarFontSmall");
-        ToolbarMediumFontButton.ToolTip = UiText.Get("ToolbarFontMedium");
         ToolbarLargeFontButton.ToolTip = UiText.Get("ToolbarFontLarge");
+        ToolbarFontSizeTextBox.ToolTip = UiText.Get("ToolbarFontSizeNumber");
         ToolbarDarkModeButton.ToolTip = UiText.Get("ToolbarDarkMode");
         ZoomLabelText.Text = UiText.Get("StatusZoom");
         PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");

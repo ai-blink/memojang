@@ -241,6 +241,8 @@
                         <MenuItem x:Name="FontSizeSmallMenuItem" Header="_Small" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
                         <MenuItem x:Name="FontSizeMediumMenuItem" Header="_Medium" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
                         <MenuItem x:Name="FontSizeLargeMenuItem" Header="_Large" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="FontSizeCustomMenuItem" Header="_Custom..." Click="FontSizeCustomMenuItem_Click" />
                     </MenuItem>
                 </MenuItem>
             </MenuItem>
@@ -333,18 +335,24 @@
                         <StackPanel x:Name="ViewToolbarPanel"
                                     Orientation="Horizontal"
                                     DockPanel.Dock="Left">
-                            <ToggleButton x:Name="ToolbarSmallFontButton"
-                                          Content="A-"
-                                          Style="{StaticResource ToolbarToggleButtonStyle}"
-                                          Click="ToolbarFontSizeButton_Click" />
-                            <ToggleButton x:Name="ToolbarMediumFontButton"
-                                          Content="A"
-                                          Style="{StaticResource ToolbarToggleButtonStyle}"
-                                          Click="ToolbarFontSizeButton_Click" />
-                            <ToggleButton x:Name="ToolbarLargeFontButton"
-                                          Content="A+"
-                                          Style="{StaticResource ToolbarToggleButtonStyle}"
-                                          Click="ToolbarFontSizeButton_Click" />
+                            <Button x:Name="ToolbarSmallFontButton"
+                                    Content="A-"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarFontSizeButton_Click" />
+                            <Button x:Name="ToolbarLargeFontButton"
+                                    Content="A+"
+                                    Style="{StaticResource ToolbarButtonStyle}"
+                                    Click="ToolbarFontSizeButton_Click" />
+                            <TextBox x:Name="ToolbarFontSizeTextBox"
+                                     Width="48"
+                                     Height="28"
+                                     Margin="6,2,2,2"
+                                     HorizontalContentAlignment="Right"
+                                     VerticalContentAlignment="Center"
+                                     AutomationProperties.Name="Editor font size"
+                                     KeyDown="ToolbarFontSizeTextBox_KeyDown"
+                                     LostFocus="ToolbarFontSizeTextBox_LostFocus"
+                                     shell:WindowChrome.IsHitTestVisibleInChrome="True" />
                             <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
                             <ToggleButton x:Name="ToolbarDarkModeButton"
                                           Content="Dark"

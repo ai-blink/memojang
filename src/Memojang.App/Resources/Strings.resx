@@ -15,8 +15,11 @@
   <data name="FindNoMatches" xml:space="preserve"><value>No matches</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>Previous</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>Replaced {0}</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Font size</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>_Custom...</value></data>
   <data name="FontSizeLarge" xml:space="preserve"><value>_Large</value></data>
   <data name="FontSizeMedium" xml:space="preserve"><value>_Medium</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Font size ({0:0}-{1:0})</value></data>
   <data name="FontSizeSmall" xml:space="preserve"><value>_Small</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>Line number</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>_About Memojang</value></data>
@@ -66,6 +69,7 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>Could not attach the image: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Images can be attached to Markdown documents.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Enter a line number between 1 and {0}.</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Enter a font size between {0:0} and {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Could not open the file: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Could not save the file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
@@ -87,9 +91,10 @@
   <data name="StatusUnsavedChanges" xml:space="preserve"><value>Unsaved changes</value></data>
   <data name="StatusZoom" xml:space="preserve"><value>Zoom</value></data>
   <data name="ToolbarDarkMode" xml:space="preserve"><value>Dark mode</value></data>
-  <data name="ToolbarFontLarge" xml:space="preserve"><value>Large text</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>Increase font size</value></data>
   <data name="ToolbarFontMedium" xml:space="preserve"><value>Medium text</value></data>
-  <data name="ToolbarFontSmall" xml:space="preserve"><value>Small text</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>Font size number</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>Decrease font size</value></data>
   <data name="ToolbarImage" xml:space="preserve"><value>Image</value></data>
   <data name="ToolbarPreview" xml:space="preserve"><value>Preview</value></data>
   <data name="ToolbarPrivacy" xml:space="preserve"><value>Exclude capture</value></data>
