@@ -61,6 +61,11 @@
   <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
   <data name="StatusDocumentText" xml:space="preserve"><value>Text</value></data>
   <data name="StatusUnsavedChanges" xml:space="preserve"><value>Unsaved changes</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>Zoom</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>Dark mode</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>Large text</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>Medium text</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>Small text</value></data>
   <data name="ToolbarImage" xml:space="preserve"><value>Image</value></data>
   <data name="ToolbarPreview" xml:space="preserve"><value>Preview</value></data>
   <data name="ToolbarPrivacy" xml:space="preserve"><value>Exclude capture</value></data>

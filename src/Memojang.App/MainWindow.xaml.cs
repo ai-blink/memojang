@@ -26,6 +26,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         FlowDirection = UiText.FlowDirection;
         ApplyLocalizedText();
+        InitializeViewControls();
         InitializeDocumentModeAndPreview();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;
@@ -212,9 +213,7 @@ public partial class MainWindow : Window
                 ? AppTheme.Light
                 : AppTheme.System;
 
-        AppThemeService.Apply(Application.Current, requestedTheme);
-        UpdateThemeMenuState(requestedTheme);
-        SchedulePreviewUpdate();
+        ApplyTheme(requestedTheme);
     }
 
     private void UpdateThemeMenuState(AppTheme requestedTheme)
@@ -425,7 +424,13 @@ public partial class MainWindow : Window
         CloseFindButton.Content = UiText.Get("CloseButton");
         ToolbarImageButton.Content = UiText.Get("ToolbarImage");
         ToolbarPreviewButton.Content = UiText.Get("ToolbarPreview");
+        ToolbarDarkModeButton.Content = UiText.Get("ToolbarDarkMode");
         ToolbarPrivacyButton.Content = UiText.Get("ToolbarPrivacy");
+        ToolbarSmallFontButton.ToolTip = UiText.Get("ToolbarFontSmall");
+        ToolbarMediumFontButton.ToolTip = UiText.Get("ToolbarFontMedium");
+        ToolbarLargeFontButton.ToolTip = UiText.Get("ToolbarFontLarge");
+        ToolbarDarkModeButton.ToolTip = UiText.Get("ToolbarDarkMode");
+        ZoomLabelText.Text = UiText.Get("StatusZoom");
         PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");
 
         UpdateThemeMenuState(AppThemeService.RequestedTheme);

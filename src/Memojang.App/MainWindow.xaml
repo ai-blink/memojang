@@ -99,6 +99,38 @@
             <Setter Property="Margin" Value="2,0" />
             <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         </Style>
+        <Style x:Key="ToolbarToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="MinWidth" Value="36" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Padding" Value="8,2" />
+            <Setter Property="Margin" Value="2,0" />
+            <Setter Property="shell:WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="Root"
+                                Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Root" Property="Background" Value="{DynamicResource AppMenuHoverBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Root" Property="Background" Value="{DynamicResource AppAccentBrush}" />
+                                <Setter Property="Foreground" Value="{DynamicResource AppToggleThumbBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="ToolbarSeparatorStyle" TargetType="Separator">
             <Setter Property="Template">
                 <Setter.Value>
@@ -304,6 +336,28 @@
                                     Click="ToolbarPreviewButton_Click" />
                             <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
                         </StackPanel>
+                        <StackPanel x:Name="ViewToolbarPanel"
+                                    Orientation="Horizontal"
+                                    DockPanel.Dock="Left">
+                            <ToggleButton x:Name="ToolbarSmallFontButton"
+                                          Content="A-"
+                                          Style="{StaticResource ToolbarToggleButtonStyle}"
+                                          Click="ToolbarFontSizeButton_Click" />
+                            <ToggleButton x:Name="ToolbarMediumFontButton"
+                                          Content="A"
+                                          Style="{StaticResource ToolbarToggleButtonStyle}"
+                                          Click="ToolbarFontSizeButton_Click" />
+                            <ToggleButton x:Name="ToolbarLargeFontButton"
+                                          Content="A+"
+                                          Style="{StaticResource ToolbarToggleButtonStyle}"
+                                          Click="ToolbarFontSizeButton_Click" />
+                            <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                            <ToggleButton x:Name="ToolbarDarkModeButton"
+                                          Content="Dark"
+                                          Style="{StaticResource CaptureExclusionToggleStyle}"
+                                          Click="ToolbarDarkModeButton_Click" />
+                            <Separator Style="{StaticResource ToolbarSeparatorStyle}" />
+                        </StackPanel>
                         <ToggleButton x:Name="ToolbarPrivacyButton"
                                       Content="캡처시 제외"
                                       Style="{StaticResource CaptureExclusionToggleStyle}"
@@ -382,6 +436,30 @@
             <Separator />
             <StatusBarItem>
                 <TextBlock x:Name="DocumentModeStatusText" MinWidth="72" Text="Text" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="ZoomLabelText"
+                               Text="Zoom"
+                               Margin="0,0,8,0"
+                               VerticalAlignment="Center" />
+                    <Slider x:Name="ZoomSlider"
+                            Width="140"
+                            Minimum="50"
+                            Maximum="200"
+                            TickFrequency="10"
+                            IsSnapToTickEnabled="True"
+                            Value="100"
+                            VerticalAlignment="Center"
+                            shell:WindowChrome.IsHitTestVisibleInChrome="True" />
+                    <TextBlock x:Name="ZoomStatusText"
+                               MinWidth="48"
+                               Text="100%"
+                               TextAlignment="Right"
+                               Margin="8,0,0,0"
+                               VerticalAlignment="Center" />
+                </StackPanel>
             </StatusBarItem>
             <Separator />
             <StatusBarItem HorizontalAlignment="Right">

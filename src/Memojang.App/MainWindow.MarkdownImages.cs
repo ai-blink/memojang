@@ -39,7 +39,7 @@ public partial class MainWindow
         bool isMarkdown = _documentMode == DocumentMode.Markdown;
 
         DocumentModeStatusText.Text = DocumentModeDetector.GetStatusText(_documentMode);
-        MarkdownToolbarPanel.Visibility = isMarkdown ? Visibility.Visible : Visibility.Collapsed;
+        MarkdownToolbarPanel.Visibility = Visibility.Visible;
         MarkdownMenuItem.IsEnabled = isMarkdown;
         PreviewMenuItem.IsEnabled = isMarkdown;
         ToolbarTableButton.IsEnabled = isMarkdown;
