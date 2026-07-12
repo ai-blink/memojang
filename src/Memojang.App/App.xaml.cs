@@ -1,3 +1,4 @@
+using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using Memojang.App.Localization;
@@ -16,6 +17,7 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
+        EnsureStableWorkingDirectory();
         DispatcherUnhandledException += App_DispatcherUnhandledException;
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         AppDiagnostics.Log($"Startup args=[{string.Join(", ", e.Args)}]");
@@ -46,6 +48,21 @@ public partial class App : Application
     private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
         AppDiagnostics.Log($"UnhandledException {e.ExceptionObject}");
+    }
+
+    // 파일 연결/"열기"로 실행되면 프로세스 작업 디렉토리(CWD)가 문서 폴더로 상속돼,
+    // 앱이 살아있는 동안 그 폴더 삭제가 막힌다(디렉토리는 자기 CWD를 삭제할 수 없음).
+    // 시작 시 앱 기준 폴더로 되돌려 임의 문서 폴더를 인질로 잡지 않게 한다.
+    private static void EnsureStableWorkingDirectory()
+    {
+        try
+        {
+            Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+        }
+        catch (Exception ex)
+        {
+            AppDiagnostics.Log($"EnsureStableWorkingDirectory failed {ex}");
+        }
     }
 
     private static void EnsureWindowsDirectoryEnvironment()
