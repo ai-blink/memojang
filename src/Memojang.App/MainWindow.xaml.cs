@@ -241,6 +241,10 @@ public partial class MainWindow : Window
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
         e.Cancel = !ConfirmCloseAllTabs();
+        if (!e.Cancel)
+        {
+            SavePersistentSettings();
+        }
     }
 
     private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -298,6 +302,22 @@ public partial class MainWindow : Window
         else if (isControl && e.Key == Key.F)
         {
             ShowFindPanel();
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.H)
+        {
+            ShowFindPanel();
+            ReplaceTextBox.Focus();
+            e.Handled = true;
+        }
+        else if (isControl && e.Key == Key.W && _activeDocumentTab is not null)
+        {
+            CloseDocumentTab(_activeDocumentTab);
+            e.Handled = true;
+        }
+        else if ((isControl || isControlShift) && e.Key == Key.Tab)
+        {
+            SwitchDocumentTab(isControlShift ? -1 : 1);
             e.Handled = true;
         }
         else if (isControl && e.Key == Key.G)

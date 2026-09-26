@@ -27,6 +27,58 @@ public sealed class AppSettingsStoreTests : IDisposable
     }
 
     [Fact]
+    public void SaveAndLoad_RoundTripsViewPreferences()
+    {
+        var store = new AppSettingsStore(Path.Combine(_testDirectory, "settings.json"));
+        Assert.True(store.Save(new AppSettings
+        {
+            Theme = "Dark",
+            EditorFontFamily = "Cascadia Mono",
+            EditorFontSize = 18,
+            ZoomPercent = 130,
+            WordWrap = false
+        }));
+
+        AppSettings loaded = store.Load();
+        Assert.Equal("Dark", loaded.Theme);
+        Assert.Equal("Cascadia Mono", loaded.EditorFontFamily);
+        Assert.Equal(18, loaded.EditorFontSize);
+        Assert.Equal(130, loaded.ZoomPercent);
+        Assert.False(loaded.WordWrap);
+    }
+
+    [Fact]
+    public void Load_OlderSettingsFileGetsViewDefaults()
+    {
+        string path = Path.Combine(_testDirectory, "settings.json");
+        Directory.CreateDirectory(_testDirectory);
+        File.WriteAllText(path, """{ "RecentFiles": [], "CaptureExclusionEnabled": false }""");
+
+        AppSettings loaded = new AppSettingsStore(path).Load();
+
+        Assert.Equal("System", loaded.Theme);
+        Assert.Equal(AppSettingsStore.DefaultFontFamily, loaded.EditorFontFamily);
+        Assert.Equal(AppSettingsStore.DefaultFontSize, loaded.EditorFontSize);
+        Assert.Equal(100, loaded.ZoomPercent);
+        Assert.True(loaded.WordWrap);
+    }
+
+    [Fact]
+    public void Load_ClampsOutOfRangeViewValues()
+    {
+        string path = Path.Combine(_testDirectory, "settings.json");
+        Directory.CreateDirectory(_testDirectory);
+        File.WriteAllText(path, """{ "Theme": "Neon", "EditorFontFamily": " ", "EditorFontSize": 500, "ZoomPercent": 0 }""");
+
+        AppSettings loaded = new AppSettingsStore(path).Load();
+
+        Assert.Equal("System", loaded.Theme);
+        Assert.Equal(AppSettingsStore.DefaultFontFamily, loaded.EditorFontFamily);
+        Assert.Equal(AppSettingsStore.MaxFontSize, loaded.EditorFontSize);
+        Assert.Equal(100, loaded.ZoomPercent);
+    }
+
+    [Fact]
     public void Load_NormalizesRecentFilesWithoutChangingTheirOrder()
     {
         var store = new AppSettingsStore(Path.Combine(_testDirectory, "settings.json"));

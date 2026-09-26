@@ -9,11 +9,29 @@ public sealed class AppSettings
     public List<string> RecentFiles { get; init; } = [];
 
     public bool CaptureExclusionEnabled { get; init; }
+
+    public string Theme { get; init; } = "System";
+
+    public string EditorFontFamily { get; init; } = AppSettingsStore.DefaultFontFamily;
+
+    public double EditorFontSize { get; init; } = AppSettingsStore.DefaultFontSize;
+
+    public double ZoomPercent { get; init; } = 100;
+
+    public bool WordWrap { get; init; } = true;
 }
 
 public sealed class AppSettingsStore
 {
     public const int MaxRecentFiles = 8;
+    public const string DefaultFontFamily = "Consolas";
+    public const double DefaultFontSize = 14;
+    public const double MinFontSize = 8;
+    public const double MaxFontSize = 72;
+    public const double MinZoomPercent = 50;
+    public const double MaxZoomPercent = 200;
+
+    private static readonly string[] KnownThemes = ["System", "Light", "Dark"];
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
@@ -86,7 +104,17 @@ public sealed class AppSettingsStore
         return new AppSettings
         {
             RecentFiles = recentFiles,
-            CaptureExclusionEnabled = settings.CaptureExclusionEnabled
+            CaptureExclusionEnabled = settings.CaptureExclusionEnabled,
+            Theme = KnownThemes.FirstOrDefault(theme => theme.Equals(settings.Theme, StringComparison.OrdinalIgnoreCase)) ?? "System",
+            EditorFontFamily = string.IsNullOrWhiteSpace(settings.EditorFontFamily) ? DefaultFontFamily : settings.EditorFontFamily,
+            EditorFontSize = ClampOrDefault(settings.EditorFontSize, MinFontSize, MaxFontSize, DefaultFontSize),
+            ZoomPercent = ClampOrDefault(settings.ZoomPercent, MinZoomPercent, MaxZoomPercent, 100),
+            WordWrap = settings.WordWrap
         };
+    }
+
+    private static double ClampOrDefault(double value, double min, double max, double fallback)
+    {
+        return double.IsFinite(value) && value > 0 ? Math.Clamp(value, min, max) : fallback;
     }
 }

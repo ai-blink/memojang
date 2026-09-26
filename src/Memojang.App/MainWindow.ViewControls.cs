@@ -27,6 +27,7 @@ public partial class MainWindow
     private void InitializeViewControls()
     {
         ZoomSlider.ValueChanged += ZoomSlider_ValueChanged;
+        PreviewMouseWheel += MainWindow_PreviewMouseWheel;
         SetEditorFontFamily(DefaultEditorFontFamily);
         SetEditorFontSize(MediumEditorFontSize);
         SetZoom(DefaultZoomPercent);
@@ -35,10 +36,24 @@ public partial class MainWindow
 
     private void WordWrapMenuItem_Click(object sender, RoutedEventArgs e)
     {
-        bool wrap = WordWrapMenuItem.IsChecked;
+        SetWordWrap(WordWrapMenuItem.IsChecked);
+        UpdateStatusFromEditor();
+    }
+
+    private void SetWordWrap(bool wrap)
+    {
+        WordWrapMenuItem.IsChecked = wrap;
         EditorTextBox.TextWrapping = wrap ? TextWrapping.Wrap : TextWrapping.NoWrap;
         EditorTextBox.HorizontalScrollBarVisibility = wrap ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Auto;
-        UpdateStatusFromEditor();
+    }
+
+    private void MainWindow_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+    {
+        if (Keyboard.Modifiers == ModifierKeys.Control)
+        {
+            AdjustZoom(e.Delta > 0 ? 10 : -10);
+            e.Handled = true;
+        }
     }
 
     private void ToolbarFontSizeButton_Click(object sender, RoutedEventArgs e)

@@ -71,6 +71,18 @@ public partial class MainWindow
         EditorTextBox.Focus();
     }
 
+    private void SwitchDocumentTab(int offset)
+    {
+        if (_activeDocumentTab is null || _documentTabs.Count < 2)
+        {
+            return;
+        }
+
+        int index = _documentTabs.IndexOf(_activeDocumentTab);
+        int next = ((index + offset) % _documentTabs.Count + _documentTabs.Count) % _documentTabs.Count;
+        ActivateDocumentTab(_documentTabs[next]);
+    }
+
     private void CloseDocumentTab(DocumentTabState tab)
     {
         int removedIndex = _documentTabs.IndexOf(tab);

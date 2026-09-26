@@ -2,6 +2,12 @@
 
 ## Current
 
+2026-09-27: View preferences persist and Notepad shortcuts were added.
+- `settings.json` now also stores theme, font family, font size, zoom, and word wrap. Older files get defaults, and invalid values are clamped or reset.
+- View preferences are saved whenever settings are saved and always on close.
+- New shortcuts: Ctrl+wheel zoom, Ctrl+H (replace), Ctrl+W (close tab), and Ctrl+Tab / Ctrl+Shift+Tab (switch tabs).
+- Verified with the isolated `dotnet build` (0 warnings/errors), 77 passing tests, and a launch round-trip: the app loaded Dark / Cascadia Mono / 18 / 130% / no-wrap and wrote the same values back on a graceful close. The user's settings were restored afterward.
+
 2026-09-27: Capture-exclusion status is now verified and explained.
 - After the set call, `CaptureExclusion.Apply` reads the affinity back with `GetWindowDisplayAffinity`, and the pure `Classify` function derives the status from that value.
 - The tooltip spells out what is covered and what is not (open menus/dialogs, phone cameras, other devices, same-user programs). The "limited" state explains the black-box fallback, and Win32 error 8 is shown as "not supported" instead of a memory error.
