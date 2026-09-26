@@ -1,12 +1,13 @@
 # Dev Context
 
-Date: 2026-07-07
+Date: 2026-09-27
 
 Branch: `main`
 
 Current state:
 - Remote `origin` points to `https://github.com/ai-blink/memojang.git`.
-- Latest known committed implementation baseline is `8e3ab8e feat(project): scaffold Memojang WPF app`.
+- Latest committed implementation baseline is `ad29ac6 feat(settings): persist recent files and capture-exclusion request`.
+- Feature/UX review plus similar-editor comparison is saved at `notes/research/2026-09-27-editor-parity-ux-review.md`.
 - Program plan exists at `notes/plans/2026-07-06-memojang-program-plan.md`.
 - `.NET 10 WPF` solution exists with `Memojang.sln`, `src/Memojang.App`, and `tests/Memojang.Tests`.
 - Main window now has a minimal Notepad-like shell: top menu placeholders, central text editor, and status bar placeholders for caret, change state, encoding, and line endings.
@@ -25,9 +26,13 @@ Current state:
 - External editor research is saved at `notes/research/document-editor-preview-image-patterns-2026-07-07.md`.
 - Implementation plan is saved at `notes/plans/2026-07-07-document-preview-image-plan.md`.
 
-Immediate next step:
-- Run manual Windows capture matrix checks for privacy mode and record observed tool behavior.
-- Manually check saved `.md` image drag/drop/menu insertion and `.txt` image blocking in a visible desktop session.
+Immediate next step (priority from the 2026-09-27 review):
+- P0: Detect and preserve file encoding/BOM (currently read via `File.ReadAllText`, always saved as UTF-8 without BOM; CP949 files can be corrupted) and show the real encoding in the status bar.
+- P0: Make the Word wrap menu real (it shows checked/disabled while the editor is `TextWrapping="NoWrap"`).
+- P0: Capture-exclusion honesty: re-check with `GetWindowDisplayAffinity`, explain the `WDA_MONITOR` "limited" black-box fallback, and add menu popups, Recall, RDP, and OBS rows to the manual capture matrix.
+- P1: Persist theme/font/zoom/wrap; Ctrl+wheel zoom, Ctrl+H/W/Tab; external file-change check on activation; session restore (hot exit).
+- P2: Preview italic/strike/link, localize hardcoded preview labels, table Tab navigation and row/column context menu, decide translation scope (11 locales at ~15%), toolbar `AutomationProperties.Name`.
+- Still open: manual `.md` image drag/drop/menu check and `.txt` image blocking in a visible desktop session.
 
 Known blockers:
 - No active blockers.
