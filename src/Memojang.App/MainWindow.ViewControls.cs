@@ -33,6 +33,14 @@ public partial class MainWindow
         UpdateThemeToolbarState();
     }
 
+    private void WordWrapMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        bool wrap = WordWrapMenuItem.IsChecked;
+        EditorTextBox.TextWrapping = wrap ? TextWrapping.Wrap : TextWrapping.NoWrap;
+        EditorTextBox.HorizontalScrollBarVisibility = wrap ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Auto;
+        UpdateStatusFromEditor();
+    }
+
     private void ToolbarFontSizeButton_Click(object sender, RoutedEventArgs e)
     {
         double delta = sender == ToolbarSmallFontButton ? -1 : 1;

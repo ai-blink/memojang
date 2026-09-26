@@ -80,6 +80,7 @@
   <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>Capture status unavailable</value></data>
   <data name="PrivacyStatusVisible" xml:space="preserve"><value>Capture visible</value></data>
   <data name="PromptSaveChanges" xml:space="preserve"><value>Save changes before continuing?</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>Some characters in this document cannot be saved as {0} and would be lost. Save as UTF-8 instead?</value></data>
   <data name="ReplaceAllButton" xml:space="preserve"><value>All</value></data>
   <data name="ReplaceButton" xml:space="preserve"><value>Replace</value></data>
   <data name="ReplaceLabel" xml:space="preserve"><value>Replace</value></data>

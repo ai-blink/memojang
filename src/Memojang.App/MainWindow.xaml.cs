@@ -18,7 +18,7 @@ public partial class MainWindow : Window
     private bool _isSettingEditorText;
     private bool _captureExclusionRequested;
     private string? _currentFilePath;
-    private string _encodingName = "UTF-8";
+    private TextFileEncoding _fileEncoding = TextFileEncoding.Utf8;
     private string _lineEndingName = LineEnding.Crlf;
 
     public MainWindow()
@@ -59,12 +59,9 @@ public partial class MainWindow : Window
 
     private void UpdateStatusFromEditor()
     {
-        int characterIndex = EditorTextBox.CaretIndex;
-        int lineIndex = EditorTextBox.GetLineIndexFromCharacterIndex(characterIndex);
-        int lineStartIndex = EditorTextBox.GetCharacterIndexFromLineIndex(lineIndex);
-        int column = characterIndex - lineStartIndex + 1;
+        (int line, int column) = TextLines.GetPosition(EditorTextBox.Text, EditorTextBox.CaretIndex);
 
-        UpdateStatus(new EditorStatus(lineIndex + 1, column, _hasUnsavedChanges, _encodingName, _lineEndingName));
+        UpdateStatus(new EditorStatus(line, column, _hasUnsavedChanges, _fileEncoding.DisplayName, _lineEndingName));
     }
 
     private void UpdateStatus(EditorStatus status)
@@ -354,7 +351,7 @@ public partial class MainWindow : Window
         ApplyCaptureExclusion();
     }
 
-    private void SetEditorText(string text, bool hasUnsavedChanges)
+    private void SetEditorText(string text, bool hasUnsavedChanges, TextFileEncoding fileEncoding)
     {
         _isSettingEditorText = true;
         EditorTextBox.Text = text;
@@ -362,7 +359,7 @@ public partial class MainWindow : Window
         _isSettingEditorText = false;
 
         _hasUnsavedChanges = hasUnsavedChanges;
-        _encodingName = "UTF-8";
+        _fileEncoding = fileEncoding;
         _lineEndingName = LineEnding.Detect(text);
         UpdateDocumentModeFromPath();
         PersistActiveDocumentState();

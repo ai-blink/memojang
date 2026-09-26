@@ -18,11 +18,11 @@ public partial class MainWindow
         try
         {
             AppDiagnostics.Log($"OpenDocument sync start path={filePath}");
-            string text = File.ReadAllText(filePath);
+            DecodedText decoded = TextFileCodec.Read(filePath);
             _currentFilePath = filePath;
-            SetEditorText(text, hasUnsavedChanges: false);
+            SetEditorText(decoded.Text, hasUnsavedChanges: false, decoded.Encoding);
             AddRecentFile(filePath);
-            AppDiagnostics.Log($"OpenDocument sync success path={filePath} length={text.Length}");
+            AppDiagnostics.Log($"OpenDocument sync success path={filePath} length={decoded.Text.Length} encoding={decoded.Encoding.DisplayName}");
             return true;
         }
         catch (IOException ex)
@@ -49,12 +49,12 @@ public partial class MainWindow
         try
         {
             AppDiagnostics.Log($"OpenDocument async start path={filePath}");
-            string text = await File.ReadAllTextAsync(filePath);
+            DecodedText decoded = await TextFileCodec.ReadAsync(filePath);
             _currentFilePath = filePath;
-            SetEditorText(text, hasUnsavedChanges: false);
+            SetEditorText(decoded.Text, hasUnsavedChanges: false, decoded.Encoding);
             AddRecentFile(filePath);
             Activate();
-            AppDiagnostics.Log($"OpenDocument async success path={filePath} length={text.Length}");
+            AppDiagnostics.Log($"OpenDocument async success path={filePath} length={decoded.Text.Length} encoding={decoded.Encoding.DisplayName}");
             return true;
         }
         catch (IOException ex)
@@ -131,9 +131,27 @@ public partial class MainWindow
             targetPath = dialog.FileName;
         }
 
+        TextFileEncoding saveEncoding = _fileEncoding;
+        if (!TextFileCodec.CanEncodeLosslessly(EditorTextBox.Text, saveEncoding))
+        {
+            // Never drop characters silently: an ANSI file that gained non-representable text is saved as UTF-8 only with consent.
+            var answer = MessageBox.Show(
+                this,
+                UiText.Format("PromptEncodingLossy", saveEncoding.DisplayName),
+                "Memojang",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Warning);
+            if (answer != MessageBoxResult.OK)
+            {
+                return false;
+            }
+
+            saveEncoding = TextFileEncoding.Utf8;
+        }
+
         try
         {
-            File.WriteAllText(targetPath, EditorTextBox.Text, new System.Text.UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+            TextFileCodec.Write(targetPath, EditorTextBox.Text, saveEncoding);
         }
         catch (IOException ex)
         {
@@ -150,7 +168,7 @@ public partial class MainWindow
 
         _currentFilePath = targetPath;
         _hasUnsavedChanges = false;
-        _encodingName = "UTF-8";
+        _fileEncoding = saveEncoding;
         _lineEndingName = LineEnding.Detect(EditorTextBox.Text);
         UpdateDocumentModeFromPath();
         PersistActiveDocumentState();

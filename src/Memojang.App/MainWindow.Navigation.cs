@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Memojang.App.Localization;
+using Memojang.App.Shell;
 
 namespace Memojang.App;
 
@@ -15,7 +16,7 @@ public partial class MainWindow
 
     private void ShowGoToLineDialog()
     {
-        int currentLine = EditorTextBox.GetLineIndexFromCharacterIndex(EditorTextBox.CaretIndex) + 1;
+        int currentLine = TextLines.GetPosition(EditorTextBox.Text, EditorTextBox.CaretIndex).Line;
         var lineBox = new TextBox
         {
             Width = 220,
@@ -99,7 +100,7 @@ public partial class MainWindow
 
     private bool TryReadLineNumber(string text, out int lineNumber)
     {
-        int maxLine = Math.Max(1, EditorTextBox.LineCount);
+        int maxLine = TextLines.Count(EditorTextBox.Text);
         if (int.TryParse(text, NumberStyles.Integer, CultureInfo.CurrentCulture, out lineNumber)
             && lineNumber >= 1
             && lineNumber <= maxLine)
@@ -114,10 +115,9 @@ public partial class MainWindow
 
     private void GoToLineNumber(int lineNumber)
     {
-        int lineIndex = Math.Clamp(lineNumber - 1, 0, Math.Max(0, EditorTextBox.LineCount - 1));
-        int characterIndex = EditorTextBox.GetCharacterIndexFromLineIndex(lineIndex);
+        int characterIndex = TextLines.GetLineStartIndex(EditorTextBox.Text, lineNumber);
         EditorTextBox.Focus();
-        EditorTextBox.CaretIndex = Math.Clamp(characterIndex, 0, EditorTextBox.Text.Length);
-        EditorTextBox.ScrollToLine(lineIndex);
+        EditorTextBox.CaretIndex = characterIndex;
+        EditorTextBox.ScrollToLine(EditorTextBox.GetLineIndexFromCharacterIndex(characterIndex));
     }
 }

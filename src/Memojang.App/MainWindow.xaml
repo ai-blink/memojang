@@ -247,7 +247,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem x:Name="ViewMenuItem" Header="_View" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
-                <MenuItem x:Name="WordWrapMenuItem" Header="_Word wrap" IsCheckable="True" IsChecked="True" IsEnabled="False" />
+                <MenuItem x:Name="WordWrapMenuItem" Header="_Word wrap" IsCheckable="True" IsChecked="True" Click="WordWrapMenuItem_Click" />
                 <MenuItem x:Name="StatusBarMenuItem" Header="_Status bar" IsCheckable="True" IsChecked="True" IsEnabled="False" />
                 <Separator />
                 <MenuItem x:Name="ZoomMenuItem" Header="_Zoom">
@@ -475,14 +475,14 @@
                      FontFamily="Consolas"
                      FontSize="14"
                      Foreground="{DynamicResource AppEditorForegroundBrush}"
-                     HorizontalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Disabled"
                      Padding="12"
                      SpellCheck.IsEnabled="False"
                      TextChanged="EditorTextBox_TextChanged"
                      Drop="EditorTextBox_Drop"
                      PreviewDragOver="EditorTextBox_PreviewDragOver"
                      SelectionChanged="EditorTextBox_SelectionChanged"
-                     TextWrapping="NoWrap"
+                     TextWrapping="Wrap"
                      VerticalScrollBarVisibility="Auto" />
 
             <Border x:Name="PreviewPane"

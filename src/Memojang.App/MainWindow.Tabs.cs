@@ -44,7 +44,7 @@ public partial class MainWindow
         _activeDocumentTab = tab;
         _currentFilePath = tab.FilePath;
         _hasUnsavedChanges = tab.HasUnsavedChanges;
-        _encodingName = tab.EncodingName;
+        _fileEncoding = tab.FileEncoding;
         _lineEndingName = tab.LineEndingName;
         _documentMode = tab.Mode;
 
@@ -152,7 +152,7 @@ public partial class MainWindow
         _activeDocumentTab.Text = EditorTextBox.Text;
         _activeDocumentTab.FilePath = _currentFilePath;
         _activeDocumentTab.HasUnsavedChanges = _hasUnsavedChanges;
-        _activeDocumentTab.EncodingName = _encodingName;
+        _activeDocumentTab.FileEncoding = _fileEncoding;
         _activeDocumentTab.LineEndingName = _lineEndingName;
         _activeDocumentTab.Mode = _documentMode;
         PersistActiveDocumentSelection();
@@ -346,7 +346,7 @@ public partial class MainWindow
         public string UntitledName { get; init; } = "Untitled.txt";
         public string? FilePath { get; set; }
         public bool HasUnsavedChanges { get; set; }
-        public string EncodingName { get; set; } = "UTF-8";
+        public TextFileEncoding FileEncoding { get; set; } = TextFileEncoding.Utf8;
         public string LineEndingName { get; set; } = LineEnding.Crlf;
         public DocumentMode Mode { get; set; } = DocumentMode.PlainText;
         public int CaretIndex { get; set; }

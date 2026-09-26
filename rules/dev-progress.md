@@ -2,6 +2,15 @@
 
 ## Current
 
+2026-09-27: Encoding preservation and a real word-wrap toggle are complete.
+- Files are read as bytes and detected in order: BOM (UTF-8/UTF-16 LE/BE), then strict UTF-8, then the system ANSI code page (for example CP949).
+- Saving reuses the detected encoding and BOM. If the text no longer fits the ANSI code page, the user is asked before switching to UTF-8, so characters are never dropped silently.
+- The status bar shows the real encoding.
+- View > Word wrap now toggles wrapping; it defaults to on, like Notepad.
+- The status bar caret position and go-to-line use logical lines via `Shell/TextLines`, so wrapping does not change line numbers.
+- Verified with `dotnet build .\Memojang.sln --artifacts-path .\artifacts\build-verify -p:UseAppHost=false` (0 warnings/errors), `dotnet test` (68 passing, including CP949/UTF-8 BOM/UTF-16 byte-for-byte round-trips), and a launch smoke that opened a CP949 sample and logged `encoding=ANSI (949)` with the correct length.
+- The default Debug output was locked by a running user instance, so the build used the isolated artifacts path.
+
 2026-07-10: Recent files and capture-exclusion preference now persist across app restarts in `%LOCALAPPDATA%\Memojang\settings.json`. The settings loader keeps up to eight ordered, case-insensitive unique recent paths, safely falls back when the file is missing or invalid, and restores the capture-exclusion request before the window handle applies the native status. The capture controls now represent the saved user request while the status bar continues to report the actual Windows protection result. Verified with focused settings tests, `dotnet build .\Memojang.sln --artifacts-path .\artifacts\build-settings-persistence -p:UseAppHost=false` with zero warnings/errors, and `dotnet test .\Memojang.sln --no-restore --artifacts-path .\artifacts\build-settings-persistence -p:UseAppHost=false` with 54 passing tests.
 
 2026-07-09: File/Edit/View menu expansion is complete. File now exposes recent files, save all, new tab, new txt, and new Markdown flows backed by a minimal multi-tab document state; Edit now exposes visible find/previous find, select all, go-to-line, and font/font-size settings; View now exposes zoom in/out/reset while the status zoom slider remains synchronized. Verified with `dotnet build .\Memojang.sln`, `dotnet test .\Memojang.sln` with 51 passing tests, and a short `Memojang.App.exe` launch smoke. The first build attempt was blocked by an already-running `Memojang.App (18040)` locking the Debug exe; that process was stopped and the clean build passed.
