@@ -9,8 +9,6 @@ namespace Memojang.App;
 
 public partial class MainWindow
 {
-    private const int MaxRecentFiles = 8;
-
     private readonly List<DocumentTabState> _documentTabs = [];
     private readonly List<string> _recentFilePaths = [];
     private DocumentTabState? _activeDocumentTab;
@@ -259,12 +257,15 @@ public partial class MainWindow
         _recentFilePaths.RemoveAll(path => path.Equals(fullPath, StringComparison.OrdinalIgnoreCase));
         _recentFilePaths.Insert(0, fullPath);
 
-        if (_recentFilePaths.Count > MaxRecentFiles)
+        if (_recentFilePaths.Count > AppSettingsStore.MaxRecentFiles)
         {
-            _recentFilePaths.RemoveRange(MaxRecentFiles, _recentFilePaths.Count - MaxRecentFiles);
+            _recentFilePaths.RemoveRange(
+                AppSettingsStore.MaxRecentFiles,
+                _recentFilePaths.Count - AppSettingsStore.MaxRecentFiles);
         }
 
         UpdateRecentFilesMenu();
+        SavePersistentSettings();
     }
 
     private void UpdateRecentFilesMenu()
@@ -299,6 +300,7 @@ public partial class MainWindow
         {
             _recentFilePaths.Remove(filePath);
             UpdateRecentFilesMenu();
+            SavePersistentSettings();
             MessageBox.Show(this, UiText.Format("MessageOpenFileFailed", filePath), "Memojang", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }

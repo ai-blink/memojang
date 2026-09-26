@@ -16,7 +16,7 @@ public partial class MainWindow : Window
 {
     private bool _hasUnsavedChanges;
     private bool _isSettingEditorText;
-    private bool _captureExclusionEnabled;
+    private bool _captureExclusionRequested;
     private string? _currentFilePath;
     private string _encodingName = "UTF-8";
     private string _lineEndingName = LineEnding.Crlf;
@@ -28,6 +28,7 @@ public partial class MainWindow : Window
         ApplyLocalizedText();
         InitializeViewControls();
         InitializeDocumentModeAndPreview();
+        InitializePersistentSettings();
         InitializeTabs();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;
