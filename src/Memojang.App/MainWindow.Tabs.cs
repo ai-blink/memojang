@@ -1,5 +1,6 @@
 using System.IO;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Memojang.App.Localization;
@@ -246,6 +247,7 @@ public partial class MainWindow
             Padding = new Thickness(4, 0, 8, 0),
             ToolTip = UiText.Get("CloseButton")
         };
+        AutomationProperties.SetName(closeButton, UiText.Get("CloseButton"));
         closeButton.Click += (_, e) =>
         {
             e.Handled = true;

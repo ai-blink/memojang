@@ -169,29 +169,24 @@
                         <StackPanel x:Name="TabStripPanel" Orientation="Horizontal" Margin="8,6,0,0" />
                     </ScrollViewer>
                     <Button Grid.Column="1"
+                            x:Name="NewDocumentButton"
                             Content="+"
-                            AutomationProperties.Name="New document"
-                            ToolTip="New document"
                             Style="{StaticResource TopBarButtonStyle}"
                             Margin="12,4,0,0"
                             Click="NewTabMenuItem_Click" />
                     <StackPanel Grid.Column="2"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                        <Button Content="—"
-                                AutomationProperties.Name="Minimize"
-                                ToolTip="Minimize"
+                        <Button x:Name="MinimizeWindowButton"
+                                Content="—"
                                 Style="{StaticResource TopBarButtonStyle}"
                                 Click="MinimizeWindowButton_Click" />
                         <Button x:Name="MaximizeRestoreButton"
                                 Content="□"
-                                AutomationProperties.Name="Maximize or restore"
-                                ToolTip="Maximize or restore"
                                 Style="{StaticResource TopBarButtonStyle}"
                                 Click="MaximizeRestoreWindowButton_Click" />
-                        <Button Content="×"
-                                AutomationProperties.Name="Close"
-                                ToolTip="Close"
+                        <Button x:Name="CloseWindowButton"
+                                Content="×"
                                 Style="{StaticResource WindowCloseButtonStyle}"
                                 Click="ExitMenuItem_Click" />
                     </StackPanel>
@@ -248,7 +243,7 @@
             </MenuItem>
             <MenuItem x:Name="ViewMenuItem" Header="_View" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="WordWrapMenuItem" Header="_Word wrap" IsCheckable="True" IsChecked="True" Click="WordWrapMenuItem_Click" />
-                <MenuItem x:Name="StatusBarMenuItem" Header="_Status bar" IsCheckable="True" IsChecked="True" IsEnabled="False" />
+                <MenuItem x:Name="StatusBarMenuItem" Header="_Status bar" IsCheckable="True" IsChecked="True" Click="StatusBarMenuItem_Click" />
                 <Separator />
                 <MenuItem x:Name="ZoomMenuItem" Header="_Zoom">
                     <MenuItem x:Name="ZoomInMenuItem" Header="Zoom _in" InputGestureText="Ctrl++" Click="ZoomInMenuItem_Click" />
@@ -402,7 +397,7 @@
             </DockPanel>
         </Border>
 
-        <StatusBar DockPanel.Dock="Bottom"
+        <StatusBar x:Name="MainStatusBar" DockPanel.Dock="Bottom"
                    MinHeight="28"
                    Background="{DynamicResource AppControlBrush}"
                    Foreground="{DynamicResource AppTextBrush}">

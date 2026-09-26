@@ -40,6 +40,11 @@ public partial class MainWindow
         UpdateStatusFromEditor();
     }
 
+    private void StatusBarMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        MainStatusBar.Visibility = StatusBarMenuItem.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+    }
+
     private void SetWordWrap(bool wrap)
     {
         WordWrapMenuItem.IsChecked = wrap;

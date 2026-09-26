@@ -102,6 +102,16 @@
   <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>글자 크기 숫자 입력</value></data>
   <data name="ToolbarFontSmall" xml:space="preserve"><value>글자 크기 1 줄이기</value></data>
   <data name="ToolbarImage" xml:space="preserve"><value>이미지</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>새 문서</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>최소화</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>최대화 또는 이전 크기로</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>제목</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>글머리 목록</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>굵게</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>기울임</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>취소선</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>링크</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>표 삽입</value></data>
   <data name="ToolbarPreview" xml:space="preserve"><value>미리 보기</value></data>
   <data name="ToolbarPrivacy" xml:space="preserve"><value>캡처시 제외</value></data>
   <data name="OkButton" xml:space="preserve"><value>확인</value></data>

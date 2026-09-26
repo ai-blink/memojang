@@ -102,6 +102,16 @@
   <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>Font size number</value></data>
   <data name="ToolbarFontSmall" xml:space="preserve"><value>Decrease font size</value></data>
   <data name="ToolbarImage" xml:space="preserve"><value>Image</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>New document</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>Minimize</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>Maximize or restore</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>Heading</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>Bulleted list</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>Bold</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>Italic</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>Strikethrough</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>Link</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>Insert table</value></data>
   <data name="ToolbarPreview" xml:space="preserve"><value>Preview</value></data>
   <data name="ToolbarPrivacy" xml:space="preserve"><value>Exclude capture</value></data>
   <data name="OkButton" xml:space="preserve"><value>OK</value></data>

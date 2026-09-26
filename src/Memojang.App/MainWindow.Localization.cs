@@ -1,3 +1,5 @@
+using System.Windows;
+using System.Windows.Automation;
 using Memojang.App.Localization;
 using Memojang.App.Theme;
 
@@ -67,14 +69,36 @@ public partial class MainWindow
         ToolbarPreviewButton.Content = UiText.Get("ToolbarPreview");
         ToolbarDarkModeButton.Content = UiText.Get("ToolbarDarkMode");
         ToolbarPrivacyButton.Content = UiText.Get("ToolbarPrivacy");
-        ToolbarSmallFontButton.ToolTip = UiText.Get("ToolbarFontSmall");
-        ToolbarLargeFontButton.ToolTip = UiText.Get("ToolbarFontLarge");
-        ToolbarFontSizeTextBox.ToolTip = UiText.Get("ToolbarFontSizeNumber");
-        ToolbarDarkModeButton.ToolTip = UiText.Get("ToolbarDarkMode");
+        // Glyph buttons ("H1", "B", ...) need a spoken name; WPF would otherwise read the glyph itself.
+        Describe(ToolbarHeadingButton, "ToolbarHeading");
+        Describe(ToolbarListButton, "ToolbarList");
+        Describe(ToolbarBoldButton, "ToolbarBold");
+        Describe(ToolbarItalicButton, "ToolbarItalic");
+        Describe(ToolbarStrikeButton, "ToolbarStrike");
+        Describe(ToolbarLinkButton, "ToolbarLink");
+        Describe(ToolbarTableButton, "ToolbarTable");
+        Describe(ToolbarImageButton, "ToolbarImage");
+        Describe(ToolbarPreviewButton, "ToolbarPreview");
+        Describe(ToolbarSmallFontButton, "ToolbarFontSmall");
+        Describe(ToolbarLargeFontButton, "ToolbarFontLarge");
+        Describe(ToolbarFontSizeTextBox, "ToolbarFontSizeNumber");
+        Describe(ToolbarDarkModeButton, "ToolbarDarkMode");
+        Describe(ToolbarPrivacyButton, "ToolbarPrivacy");
+        Describe(NewDocumentButton, "WindowNewDocument");
+        Describe(MinimizeWindowButton, "WindowMinimize");
+        Describe(MaximizeRestoreButton, "WindowMaximizeRestore");
+        Describe(CloseWindowButton, "CloseButton");
         ZoomLabelText.Text = UiText.Get("StatusZoom");
         PrivacyStatusText.Text = UiText.Get("PrivacyStatusVisible");
 
         UpdateThemeMenuState(AppThemeService.RequestedTheme);
         UpdateRecentFilesMenu();
+    }
+
+    private static void Describe(FrameworkElement element, string resourceKey)
+    {
+        string text = UiText.Get(resourceKey);
+        element.ToolTip = text;
+        AutomationProperties.SetName(element, text);
     }
 }
