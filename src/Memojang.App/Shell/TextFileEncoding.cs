@@ -30,6 +30,8 @@ public static class TextFileCodec
     private static readonly UTF8Encoding StrictUtf8 = new(false, throwOnInvalidBytes: true);
     private static bool _codePagesRegistered;
 
+    public static int SystemAnsiCodePage => GetSystemAnsiCodePage();
+
     public static DecodedText Decode(byte[] bytes) => Decode(bytes, GetSystemAnsiCodePage());
 
     public static DecodedText Decode(byte[] bytes, int fallbackAnsiCodePage)

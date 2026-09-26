@@ -107,6 +107,10 @@
   <data name="WindowNewDocument" xml:space="preserve"><value>새 문서</value></data>
   <data name="WindowMinimize" xml:space="preserve"><value>최소화</value></data>
   <data name="WindowMaximizeRestore" xml:space="preserve"><value>최대화 또는 이전 크기로</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>클릭해서 저장할 인코딩 선택</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>클릭해서 줄 끝 변환</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0}(으)로 저장</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0}(으)로 변환</value></data>
   <data name="ContextTable" xml:space="preserve"><value>표(_T)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>아래에 행 추가</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>행 삭제</value></data>

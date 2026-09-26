@@ -25,6 +25,20 @@ public static class LineEnding
         return Crlf;
     }
 
+    public static string ToValue(string lineEndingName) => lineEndingName switch
+    {
+        Lf => "\n",
+        Cr => "\r",
+        _ => "\r\n"
+    };
+
+    public static string Normalize(string text, string lineEndingName)
+    {
+        string unified = text.Replace("\r\n", "\n", StringComparison.Ordinal).Replace('\r', '\n');
+        string value = ToValue(lineEndingName);
+        return value == "\n" ? unified : unified.Replace("\n", value, StringComparison.Ordinal);
+    }
+
     private static int Count(string text, string value)
     {
         int count = 0;

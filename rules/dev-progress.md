@@ -2,6 +2,12 @@
 
 ## Current
 
+2026-09-27: Line endings are preserved while editing, and the status bar has encoding and line-ending menus.
+- Enter and paste use the document's line ending, so an LF file no longer gains CRLF (WPF defaults to CRLF).
+- Clicking the encoding status picks the save encoding (UTF-8, UTF-8 BOM, UTF-16 LE/BE, ANSI).
+- Clicking the line-ending status converts the whole text as one undo step (`LineEnding.Normalize`).
+- Verified with the isolated `dotnet build` (0 warnings/errors), 103 passing tests, and a real-app check: in an LF file, Ctrl+End, text, Enter, text, and Ctrl+S saved with 0 CR bytes.
+
 2026-09-27: Source-level table editing was added.
 - `Shell/MarkdownTableEditor` and `TableRegion` re-align pipe tables (Hangul/CJK counted as double width), move between cells, add/delete rows and columns, and set column alignment.
 - Only the table's own text range is replaced, through the editor selection, so outside text and line endings are untouched and each edit is one undo step.

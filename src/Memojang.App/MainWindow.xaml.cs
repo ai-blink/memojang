@@ -30,6 +30,7 @@ public partial class MainWindow : Window
         InitializeDocumentModeAndPreview();
         InitializePersistentSettings();
         InitializeTableEditing();
+        InitializeLineEndingAndEncodingControls();
         InitializeTabs();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;
@@ -424,15 +425,7 @@ public partial class MainWindow : Window
         };
     }
 
-    private string GetLineEndingValue()
-    {
-        return _lineEndingName switch
-        {
-            LineEnding.Lf => "\n",
-            LineEnding.Cr => "\r",
-            _ => "\r\n"
-        };
-    }
+    private string GetLineEndingValue() => LineEnding.ToValue(_lineEndingName);
 
     private void InsertTimeDate()
     {
