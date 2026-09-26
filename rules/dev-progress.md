@@ -2,6 +2,16 @@
 
 ## Current
 
+2026-09-27: Locale override and RTL editor fix.
+- `MEMOJANG_UI_CULTURE=<lang>` forces a supported UI language for testing. Unknown or unsupported values fall back to the Windows display language.
+- Screenshots of ar/ja/ru/fr/id showed an RTL bug: in Arabic the editor itself turned RTL, which reversed the Markdown source and shaped digits (1 2 → ١ ٢).
+  - The editor and preview are now always LeftToRight with European digits, while the UI chrome stays RTL.
+  - ar `MenuMarkdown` gets a trailing LRM so it no longer renders as `(Markdown(M`.
+- ru Alt+F opened the File menu with distinct access keys.
+- ja kana look spaced only because the Korean OS falls back to Malgun Gothic. A native Japanese UI font avoids this, so it was left unchanged (setting the window Language did not change it).
+- Capture tip: `PrintWindow` returns RTL windows mirrored, so flip the image for review.
+- Verified with the isolated `dotnet build` (0 warnings/errors) and 139 passing tests.
+
 2026-09-27: Translation review fixes applied.
 - Three subagent reviews (ja/zh/id, es/fr/pt/ru, ar/hi/bn) found mostly access-key collisions. Some were inherited from the English source (New tab/New text = T, Cut/Time-Date = T, Paste/Find previous = P, context Cut/Table = T); others came from translation (worst: ru, fr, id).
 - `AccessKeyCollisionTests` now checks every menu group and the editor context menu for all 12 resource sets, and all collisions are fixed (en: New t_ext, Find pre_vious, Time/_Date, Ta_ble).

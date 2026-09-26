@@ -462,7 +462,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBox x:Name="EditorTextBox"
-                    Grid.Column="0"
+                    Grid.Column="0" FlowDirection="LeftToRight" NumberSubstitution.Substitution="European"
                     AcceptsReturn="True"
                     AcceptsTab="True"
                      AllowDrop="True"
@@ -488,6 +488,7 @@
                     BorderThickness="1,0,0,0"
                     Visibility="Collapsed">
                 <FlowDocumentScrollViewer x:Name="PreviewViewer"
+                                          FlowDirection="LeftToRight" NumberSubstitution.Substitution="European"
                                           IsToolBarVisible="False"
                                           Padding="18" />
             </Border>

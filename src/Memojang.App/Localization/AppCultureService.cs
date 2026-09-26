@@ -20,14 +20,37 @@ public static class AppCultureService
         "zh"
     };
 
+    public const string OverrideVariable = "MEMOJANG_UI_CULTURE";
+
     public static CultureInfo ApplySystemCulture()
     {
-        CultureInfo culture = SelectSupportedCulture(CultureInfo.CurrentUICulture);
+        CultureInfo culture = SelectSupportedCulture(
+            ResolveRequestedCulture(Environment.GetEnvironmentVariable(OverrideVariable), CultureInfo.CurrentUICulture));
         CultureInfo.CurrentCulture = culture;
         CultureInfo.CurrentUICulture = culture;
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
         return culture;
+    }
+
+    // Lets testers view any locale (e.g. RTL Arabic) without changing the Windows display language.
+    public static CultureInfo ResolveRequestedCulture(string? overrideName, CultureInfo systemCulture)
+    {
+        if (string.IsNullOrWhiteSpace(overrideName))
+        {
+            return systemCulture;
+        }
+
+        try
+        {
+            // ICU accepts almost any tag, so only honor overrides for languages Memojang actually ships.
+            CultureInfo candidate = CultureInfo.GetCultureInfo(overrideName.Trim());
+            return SupportedLanguages.Contains(candidate.TwoLetterISOLanguageName) ? candidate : systemCulture;
+        }
+        catch (CultureNotFoundException)
+        {
+            return systemCulture;
+        }
     }
 
     public static CultureInfo SelectSupportedCulture(CultureInfo requestedCulture)

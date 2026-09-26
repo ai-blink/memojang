@@ -230,6 +230,19 @@ public class ScaffoldTests
         Assert.Equal(expected, selected.Name);
     }
 
+    [Theory]
+    [InlineData("ar", "ar")]
+    [InlineData(" ja-JP ", "ja-JP")]
+    [InlineData(null, "ko-KR")]
+    [InlineData("", "ko-KR")]
+    [InlineData("not-a-culture-xyz", "ko-KR")]
+    public void AppCultureService_OverrideVariableWinsOnlyWhenValid(string? overrideName, string expected)
+    {
+        CultureInfo resolved = AppCultureService.ResolveRequestedCulture(overrideName, CultureInfo.GetCultureInfo("ko-KR"));
+
+        Assert.Equal(expected, resolved.Name);
+    }
+
     [Fact]
     public void UiText_UsesCultureSpecificResource()
     {

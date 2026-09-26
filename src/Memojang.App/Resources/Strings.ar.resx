@@ -40,7 +40,7 @@
   <data name="MenuHelp" xml:space="preserve"><value>مساعدة(_H)</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>إدراج جدول(_T)</value></data>
   <data name="MenuInsertImage" xml:space="preserve"><value>إدراج صورة(_I)...</value></data>
-  <data name="MenuMarkdown" xml:space="preserve"><value>Markdown(_M)</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>Markdown(_M)‎</value></data>
   <data name="MenuMarkdownPreview" xml:space="preserve"><value>معاينة Markdown(_M)</value></data>
   <data name="MenuNew" xml:space="preserve"><value>جديد(_N)</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>Markdown جديد(_M)</value></data>
