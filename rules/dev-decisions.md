@@ -33,3 +33,5 @@
 - D-011: V1 keeps `.txt` as plain text and enables image attachment only for `.md`/`.markdown` documents.
 - D-012: V1 Markdown images use a document-local sidecar assets folder with relative links; custom Memojang package extensions remain V2 candidates.
 - D-013: Markdown source remains unchanged for preview-only polish; list markers, fenced Markdown box rendering, emphasis styling, and empty-heading handling are renderer behavior only.
+- D-014: Files are saved in the encoding they were opened with. Detection order is BOM, then strict UTF-8, then the system ANSI code page; new documents are UTF-8 without BOM. Switching an ANSI document to UTF-8 because of non-representable characters requires user consent.
+- D-015: Word wrap defaults to on like Notepad. Status bar and go-to-line always use logical file lines, not WPF visual lines.
