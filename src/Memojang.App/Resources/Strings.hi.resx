@@ -4,19 +4,136 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="MenuOpen" xml:space="preserve"><value>खोलें(_O)...</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>बंद करें</value></data>
+  <data name="DialogOpenTitle" xml:space="preserve"><value>खोलें</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>चित्र|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|सभी फ़ाइलें|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>पंक्ति पर जाएँ</value></data>
+  <data name="DialogSaveTitle" xml:space="preserve"><value>सहेजें</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>टेक्स्ट दस्तावेज़|*.txt|Markdown दस्तावेज़|*.md;*.markdown|सभी फ़ाइलें|*.*</value></data>
+  <data name="FindLabel" xml:space="preserve"><value>ढूँढें</value></data>
+  <data name="FindNextButton" xml:space="preserve"><value>आगे</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>कोई मिलान नहीं</value></data>
-  <data name="StatusUnsavedChanges" xml:space="preserve"><value>सहेजे न गए परिवर्तन</value></data>
-  <data name="MenuFile" xml:space="preserve"><value>फ़ाइल(_F)</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>सिस्टम(_S)</value></data>
-  <data name="PrivacyStatusVisible" xml:space="preserve"><value>कैप्चर दृश्यमान</value></data>
-  <data name="MenuView" xml:space="preserve"><value>दृश्य(_V)</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>गहरा(_D)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>गोपनीयता(_P)</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>हल्का(_L)</value></data>
-  <data name="StatusCaret" xml:space="preserve"><value>पं {0}, स्तं {1}</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>पिछला</value></data>
+  <data name="FindReplacedCount" xml:space="preserve"><value>{0} बदले गए</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>फ़ॉन्ट आकार</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>कस्टम(_C)...</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>बड़ा(_L)</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>मध्यम(_M)</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>फ़ॉन्ट आकार ({0:0}-{1:0})</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>छोटा(_S)</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>पंक्ति संख्या</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>Memojang के बारे में(_A)</value></data>
+  <data name="MenuAddTableRow" xml:space="preserve"><value>तालिका में पंक्ति जोड़ें(_R)</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>ऐप थीम(_T)</value></data>
+  <data name="MenuCaptureExclusion" xml:space="preserve"><value>विंडो को कैप्चर से बाहर रखें(_E)</value></data>
+  <data name="MenuCopy" xml:space="preserve"><value>कॉपी करें(_C)</value></data>
+  <data name="MenuCut" xml:space="preserve"><value>काटें(_T)</value></data>
   <data name="MenuEdit" xml:space="preserve"><value>संपादन(_E)</value></data>
-  <data name="StatusNoChanges" xml:space="preserve"><value>कोई परिवर्तन नहीं</value></data>
-  <data name="PromptSaveChanges" xml:space="preserve"><value>जारी रखने से पहले परिवर्तन सहेजें?</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>बाहर निकलें(_X)</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>फ़ाइल(_F)</value></data>
+  <data name="MenuFind" xml:space="preserve"><value>ढूँढें(_F)</value></data>
+  <data name="MenuFindNext" xml:space="preserve"><value>आगे ढूँढें(_N)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>पिछला ढूँढें(_P)</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>फ़ॉन्ट(_F)</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>फ़ॉन्ट आकार(_S)</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>जाएँ(_G)...</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>सहायता(_H)</value></data>
+  <data name="MenuInsertTable" xml:space="preserve"><value>तालिका डालें(_T)</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>चित्र डालें(_I)...</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>Markdown(_M)</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>Markdown पूर्वावलोकन(_M)</value></data>
+  <data name="MenuNew" xml:space="preserve"><value>नया(_N)</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>नया Markdown(_M)</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>नया टैब(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>नया टेक्स्ट(_T)</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>कोई हाल की फ़ाइल नहीं</value></data>
+  <data name="MenuOpen" xml:space="preserve"><value>खोलें(_O)...</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>चिपकाएँ(_P)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>कैप्चर से बहिष्करण(_X)</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>हाल के(_R)</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>ज़ूम रीसेट करें(_R)</value></data>
   <data name="MenuSave" xml:space="preserve"><value>सहेजें(_S)</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>सभी सहेजें(_L)</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>इस रूप में सहेजें(_A)...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>सभी चुनें(_A)</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>सेटिंग्स(_S)</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>स्टेटस बार(_S)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>समय/तारीख(_T)</value></data>
+  <data name="MenuUndo" xml:space="preserve"><value>पूर्ववत करें(_U)</value></data>
+  <data name="MenuView" xml:space="preserve"><value>दृश्य(_V)</value></data>
+  <data name="MenuWordWrap" xml:space="preserve"><value>वर्ड रैप(_W)</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>ज़ूम(_Z)</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>ज़ूम इन करें(_I)</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>ज़ूम आउट करें(_O)</value></data>
+  <data name="MessageCursorInsideTable" xml:space="preserve"><value>पहले कर्सर को Markdown तालिका के भीतर रखें।</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>चित्र संलग्न नहीं किया जा सका: {0}</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>चित्र केवल Markdown दस्तावेज़ों में संलग्न किए जा सकते हैं।</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>1 और {0} के बीच पंक्ति संख्या दर्ज करें।</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>{0:0} और {1:0} के बीच फ़ॉन्ट आकार दर्ज करें।</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>फ़ाइल नहीं खोली जा सकी: {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>फ़ाइल सहेजी नहीं जा सकी: {0}</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>चित्र संलग्न करने से पहले इस दस्तावेज़ को Markdown के रूप में सहेजें।</value></data>
+  <data name="PrivacyStatusExcluded" xml:space="preserve"><value>कैप्चर से बाहर</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows बताता है कि यह विंडो अधिकतर स्क्रीनशॉट और स्क्रीन रिकॉर्डिंग से बाहर रखी गई है। इसमें शामिल नहीं: खुले मेनू, डायलॉग, फ़ोन कैमरे, अन्य डिवाइस, और आपके अधिकार से चल रहे प्रोग्राम।</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>केवल पुराना Windows मोड उपलब्ध है: कैप्चर में यह विंडो हटाने के बजाय एक काले बॉक्स के रूप में दिखती है।</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>इस विंडो या डिस्प्ले ड्राइवर के लिए समर्थित नहीं है।</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>कैप्चर से बाहर रखना उपलब्ध नहीं</value></data>
+  <data name="PrivacyStatusLimited" xml:space="preserve"><value>कैप्चर सीमित</value></data>
+  <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>कैप्चर रीसेट विफल</value></data>
+  <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>कैप्चर स्थिति उपलब्ध नहीं</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>कैप्चर दृश्यमान</value></data>
+  <data name="PreviewImageRemote" xml:space="preserve"><value>दूरस्थ चित्र लोड नहीं हुआ: {0}</value></data>
+  <data name="PreviewImageMissing" xml:space="preserve"><value>चित्र नहीं मिला: {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} को किसी अन्य प्रोग्राम ने बदल दिया है। क्या इसे डिस्क से फिर से लोड करें? अपने बदलाव रखने के लिए "नहीं" चुनें।</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>{0} डिस्क पर स्थानांतरित या हटाई गई है। आपका टेक्स्ट सुरक्षित है; एक प्रतिलिपि रखने के लिए इसे सहेजें।</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>जारी रखने से पहले परिवर्तन सहेजें?</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>इस दस्तावेज़ के कुछ अक्षर {0} के रूप में सहेजे नहीं जा सकते और खो जाएँगे। इसके बजाय UTF-8 के रूप में सहेजें?</value></data>
+  <data name="ReplaceAllButton" xml:space="preserve"><value>सभी</value></data>
+  <data name="ReplaceButton" xml:space="preserve"><value>बदलें</value></data>
+  <data name="ReplaceLabel" xml:space="preserve"><value>बदलें</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>पं {0}, स्तं {1}</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} अक्षर</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>कोई परिवर्तन नहीं</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>टेक्स्ट</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>सहेजे न गए परिवर्तन</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>ज़ूम</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>डार्क मोड</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>फ़ॉन्ट आकार बढ़ाएँ</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>मध्यम टेक्स्ट</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>फ़ॉन्ट आकार संख्या</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>फ़ॉन्ट आकार घटाएँ</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>चित्र</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>नया दस्तावेज़</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>छोटा करें</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>बड़ा करें या पुनर्स्थापित करें</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>सहेजते समय उपयोग होने वाला एन्कोडिंग चुनने के लिए क्लिक करें</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>लाइन एंडिंग बदलने के लिए क्लिक करें</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} के रूप में सहेजें</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} में बदलें</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>शुरू होने पर टैब और सहेजा न गया टेक्स्ट पुनर्स्थापित करें(_R)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>तालिका(_T)</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>नीचे पंक्ति जोड़ें</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>पंक्ति हटाएँ</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>बाईं ओर कॉलम डालें</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>दाईं ओर कॉलम डालें</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>कॉलम हटाएँ</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>बाईं ओर संरेखित करें</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>बीच में संरेखित करें</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>दाईं ओर संरेखित करें</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>तालिका व्यवस्थित करें</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>शीर्षक</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>बुलेटेड सूची</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>बोल्ड</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>इटैलिक</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>स्ट्राइकथ्रू</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>लिंक</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>तालिका डालें</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>पूर्वावलोकन</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>कैप्चर से बाहर रखें</value></data>
+  <data name="OkButton" xml:space="preserve"><value>ठीक है</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>गहरा(_D)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>हल्का(_L)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>सिस्टम(_S)</value></data>
+  <data name="UntitledFileName" xml:space="preserve"><value>शीर्षकहीन.txt</value></data>
 </root>

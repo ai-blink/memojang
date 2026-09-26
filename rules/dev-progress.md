@@ -2,6 +2,12 @@
 
 ## Current
 
+2026-09-27: All 11 non-English locales are fully translated.
+- ar, bn, es, fr, hi, id, ja, pt, ru, and zh went from 15 of 132 keys to all 132.
+- `MenuPrivacy` was corrected from "privacy" to "capture exclusion" in 10 locales, and missing accents were fixed in pt/es/fr.
+- `LocalizationCompletenessTests` now fails if any locale misses a key or diverges in `{n}` placeholders or `_` access keys.
+- Verified with the isolated `dotnet build` (0 warnings/errors) and 122 passing tests. Translation quality and Arabic RTL rendering have not been reviewed by a person.
+
 2026-09-27: Session restore (hot exit) was added.
 - On close, open tabs and unsaved text are written to `%LOCALAPPDATA%\Memojang\session.json` (write-then-move) instead of prompting. The next start restores them.
 - Clean file tabs store only the path and are re-read from disk. User files are never auto-saved.

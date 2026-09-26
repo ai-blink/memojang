@@ -4,19 +4,136 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="MenuOpen" xml:space="preserve"><value>開く(_O)...</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>閉じる</value></data>
+  <data name="DialogOpenTitle" xml:space="preserve"><value>開く</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>画像|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|すべてのファイル|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>行へ移動</value></data>
+  <data name="DialogSaveTitle" xml:space="preserve"><value>保存</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>テキスト文書|*.txt|Markdown 文書|*.md;*.markdown|すべてのファイル|*.*</value></data>
+  <data name="FindLabel" xml:space="preserve"><value>検索</value></data>
+  <data name="FindNextButton" xml:space="preserve"><value>次へ</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>一致なし</value></data>
-  <data name="StatusUnsavedChanges" xml:space="preserve"><value>未保存の変更</value></data>
-  <data name="MenuFile" xml:space="preserve"><value>ファイル(_F)</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>システム(_S)</value></data>
-  <data name="PrivacyStatusVisible" xml:space="preserve"><value>キャプチャ表示中</value></data>
-  <data name="MenuView" xml:space="preserve"><value>表示(_V)</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>ダーク(_D)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>プライバシー(_P)</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>ライト(_L)</value></data>
-  <data name="StatusCaret" xml:space="preserve"><value>{0} 行, {1} 列</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>前へ</value></data>
+  <data name="FindReplacedCount" xml:space="preserve"><value>{0} 件を置換しました</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>フォントサイズ</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>ユーザー設定(_C)...</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>大(_L)</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>中(_M)</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>フォントサイズ ({0:0}-{1:0})</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>小(_S)</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>行番号</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>Memojang について(_A)</value></data>
+  <data name="MenuAddTableRow" xml:space="preserve"><value>表に行を追加(_R)</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>アプリのテーマ(_T)</value></data>
+  <data name="MenuCaptureExclusion" xml:space="preserve"><value>ウィンドウをキャプチャから除外(_E)</value></data>
+  <data name="MenuCopy" xml:space="preserve"><value>コピー(_C)</value></data>
+  <data name="MenuCut" xml:space="preserve"><value>切り取り(_T)</value></data>
   <data name="MenuEdit" xml:space="preserve"><value>編集(_E)</value></data>
-  <data name="StatusNoChanges" xml:space="preserve"><value>変更なし</value></data>
-  <data name="PromptSaveChanges" xml:space="preserve"><value>続行する前に変更を保存しますか?</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>終了(_X)</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>ファイル(_F)</value></data>
+  <data name="MenuFind" xml:space="preserve"><value>検索(_F)</value></data>
+  <data name="MenuFindNext" xml:space="preserve"><value>次を検索(_N)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>前を検索(_P)</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>フォント(_F)</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>フォントサイズ(_S)</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>移動(_G)...</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>ヘルプ(_H)</value></data>
+  <data name="MenuInsertTable" xml:space="preserve"><value>表を挿入(_T)</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>画像を挿入(_I)...</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>Markdown(_M)</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>Markdown プレビュー(_M)</value></data>
+  <data name="MenuNew" xml:space="preserve"><value>新規作成(_N)</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>新しい Markdown(_M)</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>新しいタブ(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>新しいテキスト(_T)</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>最近使用したファイルはありません</value></data>
+  <data name="MenuOpen" xml:space="preserve"><value>開く(_O)...</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>貼り付け(_P)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>キャプチャ除外(_X)</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>最近使用したファイル(_R)</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>ズームをリセット(_R)</value></data>
   <data name="MenuSave" xml:space="preserve"><value>保存(_S)</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>すべて保存(_L)</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>名前を付けて保存(_A)...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>すべて選択(_A)</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>設定(_S)</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>ステータスバー(_S)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>時刻/日付(_T)</value></data>
+  <data name="MenuUndo" xml:space="preserve"><value>元に戻す(_U)</value></data>
+  <data name="MenuView" xml:space="preserve"><value>表示(_V)</value></data>
+  <data name="MenuWordWrap" xml:space="preserve"><value>右端で折り返す(_W)</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>ズーム(_Z)</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>拡大(_I)</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>縮小(_O)</value></data>
+  <data name="MessageCursorInsideTable" xml:space="preserve"><value>まず Markdown の表内にカーソルを置いてください。</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>画像を添付できませんでした: {0}</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>画像は Markdown 文書に添付できます。</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>1 から {0} までの行番号を入力してください。</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>{0:0} から {1:0} までのフォントサイズを入力してください。</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>ファイルを開けませんでした: {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>ファイルを保存できませんでした: {0}</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>画像を添付する前に、この文書を Markdown として保存してください。</value></data>
+  <data name="PrivacyStatusExcluded" xml:space="preserve"><value>キャプチャから除外中</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows によると、このウィンドウはほとんどのスクリーンショットや画面録画から除外されています。次は対象外です: 開いているメニューやダイアログ、携帯電話のカメラ、他のデバイス、同じユーザー権限で動作するプログラム。</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>古い Windows の方式のみ使用できます。キャプチャではこのウィンドウが除外されず、黒い箱として表示されます。</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>このウィンドウまたはディスプレイドライバーではサポートされていません。</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>キャプチャ除外は使用できません</value></data>
+  <data name="PrivacyStatusLimited" xml:space="preserve"><value>キャプチャ制限あり</value></data>
+  <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>キャプチャのリセットに失敗しました</value></data>
+  <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>キャプチャ状態を取得できません</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>キャプチャ表示中</value></data>
+  <data name="PreviewImageRemote" xml:space="preserve"><value>リモート画像は読み込まれません: {0}</value></data>
+  <data name="PreviewImageMissing" xml:space="preserve"><value>画像が見つかりません: {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} は他のプログラムによって変更されました。ディスクから再読み込みしますか? 編集内容を保持するには「いいえ」を選択してください。</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>{0} はディスク上で移動または削除されました。編集内容は保持されています。コピーを残すには保存してください。</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>続行する前に変更を保存しますか?</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>この文書の一部の文字は {0} として保存できず、失われます。代わりに UTF-8 で保存しますか?</value></data>
+  <data name="ReplaceAllButton" xml:space="preserve"><value>すべて</value></data>
+  <data name="ReplaceButton" xml:space="preserve"><value>置換</value></data>
+  <data name="ReplaceLabel" xml:space="preserve"><value>置換</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>{0} 行, {1} 列</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} 文字</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>変更なし</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>テキスト</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>未保存の変更</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>ズーム</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>ダークモード</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>フォントサイズを大きくする</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>中サイズのテキスト</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>フォントサイズの数値</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>フォントサイズを小さくする</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>画像</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>新規文書</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>最小化</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>最大化または元に戻す</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>クリックして保存時の文字コードを選択</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>クリックして改行コードを変換</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} で保存</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} に変換</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>起動時にタブと未保存の内容を復元する(_R)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>表(_T)</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>下に行を追加</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>行を削除</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>左に列を挿入</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>右に列を挿入</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>列を削除</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>左揃え</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>中央揃え</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>右揃え</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>表を整える</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>見出し</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>箇条書き</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>太字</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>斜体</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>取り消し線</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>リンク</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>表を挿入</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>プレビュー</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>キャプチャから除外</value></data>
+  <data name="OkButton" xml:space="preserve"><value>OK</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>ダーク(_D)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>ライト(_L)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>システム(_S)</value></data>
+  <data name="UntitledFileName" xml:space="preserve"><value>無題.txt</value></data>
 </root>

@@ -4,19 +4,136 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="MenuOpen" xml:space="preserve"><value>Buka(_O)...</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>Tutup</value></data>
+  <data name="DialogOpenTitle" xml:space="preserve"><value>Buka</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>Gambar|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|Semua file|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>Menuju baris</value></data>
+  <data name="DialogSaveTitle" xml:space="preserve"><value>Simpan</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Dokumen teks|*.txt|Dokumen Markdown|*.md;*.markdown|Semua file|*.*</value></data>
+  <data name="FindLabel" xml:space="preserve"><value>Cari</value></data>
+  <data name="FindNextButton" xml:space="preserve"><value>Berikutnya</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>Tidak ada hasil</value></data>
-  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Perubahan belum disimpan</value></data>
-  <data name="MenuFile" xml:space="preserve"><value>File(_F)</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>Sistem(_S)</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>Sebelumnya</value></data>
+  <data name="FindReplacedCount" xml:space="preserve"><value>{0} diganti</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Ukuran font</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>_Khusus...</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>_Besar</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>_Sedang</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Ukuran font ({0:0}-{1:0})</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>_Kecil</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>Nomor baris</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>Tent_ang Memojang</value></data>
+  <data name="MenuAddTableRow" xml:space="preserve"><value>Tambah ba_ris tabel</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>_Tema aplikasi</value></data>
+  <data name="MenuCaptureExclusion" xml:space="preserve"><value>_Kecualikan jendela dari tangkapan layar</value></data>
+  <data name="MenuCopy" xml:space="preserve"><value>_Salin</value></data>
+  <data name="MenuCut" xml:space="preserve"><value>Po_tong</value></data>
+  <data name="MenuEdit" xml:space="preserve"><value>_Edit</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>_Keluar</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>_File</value></data>
+  <data name="MenuFind" xml:space="preserve"><value>_Cari</value></data>
+  <data name="MenuFindNext" xml:space="preserve"><value>Cari _berikutnya</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Cari se_belumnya</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>_Font</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>_Ukuran font</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>_Menuju...</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>_Bantuan</value></data>
+  <data name="MenuInsertTable" xml:space="preserve"><value>Sisipkan _tabel</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>Sisipkan _gambar...</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>_Markdown</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>Pratinjau _Markdown</value></data>
+  <data name="MenuNew" xml:space="preserve"><value>_Baru</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>_Markdown baru</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>_Tab baru</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>_Teks baru</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>Tidak ada file terbaru</value></data>
+  <data name="MenuOpen" xml:space="preserve"><value>_Buka...</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>Tem_pel</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Pengecualian ta_ngkapan layar</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>_Terbaru</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>_Atur ulang zoom</value></data>
+  <data name="MenuSave" xml:space="preserve"><value>_Simpan</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Simpan semu_a</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>Simpan seb_agai...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>Pilih sem_ua</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>_Pengaturan</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>_Bilah status</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>_Waktu/Tanggal</value></data>
+  <data name="MenuUndo" xml:space="preserve"><value>_Urungkan</value></data>
+  <data name="MenuView" xml:space="preserve"><value>_Tampilan</value></data>
+  <data name="MenuWordWrap" xml:space="preserve"><value>_Bungkus kata</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>_Zoom</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>Zoom _masuk</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>Zoom _keluar</value></data>
+  <data name="MessageCursorInsideTable" xml:space="preserve"><value>Letakkan kursor di dalam tabel Markdown terlebih dahulu.</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>Tidak dapat melampirkan gambar: {0}</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Gambar dapat dilampirkan ke dokumen Markdown.</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Masukkan nomor baris antara 1 dan {0}.</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Masukkan ukuran font antara {0:0} dan {1:0}.</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>Tidak dapat membuka file: {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>Tidak dapat menyimpan file: {0}</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Simpan dokumen ini sebagai Markdown sebelum melampirkan gambar.</value></data>
+  <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Dikecualikan dari tangkapan layar</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows melaporkan jendela ini dikecualikan dari sebagian besar tangkapan layar dan rekaman layar. Tidak tercakup: menu dan dialog yang terbuka, kamera ponsel, perangkat lain, serta program yang berjalan sebagai pengguna yang sama.</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>Hanya mode Windows yang lebih lama yang tersedia: tangkapan layar menampilkan jendela ini sebagai kotak hitam, bukan menghilangkannya.</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>Tidak didukung untuk jendela atau driver tampilan ini.</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Pengecualian tangkapan layar tidak tersedia</value></data>
+  <data name="PrivacyStatusLimited" xml:space="preserve"><value>Tangkapan layar terbatas</value></data>
+  <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>Reset tangkapan layar gagal</value></data>
+  <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>Status tangkapan layar tidak tersedia</value></data>
   <data name="PrivacyStatusVisible" xml:space="preserve"><value>Tangkapan terlihat</value></data>
-  <data name="MenuView" xml:space="preserve"><value>Tampilan(_V)</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>Gelap(_D)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>Privasi(_P)</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>Terang(_L)</value></data>
-  <data name="StatusCaret" xml:space="preserve"><value>Brs {0}, Kol {1}</value></data>
-  <data name="MenuEdit" xml:space="preserve"><value>Edit(_E)</value></data>
-  <data name="StatusNoChanges" xml:space="preserve"><value>Tidak ada perubahan</value></data>
+  <data name="PreviewImageRemote" xml:space="preserve"><value>Gambar jarak jauh tidak dimuat: {0}</value></data>
+  <data name="PreviewImageMissing" xml:space="preserve"><value>Gambar tidak ditemukan: {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} diubah oleh program lain. Muat ulang dari disk? Pilih Tidak untuk tetap menyimpan perubahan Anda.</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>{0} telah dipindahkan atau dihapus dari disk. Teks Anda tetap tersimpan; simpan untuk menyimpan salinannya.</value></data>
   <data name="PromptSaveChanges" xml:space="preserve"><value>Simpan perubahan sebelum melanjutkan?</value></data>
-  <data name="MenuSave" xml:space="preserve"><value>Simpan(_S)</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>Beberapa karakter dalam dokumen ini tidak dapat disimpan sebagai {0} dan akan hilang. Simpan sebagai UTF-8 saja?</value></data>
+  <data name="ReplaceAllButton" xml:space="preserve"><value>Semua</value></data>
+  <data name="ReplaceButton" xml:space="preserve"><value>Ganti</value></data>
+  <data name="ReplaceLabel" xml:space="preserve"><value>Ganti</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>Brs {0}, Kol {1}</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} karakter</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>Tidak ada perubahan</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>Teks</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Perubahan belum disimpan</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>Zoom</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>Mode gelap</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>Perbesar ukuran font</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>Teks sedang</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>Angka ukuran font</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>Perkecil ukuran font</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>Gambar</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>Dokumen baru</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>Perkecil</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>Maksimalkan atau kembalikan</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>Klik untuk memilih enkode yang digunakan saat menyimpan</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>Klik untuk mengonversi akhir baris</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Simpan sebagai {0}</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>Konversi ke {0}</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>_Pulihkan tab dan teks belum disimpan saat mulai</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>_Tabel</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>Tambah baris di bawah</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>Hapus baris</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>Sisipkan kolom di kiri</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>Sisipkan kolom di kanan</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>Hapus kolom</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>Rata kiri</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>Rata tengah</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>Rata kanan</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>Rapikan tabel</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>Judul</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>Daftar berpoin</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>Tebal</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>Miring</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>Coret</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>Tautan</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>Sisipkan tabel</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>Pratinjau</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>Kecualikan dari tangkapan layar</value></data>
+  <data name="OkButton" xml:space="preserve"><value>OK</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>_Gelap</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>_Terang</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>_Sistem</value></data>
+  <data name="UntitledFileName" xml:space="preserve"><value>Tanpa judul.txt</value></data>
 </root>

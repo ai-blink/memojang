@@ -4,19 +4,136 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="MenuOpen" xml:space="preserve"><value>Открыть(_O)...</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="DialogOpenTitle" xml:space="preserve"><value>Открыть</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>Изображения|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|Все файлы|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>Перейти к строке</value></data>
+  <data name="DialogSaveTitle" xml:space="preserve"><value>Сохранить</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Текстовые документы|*.txt|Документы Markdown|*.md;*.markdown|Все файлы|*.*</value></data>
+  <data name="FindLabel" xml:space="preserve"><value>Найти</value></data>
+  <data name="FindNextButton" xml:space="preserve"><value>Далее</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>Совпадений нет</value></data>
-  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Несохраненные изменения</value></data>
-  <data name="MenuFile" xml:space="preserve"><value>Файл(_F)</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>Система(_S)</value></data>
-  <data name="PrivacyStatusVisible" xml:space="preserve"><value>Захват видим</value></data>
-  <data name="MenuView" xml:space="preserve"><value>Вид(_V)</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>Темная(_D)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>Конфиденциальность(_P)</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>Светлая(_L)</value></data>
-  <data name="StatusCaret" xml:space="preserve"><value>Стр {0}, стлб {1}</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>Назад</value></data>
+  <data name="FindReplacedCount" xml:space="preserve"><value>Заменено: {0}</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Размер шрифта</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>_Другой...</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>_Крупный</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>_Средний</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Размер шрифта ({0:0}-{1:0})</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>_Мелкий</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>Номер строки</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>_О программе Memojang</value></data>
+  <data name="MenuAddTableRow" xml:space="preserve"><value>Добавить _строку таблицы</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>_Тема приложения</value></data>
+  <data name="MenuCaptureExclusion" xml:space="preserve"><value>_Исключить окно из захвата</value></data>
+  <data name="MenuCopy" xml:space="preserve"><value>_Копировать</value></data>
+  <data name="MenuCut" xml:space="preserve"><value>_Вырезать</value></data>
   <data name="MenuEdit" xml:space="preserve"><value>Правка(_E)</value></data>
-  <data name="StatusNoChanges" xml:space="preserve"><value>Без изменений</value></data>
-  <data name="PromptSaveChanges" xml:space="preserve"><value>Сохранить изменения перед продолжением?</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>_Выход</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>Файл(_F)</value></data>
+  <data name="MenuFind" xml:space="preserve"><value>_Найти</value></data>
+  <data name="MenuFindNext" xml:space="preserve"><value>Найти _далее</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Найти _предыдущее</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>_Шрифт</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>_Размер шрифта</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>_Перейти...</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>_Справка</value></data>
+  <data name="MenuInsertTable" xml:space="preserve"><value>Вставить _таблицу</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>Вставить _изображение...</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>_Markdown</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>_Просмотр Markdown</value></data>
+  <data name="MenuNew" xml:space="preserve"><value>_Создать</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>Новый _Markdown</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>Новая _вкладка</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>Новый _текст</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>Нет недавних файлов</value></data>
+  <data name="MenuOpen" xml:space="preserve"><value>Открыть(_O)...</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>_Вставить</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Исключение из захвата(_X)</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>_Последние</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>_Сбросить масштаб</value></data>
   <data name="MenuSave" xml:space="preserve"><value>Сохранить(_S)</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Сохранить _все</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>Сохранить _как...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>Выделить _все</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>_Настройки</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>_Строка состояния</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>_Время/дата</value></data>
+  <data name="MenuUndo" xml:space="preserve"><value>_Отменить</value></data>
+  <data name="MenuView" xml:space="preserve"><value>Вид(_V)</value></data>
+  <data name="MenuWordWrap" xml:space="preserve"><value>_Перенос по словам</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>_Масштаб</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>У_величить</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>У_меньшить</value></data>
+  <data name="MessageCursorInsideTable" xml:space="preserve"><value>Сначала поместите курсор внутрь таблицы Markdown.</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>Не удалось прикрепить изображение: {0}</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Изображения можно прикреплять только к документам Markdown.</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Введите номер строки от 1 до {0}.</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Введите размер шрифта от {0:0} до {1:0}.</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>Не удалось открыть файл: {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>Не удалось сохранить файл: {0}</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Сохраните этот документ в формате Markdown, прежде чем прикреплять изображения.</value></data>
+  <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Захват исключён</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows сообщает, что это окно исключено из большинства снимков экрана и записи экрана. Не охватывается: открытые меню, диалоговые окна, камеры телефонов, другие устройства и программы, работающие от вашего имени.</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>Доступен только более старый режим Windows: на снимках это окно отображается как чёрный прямоугольник, а не пропускается.</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>Не поддерживается для этого окна или видеодрайвера.</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Исключение из захвата недоступно</value></data>
+  <data name="PrivacyStatusLimited" xml:space="preserve"><value>Захват ограничен</value></data>
+  <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>Не удалось сбросить захват</value></data>
+  <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>Состояние захвата недоступно</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>Захват виден</value></data>
+  <data name="PreviewImageRemote" xml:space="preserve"><value>Удалённое изображение не загружено: {0}</value></data>
+  <data name="PreviewImageMissing" xml:space="preserve"><value>Изображение не найдено: {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>Файл {0} был изменён другой программой. Перезагрузить его с диска? Выберите «Нет», чтобы сохранить свои изменения.</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>Файл {0} был перемещён или удалён с диска. Ваш текст сохранён; сохраните его, чтобы оставить копию.</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>Сохранить изменения перед продолжением?</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>Некоторые символы в этом документе нельзя сохранить в кодировке {0} — они будут потеряны. Сохранить в UTF-8 вместо этого?</value></data>
+  <data name="ReplaceAllButton" xml:space="preserve"><value>Все</value></data>
+  <data name="ReplaceButton" xml:space="preserve"><value>Заменить</value></data>
+  <data name="ReplaceLabel" xml:space="preserve"><value>Заменить</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>Стр {0}, стлб {1}</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} симв.</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>Без изменений</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>Текст</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Несохраненные изменения</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>Масштаб</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>Тёмный режим</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>Увеличить размер шрифта</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>Средний текст</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>Числовое значение размера шрифта</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>Уменьшить размер шрифта</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>Изображение</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>Новый документ</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>Свернуть</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>Развернуть или восстановить</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>Нажмите, чтобы выбрать кодировку для сохранения</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>Нажмите, чтобы преобразовать окончания строк</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Сохранить как {0}</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>Преобразовать в {0}</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>_Восстанавливать вкладки и несохранённый текст при запуске</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>_Таблица</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>Добавить строку ниже</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>Удалить строку</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>Вставить столбец слева</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>Вставить столбец справа</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>Удалить столбец</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>Выровнять по левому краю</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>Выровнять по центру</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>Выровнять по правому краю</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>Упорядочить таблицу</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>Заголовок</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>Маркированный список</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>Жирный</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>Курсив</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>Зачёркнутый</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>Ссылка</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>Вставить таблицу</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>Просмотр</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>Исключить из захвата</value></data>
+  <data name="OkButton" xml:space="preserve"><value>ОК</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Темная(_D)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Светлая(_L)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Система(_S)</value></data>
+  <data name="UntitledFileName" xml:space="preserve"><value>Безымянный.txt</value></data>
 </root>

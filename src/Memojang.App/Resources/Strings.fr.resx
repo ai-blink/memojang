@@ -4,19 +4,136 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="MenuOpen" xml:space="preserve"><value>Ouvrir(_O)...</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>Fermer</value></data>
+  <data name="DialogOpenTitle" xml:space="preserve"><value>Ouvrir</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|Tous les fichiers|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>Aller à la ligne</value></data>
+  <data name="DialogSaveTitle" xml:space="preserve"><value>Enregistrer</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>Documents texte|*.txt|Documents Markdown|*.md;*.markdown|Tous les fichiers|*.*</value></data>
+  <data name="FindLabel" xml:space="preserve"><value>Rechercher</value></data>
+  <data name="FindNextButton" xml:space="preserve"><value>Suivant</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>Aucune correspondance</value></data>
-  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Modifications non enregistrees</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>Précédent</value></data>
+  <data name="FindReplacedCount" xml:space="preserve"><value>{0} remplacements</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Taille de police</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>_Personnalisé...</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>_Grande</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>_Moyenne</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Taille de police ({0:0}-{1:0})</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>_Petite</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>Numéro de ligne</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>À _propos de Memojang</value></data>
+  <data name="MenuAddTableRow" xml:space="preserve"><value>Ajouter une _ligne au tableau</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>_Thème de l'application</value></data>
+  <data name="MenuCaptureExclusion" xml:space="preserve"><value>_Exclure la fenêtre de la capture</value></data>
+  <data name="MenuCopy" xml:space="preserve"><value>_Copier</value></data>
+  <data name="MenuCut" xml:space="preserve"><value>Cou_per</value></data>
+  <data name="MenuEdit" xml:space="preserve"><value>Édition(_E)</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>_Quitter</value></data>
   <data name="MenuFile" xml:space="preserve"><value>Fichier(_F)</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>Systeme(_S)</value></data>
-  <data name="PrivacyStatusVisible" xml:space="preserve"><value>Capture visible</value></data>
-  <data name="MenuView" xml:space="preserve"><value>Affichage(_V)</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>Sombre(_D)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>Confidentialite(_P)</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>Clair(_L)</value></data>
-  <data name="StatusCaret" xml:space="preserve"><value>Lig {0}, Col {1}</value></data>
-  <data name="MenuEdit" xml:space="preserve"><value>Edition(_E)</value></data>
-  <data name="StatusNoChanges" xml:space="preserve"><value>Aucune modification</value></data>
-  <data name="PromptSaveChanges" xml:space="preserve"><value>Enregistrer les modifications avant de continuer ?</value></data>
+  <data name="MenuFind" xml:space="preserve"><value>_Rechercher</value></data>
+  <data name="MenuFindNext" xml:space="preserve"><value>Rechercher le _suivant</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Rechercher le _précédent</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>_Police</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>_Taille de police</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>A_ller à...</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>_Aide</value></data>
+  <data name="MenuInsertTable" xml:space="preserve"><value>Insérer un _tableau</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>Insérer une _image...</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>_Markdown</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>A_perçu Markdown</value></data>
+  <data name="MenuNew" xml:space="preserve"><value>_Nouveau</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>Nouveau _Markdown</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>Nouvel _onglet</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>Nouveau _texte</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>Aucun fichier récent</value></data>
+  <data name="MenuOpen" xml:space="preserve"><value>Ouvrir(_O)...</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>C_oller</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Exclusion de capture(_X)</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>_Récents</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>_Réinitialiser le zoom</value></data>
   <data name="MenuSave" xml:space="preserve"><value>Enregistrer(_S)</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Enregistrer _tout</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>Enregistrer _sous...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>_Sélectionner tout</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>_Paramètres</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>_Barre d'état</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>_Heure/date</value></data>
+  <data name="MenuUndo" xml:space="preserve"><value>_Annuler</value></data>
+  <data name="MenuView" xml:space="preserve"><value>Affichage(_V)</value></data>
+  <data name="MenuWordWrap" xml:space="preserve"><value>Re_tour à la ligne automatique</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>_Zoom</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>_Zoom avant</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>Zoom a_rrière</value></data>
+  <data name="MessageCursorInsideTable" xml:space="preserve"><value>Placez d'abord le curseur dans un tableau Markdown.</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>Impossible de joindre l'image : {0}</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Les images peuvent être jointes aux documents Markdown.</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Saisissez un numéro de ligne entre 1 et {0}.</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Saisissez une taille de police entre {0:0} et {1:0}.</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>Impossible d'ouvrir le fichier : {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>Impossible d'enregistrer le fichier : {0}</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Enregistrez ce document en Markdown avant de joindre des images.</value></data>
+  <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Capture exclue</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows indique que cette fenêtre est exclue de la plupart des captures d'écran et des enregistrements d'écran. Non couverts : menus ouverts, boîtes de dialogue, appareils photo de téléphone, autres appareils et programmes exécutés sous votre compte.</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>Seul l'ancien mode Windows est disponible : les captures affichent cette fenêtre comme un rectangle noir au lieu de l'omettre.</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>Non prise en charge pour cette fenêtre ou ce pilote d'affichage.</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Exclusion de capture indisponible</value></data>
+  <data name="PrivacyStatusLimited" xml:space="preserve"><value>Capture limitée</value></data>
+  <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>Échec de la réinitialisation de la capture</value></data>
+  <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>État de la capture indisponible</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>Capture visible</value></data>
+  <data name="PreviewImageRemote" xml:space="preserve"><value>Image distante non chargée : {0}</value></data>
+  <data name="PreviewImageMissing" xml:space="preserve"><value>Image manquante : {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} a été modifié par un autre programme. Le recharger depuis le disque ? Choisissez Non pour conserver vos modifications.</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>{0} a été déplacé ou supprimé sur le disque. Votre texte est conservé ; enregistrez-le pour en garder une copie.</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>Enregistrer les modifications avant de continuer ?</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>Certains caractères de ce document ne peuvent pas être enregistrés en {0} et seraient perdus. Enregistrer en UTF-8 à la place ?</value></data>
+  <data name="ReplaceAllButton" xml:space="preserve"><value>Tout</value></data>
+  <data name="ReplaceButton" xml:space="preserve"><value>Remplacer</value></data>
+  <data name="ReplaceLabel" xml:space="preserve"><value>Remplacer</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>Lig {0}, Col {1}</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} caractères</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>Aucune modification</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>Texte</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>Modifications non enregistrées</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>Zoom</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>Mode sombre</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>Augmenter la taille de police</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>Texte moyen</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>Numéro de taille de police</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>Réduire la taille de police</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>Image</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>Nouveau document</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>Réduire</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>Agrandir ou restaurer</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>Cliquez pour choisir l'encodage utilisé lors de l'enregistrement</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>Cliquez pour convertir les fins de ligne</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Enregistrer en {0}</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convertir en {0}</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>_Restaurer les onglets et le texte non enregistré au démarrage</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>_Tableau</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>Ajouter une ligne en dessous</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>Supprimer la ligne</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>Insérer une colonne à gauche</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>Insérer une colonne à droite</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>Supprimer la colonne</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>Aligner à gauche</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>Centrer</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>Aligner à droite</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>Ranger le tableau</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>Titre</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>Liste à puces</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>Gras</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>Italique</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>Barré</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>Lien</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>Insérer un tableau</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>Aperçu</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>Exclure la capture</value></data>
+  <data name="OkButton" xml:space="preserve"><value>OK</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Sombre(_D)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Clair(_L)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Système(_S)</value></data>
+  <data name="UntitledFileName" xml:space="preserve"><value>Sans titre.txt</value></data>
 </root>

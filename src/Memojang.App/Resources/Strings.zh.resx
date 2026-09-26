@@ -4,19 +4,136 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="MenuOpen" xml:space="preserve"><value>打开(_O)...</value></data>
+  <data name="CloseButton" xml:space="preserve"><value>关闭</value></data>
+  <data name="DialogOpenTitle" xml:space="preserve"><value>打开</value></data>
+  <data name="DialogImageFilter" xml:space="preserve"><value>图片|*.png;*.jpg;*.jpeg;*.gif;*.bmp;*.webp|所有文件|*.*</value></data>
+  <data name="DialogGoToTitle" xml:space="preserve"><value>转到行</value></data>
+  <data name="DialogSaveTitle" xml:space="preserve"><value>保存</value></data>
+  <data name="DialogTextDocumentFilter" xml:space="preserve"><value>文本文档|*.txt|Markdown 文档|*.md;*.markdown|所有文件|*.*</value></data>
+  <data name="FindLabel" xml:space="preserve"><value>查找</value></data>
+  <data name="FindNextButton" xml:space="preserve"><value>下一个</value></data>
   <data name="FindNoMatches" xml:space="preserve"><value>没有匹配项</value></data>
-  <data name="StatusUnsavedChanges" xml:space="preserve"><value>未保存的更改</value></data>
-  <data name="MenuFile" xml:space="preserve"><value>文件(_F)</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>系统(_S)</value></data>
-  <data name="PrivacyStatusVisible" xml:space="preserve"><value>可被捕获</value></data>
-  <data name="MenuView" xml:space="preserve"><value>查看(_V)</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>深色(_D)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>隐私(_P)</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>浅色(_L)</value></data>
-  <data name="StatusCaret" xml:space="preserve"><value>第 {0} 行，第 {1} 列</value></data>
+  <data name="FindPreviousButton" xml:space="preserve"><value>上一个</value></data>
+  <data name="FindReplacedCount" xml:space="preserve"><value>已替换 {0} 处</value></data>
+  <data name="DialogFontSizeTitle" xml:space="preserve"><value>字号</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>自定义(_C)...</value></data>
+  <data name="FontSizeLarge" xml:space="preserve"><value>大(_L)</value></data>
+  <data name="FontSizeMedium" xml:space="preserve"><value>中(_M)</value></data>
+  <data name="FontSizeNumberLabel" xml:space="preserve"><value>字号 ({0:0}-{1:0})</value></data>
+  <data name="FontSizeSmall" xml:space="preserve"><value>小(_S)</value></data>
+  <data name="GoToLineLabel" xml:space="preserve"><value>行号</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>关于 Memojang(_A)</value></data>
+  <data name="MenuAddTableRow" xml:space="preserve"><value>添加表格行(_R)</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>应用主题(_T)</value></data>
+  <data name="MenuCaptureExclusion" xml:space="preserve"><value>从屏幕捕获中排除此窗口(_E)</value></data>
+  <data name="MenuCopy" xml:space="preserve"><value>复制(_C)</value></data>
+  <data name="MenuCut" xml:space="preserve"><value>剪切(_T)</value></data>
   <data name="MenuEdit" xml:space="preserve"><value>编辑(_E)</value></data>
-  <data name="StatusNoChanges" xml:space="preserve"><value>无更改</value></data>
-  <data name="PromptSaveChanges" xml:space="preserve"><value>继续前保存更改吗?</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>退出(_X)</value></data>
+  <data name="MenuFile" xml:space="preserve"><value>文件(_F)</value></data>
+  <data name="MenuFind" xml:space="preserve"><value>查找(_F)</value></data>
+  <data name="MenuFindNext" xml:space="preserve"><value>查找下一个(_N)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>查找上一个(_P)</value></data>
+  <data name="MenuFont" xml:space="preserve"><value>字体(_F)</value></data>
+  <data name="MenuFontSize" xml:space="preserve"><value>字号(_S)</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>转到(_G)...</value></data>
+  <data name="MenuHelp" xml:space="preserve"><value>帮助(_H)</value></data>
+  <data name="MenuInsertTable" xml:space="preserve"><value>插入表格(_T)</value></data>
+  <data name="MenuInsertImage" xml:space="preserve"><value>插入图片(_I)...</value></data>
+  <data name="MenuMarkdown" xml:space="preserve"><value>Markdown(_M)</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>Markdown 预览(_M)</value></data>
+  <data name="MenuNew" xml:space="preserve"><value>新建(_N)</value></data>
+  <data name="MenuNewMarkdown" xml:space="preserve"><value>新建 Markdown(_M)</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>新建标签页(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>新建文本(_T)</value></data>
+  <data name="MenuNoRecentFiles" xml:space="preserve"><value>没有最近使用的文件</value></data>
+  <data name="MenuOpen" xml:space="preserve"><value>打开(_O)...</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>粘贴(_P)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>捕获排除(_X)</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>最近使用的文件(_R)</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>重置缩放(_R)</value></data>
   <data name="MenuSave" xml:space="preserve"><value>保存(_S)</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>全部保存(_L)</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>另存为(_A)...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>全选(_A)</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>设置(_S)</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>状态栏(_S)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>时间/日期(_T)</value></data>
+  <data name="MenuUndo" xml:space="preserve"><value>撤消(_U)</value></data>
+  <data name="MenuView" xml:space="preserve"><value>查看(_V)</value></data>
+  <data name="MenuWordWrap" xml:space="preserve"><value>自动换行(_W)</value></data>
+  <data name="MenuZoom" xml:space="preserve"><value>缩放(_Z)</value></data>
+  <data name="MenuZoomIn" xml:space="preserve"><value>放大(_I)</value></data>
+  <data name="MenuZoomOut" xml:space="preserve"><value>缩小(_O)</value></data>
+  <data name="MessageCursorInsideTable" xml:space="preserve"><value>请先将光标放在 Markdown 表格内。</value></data>
+  <data name="MessageAttachImageFailed" xml:space="preserve"><value>无法附加图片: {0}</value></data>
+  <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>图片只能附加到 Markdown 文档中。</value></data>
+  <data name="MessageInvalidLineNumber" xml:space="preserve"><value>请输入 1 到 {0} 之间的行号。</value></data>
+  <data name="MessageInvalidFontSize" xml:space="preserve"><value>请输入 {0:0} 到 {1:0} 之间的字号。</value></data>
+  <data name="MessageOpenFileFailed" xml:space="preserve"><value>无法打开文件: {0}</value></data>
+  <data name="MessageSaveFileFailed" xml:space="preserve"><value>无法保存文件: {0}</value></data>
+  <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>请先将此文档另存为 Markdown，然后再附加图片。</value></data>
+  <data name="PrivacyStatusExcluded" xml:space="preserve"><value>已从捕获中排除</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows 报告此窗口已从大多数屏幕截图和屏幕录制中排除。以下情况不受影响：打开的菜单和对话框、手机拍摄、其他设备，以及以你身份运行的程序。</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>仅可使用较旧的 Windows 模式：捕获时会将此窗口显示为黑框，而不是将其省略。</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>此窗口或显示驱动程序不支持此功能。</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>捕获排除不可用</value></data>
+  <data name="PrivacyStatusLimited" xml:space="preserve"><value>捕获受限</value></data>
+  <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>捕获重置失败</value></data>
+  <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>捕获状态不可用</value></data>
+  <data name="PrivacyStatusVisible" xml:space="preserve"><value>可被捕获</value></data>
+  <data name="PreviewImageRemote" xml:space="preserve"><value>未加载远程图片: {0}</value></data>
+  <data name="PreviewImageMissing" xml:space="preserve"><value>找不到图片: {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} 已被另一个程序更改。要从磁盘重新加载吗？选择“否”可保留你的编辑内容。</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>{0} 已在磁盘上被移动或删除。你的文本内容仍会保留；保存即可留存一份副本。</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>继续前保存更改吗?</value></data>
+  <data name="PromptEncodingLossy" xml:space="preserve"><value>此文档中的部分字符无法保存为 {0}，将会丢失。是否改为保存为 UTF-8？</value></data>
+  <data name="ReplaceAllButton" xml:space="preserve"><value>全部替换</value></data>
+  <data name="ReplaceButton" xml:space="preserve"><value>替换</value></data>
+  <data name="ReplaceLabel" xml:space="preserve"><value>替换</value></data>
+  <data name="StatusCaret" xml:space="preserve"><value>第 {0} 行，第 {1} 列</value></data>
+  <data name="StatusCharacterCount" xml:space="preserve"><value>{0:N0} 个字符</value></data>
+  <data name="StatusNoChanges" xml:space="preserve"><value>无更改</value></data>
+  <data name="StatusDocumentMarkdown" xml:space="preserve"><value>Markdown</value></data>
+  <data name="StatusDocumentText" xml:space="preserve"><value>文本</value></data>
+  <data name="StatusUnsavedChanges" xml:space="preserve"><value>未保存的更改</value></data>
+  <data name="StatusZoom" xml:space="preserve"><value>缩放</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>深色模式</value></data>
+  <data name="ToolbarFontLarge" xml:space="preserve"><value>增大字号</value></data>
+  <data name="ToolbarFontMedium" xml:space="preserve"><value>中等字号文本</value></data>
+  <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>字号数值</value></data>
+  <data name="ToolbarFontSmall" xml:space="preserve"><value>减小字号</value></data>
+  <data name="ToolbarImage" xml:space="preserve"><value>图片</value></data>
+  <data name="WindowNewDocument" xml:space="preserve"><value>新建文档</value></data>
+  <data name="WindowMinimize" xml:space="preserve"><value>最小化</value></data>
+  <data name="WindowMaximizeRestore" xml:space="preserve"><value>最大化或还原</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>点击选择保存时使用的编码</value></data>
+  <data name="StatusLineEndingHint" xml:space="preserve"><value>点击转换换行符</value></data>
+  <data name="StatusSaveWithEncoding" xml:space="preserve"><value>保存为 {0}</value></data>
+  <data name="StatusConvertLineEnding" xml:space="preserve"><value>转换为 {0}</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>启动时恢复标签页和未保存的内容(_R)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>表格(_T)</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>在下方添加行</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>删除行</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>在左侧插入列</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>在右侧插入列</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>删除列</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>左对齐</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>居中对齐</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>右对齐</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>整理表格</value></data>
+  <data name="ToolbarHeading" xml:space="preserve"><value>标题</value></data>
+  <data name="ToolbarList" xml:space="preserve"><value>项目符号列表</value></data>
+  <data name="ToolbarBold" xml:space="preserve"><value>粗体</value></data>
+  <data name="ToolbarItalic" xml:space="preserve"><value>斜体</value></data>
+  <data name="ToolbarStrike" xml:space="preserve"><value>删除线</value></data>
+  <data name="ToolbarLink" xml:space="preserve"><value>链接</value></data>
+  <data name="ToolbarTable" xml:space="preserve"><value>插入表格</value></data>
+  <data name="ToolbarPreview" xml:space="preserve"><value>预览</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>从捕获中排除</value></data>
+  <data name="OkButton" xml:space="preserve"><value>确定</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>深色(_D)</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>浅色(_L)</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>系统(_S)</value></data>
+  <data name="UntitledFileName" xml:space="preserve"><value>无标题.txt</value></data>
 </root>
