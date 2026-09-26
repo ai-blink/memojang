@@ -4,17 +4,14 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Text.RegularExpressions;
+using Memojang.App.Localization;
 
 namespace Memojang.App.Shell;
 
 public static class MarkdownPreviewDocumentFactory
 {
-    private static readonly Regex BoldRegex = new(
-        @"\*\*(?<text>.+?)\*\*",
-        RegexOptions.Compiled);
-
-    private static readonly Brush InlineAccentBrush = CreateInlineAccentBrush();
+    private static readonly Brush InlineAccentBrush = CreateFrozenBrush(Color.FromRgb(76, 194, 255));
+    private static readonly Brush CodeInlineBackground = CreateFrozenBrush(Color.FromArgb(0x33, 0x80, 0x80, 0x80));
 
     public static FlowDocument Create(string markdown, string? documentPath = null)
     {
@@ -162,32 +159,38 @@ public static class MarkdownPreviewDocumentFactory
 
     private static void AddInlineMarkdown(InlineCollection inlines, string text)
     {
-        int currentIndex = 0;
-        foreach (Match match in BoldRegex.Matches(text).Cast<Match>())
+        foreach (MarkdownInlineSpan span in MarkdownInlineParser.Parse(text))
         {
-            if (match.Index > currentIndex)
+            var run = new Run(span.Text);
+            switch (span.Kind)
             {
-                inlines.Add(new Run(text[currentIndex..match.Index]));
-            }
+                case MarkdownInlineKind.Bold:
+                    run.FontWeight = FontWeights.Bold;
+                    if (span.Text.Equals("skillhooks", StringComparison.OrdinalIgnoreCase))
+                    {
+                        run.Foreground = InlineAccentBrush;
+                    }
 
-            string boldText = match.Groups["text"].Value;
-            var run = new Run(boldText)
-            {
-                FontWeight = FontWeights.Bold
-            };
-
-            if (boldText.Equals("skillhooks", StringComparison.OrdinalIgnoreCase))
-            {
-                run.Foreground = InlineAccentBrush;
+                    break;
+                case MarkdownInlineKind.Italic:
+                    run.FontStyle = FontStyles.Italic;
+                    break;
+                case MarkdownInlineKind.Strike:
+                    run.TextDecorations = TextDecorations.Strikethrough;
+                    break;
+                case MarkdownInlineKind.Code:
+                    run.FontFamily = new FontFamily("Consolas");
+                    run.Background = CodeInlineBackground;
+                    break;
+                case MarkdownInlineKind.Link:
+                    // Shown, not navigated: the preview never opens remote targets on its own.
+                    run.TextDecorations = TextDecorations.Underline;
+                    run.Foreground = InlineAccentBrush;
+                    run.ToolTip = span.Url;
+                    break;
             }
 
             inlines.Add(run);
-            currentIndex = match.Index + match.Length;
-        }
-
-        if (currentIndex < text.Length)
-        {
-            inlines.Add(new Run(text[currentIndex..]));
         }
     }
 
@@ -286,8 +289,8 @@ public static class MarkdownPreviewDocumentFactory
         }
 
         string label = resolution.IsRemote
-            ? $"Remote image not loaded: {source}"
-            : $"Missing image: {CreateImageLabel(block, source)}";
+            ? UiText.Format("PreviewImageRemote", source)
+            : UiText.Format("PreviewImageMissing", CreateImageLabel(block, source));
 
         var placeholder = new Border
         {
@@ -365,9 +368,9 @@ public static class MarkdownPreviewDocumentFactory
         return table;
     }
 
-    private static Brush CreateInlineAccentBrush()
+    private static Brush CreateFrozenBrush(Color color)
     {
-        var brush = new SolidColorBrush(Color.FromRgb(76, 194, 255));
+        var brush = new SolidColorBrush(color);
         brush.Freeze();
         return brush;
     }
