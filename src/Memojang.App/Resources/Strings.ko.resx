@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>일치 항목 없음</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>이전</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0}개 바꿈</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>글자 크기</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>사용자 지정(_C)...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>크게(_L)</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>중간(_M)</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>글자 크기 ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>작게(_S)</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>줄 번호</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>Memojang 정보(_A)</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>표 행 추가(_R)</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>찾기(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>다음 찾기(_N)</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>이전 찾기(_V)</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>폰트(_F)</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>글자 크기(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>이동(_G)...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>도움말(_H)</value></data>
   <data name="MenuInsertImage" xml:space="preserve"><value>이미지 삽입(_I)...</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>이미지를 첨부할 수 없습니다: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>이미지는 마크다운 문서에서 사용할 수 있습니다.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>1부터 {0} 사이의 줄 번호를 입력하세요.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>{0:0}부터 {1:0} 사이의 글자 크기를 입력하세요.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>파일을 열 수 없습니다: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>파일을 저장할 수 없습니다: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>이미지를 첨부하려면 먼저 이 문서를 마크다운으로 저장하세요.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>클릭해서 줄 끝 변환</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0}(으)로 저장</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0}(으)로 변환</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>시작할 때 탭과 저장 안 한 내용 복원(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>표(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>아래에 행 추가</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>행 삭제</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>밝게(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>시스템(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>제목 없음.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>설정</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>시작할 때 탭과 저장 안 한 내용 복원</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>창을 캡처에서 제외</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>폰트</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>글자 크기</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>자동 줄 바꿈</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>앱 테마</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>상태 표시줄</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>시스템</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>밝게</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>어둡게</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>일반</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>편집기</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>모양</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>정보</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>시작과 개인정보 보호 동작을 정합니다.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>켜 두면 닫을 때 저장 여부를 묻지 않고 저장 안 한 내용을 보관합니다.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>스크린샷·화면 공유에서 이 창을 숨기도록 Windows에 요청합니다. 일부 캡처 도구에서는 보일 수 있습니다.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>글꼴과 텍스트 배치를 정합니다.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. 확대/축소(Ctrl+휠)와는 별개입니다.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>테마와 창 구성 요소를 정합니다.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Windows용 가벼운 텍스트·Markdown 편집기.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>버전 {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>설정 폴더 열기</value></data>
 </root>

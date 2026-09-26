@@ -20,6 +20,8 @@ public sealed class AppSettings
 
     public bool WordWrap { get; init; } = true;
 
+    public bool StatusBarVisible { get; init; } = true;
+
     public bool SessionRestore { get; init; } = true;
 }
 
@@ -112,6 +114,7 @@ public sealed class AppSettingsStore
             EditorFontSize = ClampOrDefault(settings.EditorFontSize, MinFontSize, MaxFontSize, DefaultFontSize),
             ZoomPercent = ClampOrDefault(settings.ZoomPercent, MinZoomPercent, MaxZoomPercent, 100),
             WordWrap = settings.WordWrap,
+            StatusBarVisible = settings.StatusBarVisible,
             SessionRestore = settings.SessionRestore
         };
     }

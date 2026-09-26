@@ -341,6 +341,11 @@ public partial class MainWindow : Window
             ShowGoToLineDialog();
             e.Handled = true;
         }
+        else if (isControl && e.Key == Key.OemComma)
+        {
+            OpenSettingsWindow();
+            e.Handled = true;
+        }
         else if (isControl && e.Key == Key.A)
         {
             EditorTextBox.SelectAll();

@@ -12,16 +12,16 @@ public class StartupDocumentPathTests : IDisposable
     }
 
     [Fact]
-    public void FromArgs_ReturnsFirstExistingFile()
+    public void FromArgs_ReturnsEveryExistingFileInOrder()
     {
         string first = Path.Combine(_workspace, "first.txt");
         string second = Path.Combine(_workspace, "second.md");
         File.WriteAllText(first, "first");
         File.WriteAllText(second, "# second");
 
-        string? result = StartupDocumentPath.FromArgs(["--ignored", first, second]);
+        IReadOnlyList<string> result = StartupDocumentPath.FromArgs(["--ignored", first, second, first]);
 
-        Assert.Equal(first, result);
+        Assert.Equal([first, second], result);
     }
 
     [Fact]
@@ -30,9 +30,9 @@ public class StartupDocumentPathTests : IDisposable
         string existing = Path.Combine(_workspace, "note.md");
         File.WriteAllText(existing, "# note");
 
-        string? result = StartupDocumentPath.FromArgs([Path.Combine(_workspace, "missing.md"), existing]);
+        IReadOnlyList<string> result = StartupDocumentPath.FromArgs([Path.Combine(_workspace, "missing.md"), existing]);
 
-        Assert.Equal(existing, result);
+        Assert.Equal([existing], result);
     }
 
     [Fact]
@@ -41,17 +41,29 @@ public class StartupDocumentPathTests : IDisposable
         string existing = Path.Combine(_workspace, "quoted note.txt");
         File.WriteAllText(existing, "quoted");
 
-        string? result = StartupDocumentPath.FromArgs([$"\"{existing}\""]);
+        IReadOnlyList<string> result = StartupDocumentPath.FromArgs([$"\"{existing}\""]);
 
-        Assert.Equal(existing, result);
+        Assert.Equal([existing], result);
     }
 
     [Fact]
-    public void FromArgs_ReturnsNullWhenNoFileExists()
+    public void FromArgs_ResolvesRelativePathsToAbsolute()
     {
-        string? result = StartupDocumentPath.FromArgs(["", "   ", Path.Combine(_workspace, "missing.txt")]);
+        string existing = Path.Combine(_workspace, "relative.txt");
+        File.WriteAllText(existing, "relative");
+        string relative = Path.GetRelativePath(Environment.CurrentDirectory, existing);
 
-        Assert.Null(result);
+        IReadOnlyList<string> result = StartupDocumentPath.FromArgs([relative]);
+
+        Assert.Equal([existing], result);
+    }
+
+    [Fact]
+    public void FromArgs_ReturnsEmptyWhenNoFileExists()
+    {
+        IReadOnlyList<string> result = StartupDocumentPath.FromArgs(["", "   ", Path.Combine(_workspace, "missing.txt")]);
+
+        Assert.Empty(result);
     }
 
     public void Dispose()

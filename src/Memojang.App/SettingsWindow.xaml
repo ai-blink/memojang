@@ -1,0 +1,170 @@
+<Window x:Class="Memojang.App.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings" Icon="Assets/Memojang.ico"
+        Width="780" Height="540" MinWidth="620" MinHeight="420"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        PreviewKeyDown="SettingsWindow_PreviewKeyDown"
+        Background="{DynamicResource AppWindowBrush}"
+        Foreground="{DynamicResource AppTextBrush}">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+            <Setter Property="Background" Value="{DynamicResource AppControlBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="ButtonChrome" CornerRadius="6" BorderThickness="1" Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonChrome" Property="Background" Value="{DynamicResource AppMenuHoverBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="ButtonChrome" Property="BorderBrush" Value="{DynamicResource AppAccentBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Background="{DynamicResource AppTopBarBrush}" BorderBrush="{DynamicResource AppBorderBrush}"
+                BorderThickness="0,0,1,0" Padding="10,14">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="8,4,8,20">
+                    <Image Source="Assets/Memojang.ico" Width="28" Height="28" Margin="0,0,10,0" />
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Memojang" FontSize="15" FontWeight="SemiBold" />
+                        <TextBlock x:Name="SidebarSubtitleText" FontSize="11" Foreground="{DynamicResource AppMutedTextBrush}" />
+                    </StackPanel>
+                </StackPanel>
+                <RadioButton x:Name="GeneralPageButton" Style="{StaticResource SettingsNavigationStyle}" Checked="PageButton_Checked" />
+                <RadioButton x:Name="EditorPageButton" Style="{StaticResource SettingsNavigationStyle}" Checked="PageButton_Checked" />
+                <RadioButton x:Name="AppearancePageButton" Style="{StaticResource SettingsNavigationStyle}" Checked="PageButton_Checked" />
+                <RadioButton x:Name="AboutPageButton" Style="{StaticResource SettingsNavigationStyle}" Checked="PageButton_Checked" />
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Column="1" Margin="28,22,24,16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <Grid Margin="0,0,10,0">
+                    <StackPanel x:Name="GeneralPanel">
+                        <TextBlock x:Name="GeneralTitleText" FontSize="24" FontWeight="SemiBold" />
+                        <TextBlock x:Name="GeneralSubtitleText" Margin="0,6,0,20" TextWrapping="Wrap" Foreground="{DynamicResource AppMutedTextBrush}" />
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <ToggleButton x:Name="SessionRestoreToggle" DockPanel.Dock="Right" Margin="12,0,0,0" VerticalAlignment="Center"
+                                              Style="{StaticResource CaptureExclusionToggleStyle}" Click="SessionRestoreToggle_Click" />
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="SessionRestoreLabel" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                    <TextBlock x:Name="SessionRestoreHint" Margin="0,3,0,0" FontSize="12" TextWrapping="Wrap"
+                                               Foreground="{DynamicResource AppMutedTextBrush}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <ToggleButton x:Name="CaptureExclusionToggle" DockPanel.Dock="Right" Margin="12,0,0,0" VerticalAlignment="Center"
+                                              Style="{StaticResource CaptureExclusionToggleStyle}" Click="CaptureExclusionToggle_Click" />
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="CaptureExclusionLabel" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                    <TextBlock x:Name="CaptureExclusionHint" Margin="0,3,0,0" FontSize="12" TextWrapping="Wrap"
+                                               Foreground="{DynamicResource AppMutedTextBrush}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel x:Name="EditorPanel" Visibility="Collapsed">
+                        <TextBlock x:Name="EditorTitleText" FontSize="24" FontWeight="SemiBold" />
+                        <TextBlock x:Name="EditorSubtitleText" Margin="0,6,0,20" TextWrapping="Wrap" Foreground="{DynamicResource AppMutedTextBrush}" />
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <ComboBox x:Name="FontFamilyBox" DockPanel.Dock="Right" Width="230" Margin="12,0,0,0" MaxDropDownHeight="320"
+                                          Style="{StaticResource SettingsComboBoxStyle}" SelectionChanged="FontFamilyBox_SelectionChanged" />
+                                <TextBlock x:Name="FontFamilyLabel" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" />
+                            </DockPanel>
+                        </Border>
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <ComboBox x:Name="FontSizeBox" DockPanel.Dock="Right" Width="110" Margin="12,0,0,0" MaxDropDownHeight="320"
+                                          Style="{StaticResource SettingsComboBoxStyle}" SelectionChanged="FontSizeBox_SelectionChanged" />
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="FontSizeLabel" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                    <TextBlock x:Name="FontSizeHint" Margin="0,3,0,0" FontSize="12" TextWrapping="Wrap"
+                                               Foreground="{DynamicResource AppMutedTextBrush}" />
+                                </StackPanel>
+                            </DockPanel>
+                        </Border>
+                        <Border Style="{StaticResource SettingsCardStyle}" Padding="16,6">
+                            <TextBlock x:Name="FontPreviewText" Text="The quick brown fox · 가나다 · 0123456789" TextTrimming="CharacterEllipsis"
+                                       Foreground="{DynamicResource AppMutedTextBrush}" Margin="0,4" />
+                        </Border>
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <ToggleButton x:Name="WordWrapToggle" DockPanel.Dock="Right" Margin="12,0,0,0" VerticalAlignment="Center"
+                                              Style="{StaticResource CaptureExclusionToggleStyle}" Click="WordWrapToggle_Click" />
+                                <TextBlock x:Name="WordWrapLabel" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" />
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel x:Name="AppearancePanel" Visibility="Collapsed">
+                        <TextBlock x:Name="AppearanceTitleText" FontSize="24" FontWeight="SemiBold" />
+                        <TextBlock x:Name="AppearanceSubtitleText" Margin="0,6,0,20" TextWrapping="Wrap" Foreground="{DynamicResource AppMutedTextBrush}" />
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <StackPanel>
+                                <TextBlock x:Name="ThemeLabel" FontWeight="SemiBold" Margin="0,0,0,10" />
+                                <WrapPanel>
+                                    <RadioButton x:Name="ThemeSystemChoice" GroupName="Theme" Style="{StaticResource SettingsChoiceStyle}" Checked="ThemeChoice_Checked" />
+                                    <RadioButton x:Name="ThemeLightChoice" GroupName="Theme" Style="{StaticResource SettingsChoiceStyle}" Checked="ThemeChoice_Checked" />
+                                    <RadioButton x:Name="ThemeDarkChoice" GroupName="Theme" Style="{StaticResource SettingsChoiceStyle}" Checked="ThemeChoice_Checked" />
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <ToggleButton x:Name="StatusBarToggle" DockPanel.Dock="Right" Margin="12,0,0,0" VerticalAlignment="Center"
+                                              Style="{StaticResource CaptureExclusionToggleStyle}" Click="StatusBarToggle_Click" />
+                                <TextBlock x:Name="StatusBarLabel" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" />
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel x:Name="AboutPanel" Visibility="Collapsed">
+                        <Image Source="Assets/Memojang.ico" Width="48" Height="48" HorizontalAlignment="Left" />
+                        <TextBlock Margin="0,14,0,0" FontSize="24" FontWeight="SemiBold" Text="Memojang" />
+                        <TextBlock x:Name="AboutSubtitleText" Margin="0,6,0,16" TextWrapping="Wrap" Foreground="{DynamicResource AppMutedTextBrush}" />
+                        <Border Style="{StaticResource SettingsCardStyle}">
+                            <DockPanel>
+                                <Button x:Name="OpenDataFolderButton" DockPanel.Dock="Right" Margin="12,0,0,0" Padding="12,5"
+                                        VerticalAlignment="Center" Click="OpenDataFolderButton_Click" />
+                                <TextBlock x:Name="VersionText" VerticalAlignment="Center" />
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+            <Border Grid.Row="1" Margin="0,14,0,0" Padding="0,12,0,0" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="0,1,0,0">
+                <Button x:Name="CloseSettingsButton" HorizontalAlignment="Right" MinWidth="88" Padding="12,5" IsCancel="True"
+                        Click="CloseSettingsButton_Click" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

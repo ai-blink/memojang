@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>Sin coincidencias</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>Anterior</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} reemplazos</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Tamaño de fuente</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>Pe_rsonalizado...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>_Grande</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>_Mediano</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Tamaño de fuente ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>_Pequeño</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>Número de línea</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>_Acerca de Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Agregar _fila a la tabla</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>_Buscar</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Buscar _siguiente</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>Buscar _anterior</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>_Fuente</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>_Tamaño de fuente</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>_Ir a...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Ayuda</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Insertar _tabla</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>No se pudo adjuntar la imagen: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Las imágenes se pueden adjuntar a documentos Markdown.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Escriba un número de línea entre 1 y {0}.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Escriba un tamaño de fuente entre {0:0} y {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>No se pudo abrir el archivo: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>No se pudo guardar el archivo: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Guarde este documento como Markdown antes de adjuntar imágenes.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Haga clic para convertir los finales de línea</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Guardar como {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convertir a {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>_Restaurar pestañas y texto sin guardar al iniciar</value></data>
   <data name="ContextTable" xml:space="preserve"><value>Ta_bla</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Agregar fila debajo</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Eliminar fila</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>Claro(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>Sistema(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>Sin título.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>Configuración</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>Restaurar pestañas y texto sin guardar al iniciar</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>Excluir la ventana de la captura</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>Fuente</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>Tamaño de fuente</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>Ajuste de línea</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>Tema de la aplicación</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>Barra de estado</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>Sistema</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>Claro</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>Oscuro</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>General</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>Editor</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>Apariencia</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>Acerca de</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>Inicio y privacidad.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>Si está activado, al cerrar se conserva el texto sin guardar en lugar de preguntar.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>Pide a Windows ocultar esta ventana en capturas y al compartir pantalla. Algunas herramientas aún pueden verla.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>Fuente y diseño del texto.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. El zoom (Ctrl+rueda) es independiente.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>Tema y elementos de la ventana.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Un editor ligero de texto y Markdown para Windows.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>Versión {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>Abrir carpeta de configuración</value></data>
 </root>

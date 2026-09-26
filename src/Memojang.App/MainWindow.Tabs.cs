@@ -325,11 +325,6 @@ public partial class MainWindow
             return;
         }
 
-        if (!ConfirmDiscardUnsavedChanges())
-        {
-            return;
-        }
-
         OpenDocument(filePath);
     }
 

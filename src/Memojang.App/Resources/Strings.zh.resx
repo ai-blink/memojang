@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>没有匹配项</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>上一个</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>已替换 {0} 处</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>字号</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>自定义(_C)...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>大(_L)</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>中(_M)</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>字号 ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>小(_S)</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>行号</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>关于 Memojang(_A)</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>添加表格行(_R)</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>查找(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>查找下一个(_N)</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>查找上一个(_V)</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>字体(_F)</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>字号(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>转到(_G)...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>帮助(_H)</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>插入表格(_T)</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>无法附加图片: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>图片只能附加到 Markdown 文档中。</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>请输入 1 到 {0} 之间的行号。</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>请输入 {0:0} 到 {1:0} 之间的字号。</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>无法打开文件: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>无法保存文件: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>请先将此文档另存为 Markdown，然后再附加图片。</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>点击转换换行符</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>保存为 {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>转换为 {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>启动时恢复标签页和未保存的内容(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>表格(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>在下方添加行</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>删除行</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>浅色(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>系统(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>无标题.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>设置</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>启动时恢复标签页和未保存的内容</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>从屏幕捕获中排除此窗口</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>字体</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>字号</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>自动换行</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>应用主题</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>状态栏</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>系统</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>浅色</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>深色</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>常规</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>编辑器</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>外观</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>关于</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>启动和隐私行为。</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>开启后，关闭时不询问是否保存，而是保留未保存的文本。</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>请求 Windows 在截图和屏幕共享中隐藏此窗口。某些捕获工具仍可能看到它。</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>字体和文本布局。</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}。与缩放（Ctrl+滚轮）无关。</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>主题和窗口元素。</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>适用于 Windows 的轻量文本和 Markdown 编辑器。</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>版本 {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>打开设置文件夹</value></data>
 </root>

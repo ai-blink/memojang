@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>कोई मिलान नहीं</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>पिछला</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} बदले गए</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>फ़ॉन्ट आकार</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>कस्टम(_C)...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>बड़ा(_L)</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>मध्यम(_M)</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>फ़ॉन्ट आकार ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>छोटा(_S)</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>पंक्ति संख्या</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>Memojang के बारे में(_A)</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>तालिका में पंक्ति जोड़ें(_R)</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>ढूँढें(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>आगे ढूँढें(_N)</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>पिछला ढूँढें(_V)</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>फ़ॉन्ट(_F)</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>फ़ॉन्ट आकार(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>जाएँ(_G)...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>सहायता(_H)</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>तालिका डालें(_T)</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>चित्र संलग्न नहीं किया जा सका: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>चित्र केवल Markdown दस्तावेज़ों में संलग्न किए जा सकते हैं।</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>1 और {0} के बीच पंक्ति संख्या दर्ज करें।</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>{0:0} और {1:0} के बीच फ़ॉन्ट आकार दर्ज करें।</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>फ़ाइल नहीं खोली जा सकी: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>फ़ाइल सहेजी नहीं जा सकी: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>चित्र संलग्न करने से पहले इस दस्तावेज़ को Markdown के रूप में सहेजें।</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>लाइन एंडिंग बदलने के लिए क्लिक करें</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} के रूप में सहेजें</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} में बदलें</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>शुरू होने पर टैब और सहेजा न गया टेक्स्ट पुनर्स्थापित करें(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>तालिका(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>नीचे पंक्ति जोड़ें</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>पंक्ति हटाएँ</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>हल्का(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>सिस्टम(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>शीर्षकहीन.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>सेटिंग्स</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>शुरू होने पर टैब और सहेजा न गया टेक्स्ट पुनर्स्थापित करें</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>विंडो को कैप्चर से बाहर रखें</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>फ़ॉन्ट</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>फ़ॉन्ट आकार</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>वर्ड रैप</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>ऐप थीम</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>स्टेटस बार</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>सिस्टम</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>हल्का</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>गहरा</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>सामान्य</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>संपादक</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>रूप-रंग</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>परिचय</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>प्रारंभ और गोपनीयता।</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>चालू होने पर, बंद करते समय सहेजने के बारे में पूछने के बजाय बिना सहेजा टेक्स्ट रखा जाता है।</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>Windows से स्क्रीनशॉट और स्क्रीन शेयरिंग में इस विंडो को छिपाने का अनुरोध करता है। कुछ कैप्चर टूल इसे फिर भी देख सकते हैं।</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>फ़ॉन्ट और टेक्स्ट लेआउट।</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. ज़ूम (Ctrl+व्हील) अलग है।</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>थीम और विंडो तत्व।</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Windows के लिए हल्का टेक्स्ट और Markdown संपादक।</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>संस्करण {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>सेटिंग्स फ़ोल्डर खोलें</value></data>
 </root>

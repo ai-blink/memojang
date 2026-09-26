@@ -15,6 +15,11 @@ public partial class MainWindow
             return false;
         }
 
+        if (!PrepareTabForOpen(filePath))
+        {
+            return true;
+        }
+
         try
         {
             AppDiagnostics.Log($"OpenDocument sync start path={filePath}");
@@ -47,7 +52,7 @@ public partial class MainWindow
             return false;
         }
 
-        if (!PrepareTabForStartupOpen(filePath))
+        if (!PrepareTabForOpen(filePath))
         {
             return true;
         }
@@ -84,22 +89,56 @@ public partial class MainWindow
         }
     }
 
-    private void OpenMenuItem_Click(object sender, RoutedEventArgs e)
+    internal async Task OpenDocumentsAsync(IReadOnlyList<string> filePaths)
     {
-        if (!ConfirmDiscardUnsavedChanges())
+        foreach (string filePath in filePaths)
         {
+            await OpenDocumentAsync(filePath);
+        }
+    }
+
+    // Paths handed over by a second launch; an empty list means the user just started Memojang again.
+    internal async Task OpenForwardedDocumentsAsync(IReadOnlyList<string> filePaths)
+    {
+        BringToFront();
+        if (filePaths.Count == 0)
+        {
+            CreateNewDocumentTab(DocumentMode.PlainText);
             return;
         }
 
+        await OpenDocumentsAsync(filePaths);
+    }
+
+    private void BringToFront()
+    {
+        if (WindowState == WindowState.Minimized)
+        {
+            WindowState = WindowState.Normal;
+        }
+
+        Activate();
+        // Toggling Topmost raises the window even when Windows only flashed the taskbar for Activate().
+        Topmost = true;
+        Topmost = false;
+        EditorTextBox.Focus();
+    }
+
+    private void OpenMenuItem_Click(object sender, RoutedEventArgs e)
+    {
         var dialog = new OpenFileDialog
         {
             Filter = UiText.Get("DialogTextDocumentFilter"),
-            Title = UiText.Get("DialogOpenTitle")
+            Title = UiText.Get("DialogOpenTitle"),
+            Multiselect = true
         };
 
         if (dialog.ShowDialog(this) == true)
         {
-            OpenDocument(dialog.FileName);
+            foreach (string fileName in dialog.FileNames)
+            {
+                OpenDocument(fileName);
+            }
         }
     }
 

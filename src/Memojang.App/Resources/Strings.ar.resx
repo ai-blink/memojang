@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>لا توجد نتائج</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>السابق</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>تم استبدال {0}</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>حجم الخط</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>مخصص(_C)...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>كبير(_L)</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>متوسط(_M)</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>حجم الخط ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>صغير(_S)</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>رقم السطر</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>حول Memojang(_A)</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>إضافة صف للجدول(_R)</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>بحث(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>البحث عن التالي(_N)</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>البحث عن السابق(_V)</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>الخط(_F)</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>حجم الخط(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>الانتقال إلى(_G)...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>مساعدة(_H)</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>إدراج جدول(_T)</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>تعذّر إرفاق الصورة: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>يمكن إرفاق الصور بمستندات Markdown فقط.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>أدخل رقم سطر بين 1 و {0}.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>أدخل حجم خط بين {0:0} و {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>تعذّر فتح الملف: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>تعذّر حفظ الملف: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>احفظ هذا المستند بصيغة Markdown قبل إرفاق الصور.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>انقر لتحويل نهايات الأسطر</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>حفظ بترميز {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>تحويل إلى {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>استرجاع التبويبات والنص غير المحفوظ عند البدء(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>جدول(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>إضافة صف أسفل</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>حذف الصف</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>فاتح(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>النظام(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>بلا عنوان.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>الإعدادات</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>استرجاع التبويبات والنص غير المحفوظ عند البدء</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>استثناء النافذة من الالتقاط</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>الخط</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>حجم الخط</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>التفاف النص</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>مظهر التطبيق</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>شريط الحالة</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>النظام</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>فاتح</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>داكن</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>عام</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>المحرر</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>المظهر</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>حول</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>بدء التشغيل والخصوصية.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>عند التشغيل، يحتفظ الإغلاق بالنص غير المحفوظ بدلاً من السؤال عن الحفظ.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>يطلب من Windows إخفاء هذه النافذة من لقطات الشاشة ومشاركة الشاشة. قد تظل بعض أدوات الالتقاط تراها.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>الخط وتخطيط النص.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. التكبير (Ctrl+العجلة) منفصل.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>السمة وعناصر النافذة.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>محرر نصوص وMarkdown خفيف لنظام Windows.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>الإصدار {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>فتح مجلد الإعدادات</value></data>
 </root>

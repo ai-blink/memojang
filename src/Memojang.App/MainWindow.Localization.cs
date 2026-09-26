@@ -31,13 +31,6 @@ public partial class MainWindow
         GoToMenuItem.Header = UiText.Get("MenuGoTo");
         TimeDateMenuItem.Header = UiText.Get("MenuTimeDate");
         SettingsMenuItem.Header = UiText.Get("MenuSettings");
-        FontMenuItem.Header = UiText.Get("MenuFont");
-        FontSizeMenuItem.Header = UiText.Get("MenuFontSize");
-        FontSizeSmallMenuItem.Header = UiText.Get("FontSizeSmall");
-        FontSizeMediumMenuItem.Header = UiText.Get("FontSizeMedium");
-        FontSizeLargeMenuItem.Header = UiText.Get("FontSizeLarge");
-        FontSizeCustomMenuItem.Header = UiText.Get("FontSizeCustom");
-        SessionRestoreMenuItem.Header = UiText.Get("MenuSessionRestore");
         ViewMenuItem.Header = UiText.Get("MenuView");
         WordWrapMenuItem.Header = UiText.Get("MenuWordWrap");
         StatusBarMenuItem.Header = UiText.Get("MenuStatusBar");
@@ -85,6 +78,7 @@ public partial class MainWindow
         Describe(ToolbarFontSizeTextBox, "ToolbarFontSizeNumber");
         Describe(ToolbarDarkModeButton, "ToolbarDarkMode");
         Describe(ToolbarPrivacyButton, "ToolbarPrivacy");
+        Describe(SettingsButton, "SettingsTitle");
         Describe(NewDocumentButton, "WindowNewDocument");
         Describe(MinimizeWindowButton, "WindowMinimize");
         Describe(MaximizeRestoreButton, "WindowMaximizeRestore");

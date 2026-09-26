@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>一致なし</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>前へ</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} 件を置換しました</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>フォントサイズ</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>ユーザー設定(_C)...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>大(_L)</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>中(_M)</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>フォントサイズ ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>小(_S)</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>行番号</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>Memojang について(_A)</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>表に行を追加(_R)</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>検索(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>次を検索(_N)</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>前を検索(_V)</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>フォント(_F)</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>フォントサイズ(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>移動(_G)...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>ヘルプ(_H)</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>表を挿入(_T)</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>画像を添付できませんでした: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>画像は Markdown 文書に添付できます。</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>1 から {0} までの行番号を入力してください。</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>{0:0} から {1:0} までのフォントサイズを入力してください。</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>ファイルを開けませんでした: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>ファイルを保存できませんでした: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>画像を添付する前に、この文書を Markdown として保存してください。</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>クリックして改行コードを変換</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} で保存</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} に変換</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>起動時にタブと未保存の内容を復元する(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>表(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>下に行を追加</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>行を削除</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>ライト(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>システム(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>無題.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>設定</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>起動時にタブと未保存の内容を復元する</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>ウィンドウをキャプチャから除外</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>フォント</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>フォントサイズ</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>右端で折り返す</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>アプリのテーマ</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>ステータスバー</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>システム</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>ライト</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>ダーク</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>全般</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>エディター</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>外観</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>バージョン情報</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>起動時の動作とプライバシー。</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>オンにすると、閉じるときに保存を確認せず未保存のテキストを保持します。</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>スクリーンショットや画面共有でこのウィンドウを隠すよう Windows に要求します。一部のキャプチャ ツールでは表示される場合があります。</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>フォントとテキストのレイアウト。</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}。ズーム (Ctrl+ホイール) とは別です。</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>テーマとウィンドウの要素。</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Windows 向けの軽量なテキスト・Markdown エディター。</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>バージョン {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>設定フォルダーを開く</value></data>
 </root>

@@ -3,16 +3,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using Memojang.App.Localization;
 using Memojang.App.Theme;
 
 namespace Memojang.App;
 
 public partial class MainWindow
 {
-    private const double SmallEditorFontSize = 12;
     private const double MediumEditorFontSize = 14;
-    private const double LargeEditorFontSize = 18;
     private const double MinEditorFontSize = 8;
     private const double MaxEditorFontSize = 72;
     private const double DefaultZoomPercent = 100;
@@ -42,7 +39,13 @@ public partial class MainWindow
 
     private void StatusBarMenuItem_Click(object sender, RoutedEventArgs e)
     {
-        MainStatusBar.Visibility = StatusBarMenuItem.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+        SetStatusBarVisible(StatusBarMenuItem.IsChecked);
+    }
+
+    private void SetStatusBarVisible(bool visible)
+    {
+        StatusBarMenuItem.IsChecked = visible;
+        MainStatusBar.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
     }
 
     private void SetWordWrap(bool wrap)
@@ -66,35 +69,6 @@ public partial class MainWindow
         double delta = sender == ToolbarSmallFontButton ? -1 : 1;
         SetEditorFontSize(_editorBaseFontSize + delta);
         EditorTextBox.Focus();
-    }
-
-    private void EditorFontFamilyMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        string requestedFontFamily = sender == FontCascadiaMenuItem
-            ? "Cascadia Mono"
-            : sender == FontSegoeMenuItem
-                ? "Segoe UI"
-                : DefaultEditorFontFamily;
-
-        SetEditorFontFamily(requestedFontFamily);
-        EditorTextBox.Focus();
-    }
-
-    private void EditorFontSizeMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        double requestedFontSize = sender == FontSizeSmallMenuItem
-            ? SmallEditorFontSize
-            : sender == FontSizeLargeMenuItem
-                ? LargeEditorFontSize
-                : MediumEditorFontSize;
-
-        SetEditorFontSize(requestedFontSize);
-        EditorTextBox.Focus();
-    }
-
-    private void FontSizeCustomMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        ShowFontSizeDialog();
     }
 
     private void ToolbarFontSizeTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -121,22 +95,13 @@ public partial class MainWindow
     {
         _editorFontFamilyName = fontFamilyName;
         EditorTextBox.FontFamily = new FontFamily(fontFamilyName);
-        UpdateFontFamilyMenuState();
     }
 
     private void SetEditorFontSize(double fontSize)
     {
         _editorBaseFontSize = Math.Clamp(fontSize, MinEditorFontSize, MaxEditorFontSize);
-        UpdateFontSizeButtons();
         UpdateFontSizeTextBox();
         ApplyEditorDisplayScale();
-    }
-
-    private void UpdateFontSizeButtons()
-    {
-        FontSizeSmallMenuItem.IsChecked = AreClose(_editorBaseFontSize, SmallEditorFontSize);
-        FontSizeMediumMenuItem.IsChecked = AreClose(_editorBaseFontSize, MediumEditorFontSize);
-        FontSizeLargeMenuItem.IsChecked = AreClose(_editorBaseFontSize, LargeEditorFontSize);
     }
 
     private void UpdateFontSizeTextBox()
@@ -169,88 +134,6 @@ public partial class MainWindow
 
         SetEditorFontSize(fontSize);
         return true;
-    }
-
-    private void ShowFontSizeDialog()
-    {
-        var fontSizeBox = new TextBox
-        {
-            Width = 160,
-            Text = _editorBaseFontSize.ToString("0.#", CultureInfo.CurrentCulture),
-            Margin = new Thickness(0, 6, 0, 12),
-            HorizontalContentAlignment = HorizontalAlignment.Right
-        };
-
-        var dialog = new Window
-        {
-            Title = UiText.Get("DialogFontSizeTitle"),
-            Owner = this,
-            WindowStartupLocation = WindowStartupLocation.CenterOwner,
-            SizeToContent = SizeToContent.WidthAndHeight,
-            ResizeMode = ResizeMode.NoResize
-        };
-
-        var panel = new StackPanel();
-        panel.Children.Add(new TextBlock
-        {
-            Text = UiText.Format("FontSizeNumberLabel", MinEditorFontSize, MaxEditorFontSize),
-            Margin = new Thickness(0, 0, 0, 2)
-        });
-        panel.Children.Add(fontSizeBox);
-
-        var buttons = new StackPanel
-        {
-            Orientation = Orientation.Horizontal,
-            HorizontalAlignment = HorizontalAlignment.Right
-        };
-        var okButton = new Button
-        {
-            Content = UiText.Get("OkButton"),
-            IsDefault = true,
-            MinWidth = 72,
-            Margin = new Thickness(0, 0, 8, 0)
-        };
-        var cancelButton = new Button
-        {
-            Content = UiText.Get("CloseButton"),
-            IsCancel = true,
-            MinWidth = 72
-        };
-
-        okButton.Click += (_, _) =>
-        {
-            if (!TryApplyFontSizeText(fontSizeBox.Text))
-            {
-                MessageBox.Show(this, UiText.Format("MessageInvalidFontSize", MinEditorFontSize, MaxEditorFontSize), "Memojang", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-
-            dialog.DialogResult = true;
-        };
-
-        buttons.Children.Add(okButton);
-        buttons.Children.Add(cancelButton);
-        panel.Children.Add(buttons);
-        dialog.Content = new Border
-        {
-            Padding = new Thickness(16),
-            Child = panel
-        };
-        dialog.Loaded += (_, _) =>
-        {
-            fontSizeBox.SelectAll();
-            fontSizeBox.Focus();
-        };
-
-        dialog.ShowDialog();
-        EditorTextBox.Focus();
-    }
-
-    private void UpdateFontFamilyMenuState()
-    {
-        FontConsolasMenuItem.IsChecked = _editorFontFamilyName == DefaultEditorFontFamily;
-        FontCascadiaMenuItem.IsChecked = _editorFontFamilyName == "Cascadia Mono";
-        FontSegoeMenuItem.IsChecked = _editorFontFamilyName == "Segoe UI";
     }
 
     private void ZoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

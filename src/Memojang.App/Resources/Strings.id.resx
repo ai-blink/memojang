@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>Tidak ada hasil</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>Sebelumnya</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} diganti</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Ukuran font</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>K_husus...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>_Besar</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>_Sedang</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Ukuran font ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>_Kecil</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>Nomor baris</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>Tent_ang Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Tambah ba_ris tabel</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>_Cari</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Cari _berikutnya</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>Cari sebe_lumnya</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>_Font</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>_Ukuran font</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>_Menuju...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Bantuan</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Sisipkan _tabel</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>Tidak dapat melampirkan gambar: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Gambar dapat dilampirkan ke dokumen Markdown.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Masukkan nomor baris antara 1 dan {0}.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Masukkan ukuran font antara {0:0} dan {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Tidak dapat membuka file: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Tidak dapat menyimpan file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Simpan dokumen ini sebagai Markdown sebelum melampirkan gambar.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Klik untuk mengonversi akhir baris</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Simpan sebagai {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Konversi ke {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>_Pulihkan tab dan teks yang belum disimpan saat mulai</value></data>
   <data name="ContextTable" xml:space="preserve"><value>Ta_bel</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Tambah baris di bawah</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Hapus baris</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>_Terang</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>_Sistem</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>Tanpa judul.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>Pengaturan</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>Pulihkan tab dan teks yang belum disimpan saat mulai</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>Kecualikan jendela dari tangkapan layar</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>Font</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>Ukuran font</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>Bungkus kata</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>Tema aplikasi</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>Bilah status</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>Sistem</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>Terang</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>Gelap</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>Umum</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>Editor</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>Tampilan</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>Tentang</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>Saat mulai dan privasi.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>Jika aktif, teks yang belum disimpan tetap dipertahankan saat menutup, tanpa bertanya.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>Meminta Windows menyembunyikan jendela ini dari tangkapan layar dan berbagi layar. Beberapa alat tangkap mungkin masih melihatnya.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>Font dan tata letak teks.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. Zoom (Ctrl+roda) terpisah.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>Tema dan elemen jendela.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Editor teks dan Markdown yang ringan untuk Windows.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>Versi {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>Buka folder pengaturan</value></data>
 </root>

@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>No matches</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>Previous</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>Replaced {0}</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Font size</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>_Custom...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>_Large</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>_Medium</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Font size ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>_Small</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>Line number</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>_About Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Add table _row</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>_Find</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Find _next</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>Find pre_vious</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>_Font</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>Font _size</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>_Go to...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Help</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Insert _table</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>Could not attach the image: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Images can be attached to Markdown documents.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Enter a line number between 1 and {0}.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Enter a font size between {0:0} and {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Could not open the file: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Could not save the file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Click to convert line endings</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Save as {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convert to {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>_Restore tabs and unsaved text on start</value></data>
   <data name="ContextTable" xml:space="preserve"><value>Ta_ble</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Add row below</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Delete row</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>_Light</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>_System</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>Untitled.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>Settings</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>Restore tabs and unsaved text on start</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>Exclude window from capture</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>Font</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>Font size</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>Word wrap</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>App theme</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>Status bar</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>System</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>Light</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>Dark</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>General</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>Editor</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>Appearance</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>About</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>Startup and privacy.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>When on, closing Memojang keeps unsaved text instead of asking to save.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>Asks Windows to hide this window from screenshots and screen sharing. Some capture tools may still see it.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>Font and text layout.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. Zoom (Ctrl+wheel) is separate.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>Theme and window elements.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>A lightweight text and Markdown editor for Windows.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>Version {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>Open settings folder</value></data>
 </root>

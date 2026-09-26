@@ -9,12 +9,6 @@ public partial class MainWindow
     private readonly SessionStore _sessionStore = new();
     private bool _sessionRestoreEnabled = true;
 
-    private void SessionRestoreMenuItem_Click(object sender, RoutedEventArgs e)
-    {
-        _sessionRestoreEnabled = SessionRestoreMenuItem.IsChecked;
-        SavePersistentSettings();
-    }
-
     private bool TryRestoreSession()
     {
         SessionSnapshot? snapshot = _sessionRestoreEnabled ? _sessionStore.Load() : null;
@@ -105,8 +99,9 @@ public partial class MainWindow
         return _sessionStore.Save(new SessionSnapshot { Tabs = tabs, ActiveIndex = activeIndex });
     }
 
-    // A startup file must not overwrite a restored tab: reuse its tab if already open, else open in a new tab.
-    private bool PrepareTabForStartupOpen(string filePath)
+    // Opening never overwrites another document: switch to the file's tab if it is already open, reuse a blank
+    // untitled tab, otherwise open a new tab. Returns false when the existing tab was activated instead.
+    private bool PrepareTabForOpen(string filePath)
     {
         DocumentTabState? existing = _documentTabs.FirstOrDefault(tab =>
             tab.FilePath is not null && Path.GetFullPath(tab.FilePath).Equals(Path.GetFullPath(filePath), StringComparison.OrdinalIgnoreCase));

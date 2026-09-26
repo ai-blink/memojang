@@ -192,6 +192,16 @@
                     </StackPanel>
                 </Grid>
 
+                <Button Grid.Row="1"
+                        x:Name="SettingsButton"
+                        Content="&#xE713;"
+                        FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                        FontSize="14"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,8,0"
+                        Panel.ZIndex="1"
+                        Style="{StaticResource TopBarButtonStyle}"
+                        Click="SettingsMenuItem_Click" />
                 <Menu Grid.Row="1"
                       Background="{DynamicResource AppTopBarBrush}"
                       Foreground="{DynamicResource AppTextBrush}"
@@ -226,21 +236,7 @@
                 <MenuItem x:Name="GoToMenuItem" Header="_Go to..." InputGestureText="Ctrl+G" Click="GoToMenuItem_Click" />
                 <MenuItem x:Name="TimeDateMenuItem" Header="_Time/Date" InputGestureText="F5" Click="TimeDateMenuItem_Click" />
                 <Separator />
-                <MenuItem x:Name="SettingsMenuItem" Header="_Settings">
-                    <MenuItem x:Name="FontMenuItem" Header="_Font">
-                        <MenuItem x:Name="FontConsolasMenuItem" Header="Consolas" IsCheckable="True" Click="EditorFontFamilyMenuItem_Click" />
-                        <MenuItem x:Name="FontCascadiaMenuItem" Header="Cascadia Mono" IsCheckable="True" Click="EditorFontFamilyMenuItem_Click" />
-                        <MenuItem x:Name="FontSegoeMenuItem" Header="Segoe UI" IsCheckable="True" Click="EditorFontFamilyMenuItem_Click" />
-                    </MenuItem>
-                    <MenuItem x:Name="FontSizeMenuItem" Header="Font _size">
-                        <MenuItem x:Name="FontSizeSmallMenuItem" Header="_Small" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
-                        <MenuItem x:Name="FontSizeMediumMenuItem" Header="_Medium" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
-                        <MenuItem x:Name="FontSizeLargeMenuItem" Header="_Large" IsCheckable="True" Click="EditorFontSizeMenuItem_Click" />
-                        <Separator />
-                        <MenuItem x:Name="FontSizeCustomMenuItem" Header="_Custom..." Click="FontSizeCustomMenuItem_Click" />
-                    </MenuItem>
-                    <MenuItem x:Name="SessionRestoreMenuItem" Header="_Restore tabs on start" IsCheckable="True" Click="SessionRestoreMenuItem_Click" />
-                </MenuItem>
+                <MenuItem x:Name="SettingsMenuItem" Header="_Settings" InputGestureText="Ctrl+," Click="SettingsMenuItem_Click" />
             </MenuItem>
             <MenuItem x:Name="ViewMenuItem" Header="_View" ItemContainerStyle="{StaticResource MenuBarItemStyle}">
                 <MenuItem x:Name="WordWrapMenuItem" Header="_Word wrap" IsCheckable="True" IsChecked="True" Click="WordWrapMenuItem_Click" />

@@ -14,13 +14,27 @@ public partial class App : Application
         EnsureWindowsDirectoryEnvironment();
     }
 
+    private SingleInstanceChannel? _instanceChannel;
+
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-        EnsureStableWorkingDirectory();
         DispatcherUnhandledException += App_DispatcherUnhandledException;
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         AppDiagnostics.Log($"Startup args=[{string.Join(", ", e.Args)}]");
+
+        // Resolve before the working directory is reset, or relative paths would point into the app folder.
+        IReadOnlyList<string> startupDocumentPaths = StartupDocumentPath.FromArgs(e.Args);
+        EnsureStableWorkingDirectory();
+
+        _instanceChannel = new SingleInstanceChannel(SingleInstanceChannel.DefaultName);
+        if (!_instanceChannel.IsPrimary && _instanceChannel.TrySendToPrimary(startupDocumentPaths, TimeSpan.FromSeconds(10)))
+        {
+            AppDiagnostics.Log($"Forwarded {startupDocumentPaths.Count} path(s) to the running instance");
+            Shutdown();
+            return;
+        }
+
         AppCultureService.ApplySystemCulture();
         AppThemeService.Apply(this, AppTheme.System);
 
@@ -30,14 +44,25 @@ public partial class App : Application
         mainWindow.Activate();
         AppDiagnostics.Log("MainWindow shown");
 
-        string? startupDocumentPath = StartupDocumentPath.FromArgs(e.Args);
-        AppDiagnostics.Log($"Startup document path={startupDocumentPath ?? "<none>"}");
-        if (!string.IsNullOrWhiteSpace(startupDocumentPath))
+        if (_instanceChannel.IsPrimary)
+        {
+            _instanceChannel.StartListening(paths => mainWindow.Dispatcher.BeginInvoke(
+                async () => await mainWindow.OpenForwardedDocumentsAsync(paths)));
+        }
+
+        AppDiagnostics.Log($"Startup document paths=[{string.Join(", ", startupDocumentPaths)}]");
+        if (startupDocumentPaths.Count > 0)
         {
             mainWindow.Dispatcher.BeginInvoke(
-                async () => await mainWindow.OpenDocumentAsync(startupDocumentPath),
+                async () => await mainWindow.OpenDocumentsAsync(startupDocumentPaths),
                 DispatcherPriority.ApplicationIdle);
         }
+    }
+
+    protected override void OnExit(ExitEventArgs e)
+    {
+        _instanceChannel?.Dispose();
+        base.OnExit(e);
     }
 
     private static void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

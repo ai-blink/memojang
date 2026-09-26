@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>Aucune correspondance</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>Précédent</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} remplacements</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Taille de police</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>Pe_rsonnalisé...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>_Grande</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>_Moyenne</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Taille de police ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>_Petite</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>Numéro de ligne</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>À _propos de Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Ajouter une _ligne au tableau</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>_Rechercher</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Rechercher le _suivant</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>Rechercher le précé_dent</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>_Police</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>_Taille de police</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>A_ller à...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Aide</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Insérer un _tableau</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>Impossible de joindre l'image : {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Les images peuvent être jointes aux documents Markdown.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Saisissez un numéro de ligne entre 1 et {0}.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Saisissez une taille de police entre {0:0} et {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Impossible d'ouvrir le fichier : {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Impossible d'enregistrer le fichier : {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Enregistrez ce document en Markdown avant de joindre des images.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Cliquez pour convertir les fins de ligne</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Enregistrer en {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convertir en {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>_Restaurer les onglets et le texte non enregistré au démarrage</value></data>
   <data name="ContextTable" xml:space="preserve"><value>Ta_bleau</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Ajouter une ligne en dessous</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Supprimer la ligne</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>Clair(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>Système(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>Sans titre.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>Paramètres</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>Restaurer les onglets et le texte non enregistré au démarrage</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>Exclure la fenêtre de la capture</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>Police</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>Taille de police</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>Retour à la ligne automatique</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>Thème de l&amp;apos;application</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>Barre d'état</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>Système</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>Clair</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>Sombre</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>Général</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>Éditeur</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>Apparence</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>À propos</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>Démarrage et confidentialité.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>Activé, la fermeture conserve le texte non enregistré au lieu de demander l’enregistrement.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>Demande à Windows de masquer cette fenêtre des captures et du partage d’écran. Certains outils peuvent encore la voir.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>Police et mise en page du texte.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. Le zoom (Ctrl+molette) est distinct.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>Thème et éléments de la fenêtre.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Un éditeur de texte et Markdown léger pour Windows.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>Version {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>Ouvrir le dossier des paramètres</value></data>
 </root>

@@ -2,6 +2,15 @@
 
 ## Current
 
+2026-09-27: Single-window tabs and a settings window.
+- Before this, every Explorer "Open" started a new process and window, and in-app Open/Recent replaced the current tab behind a save prompt.
+- `SingleInstanceChannel` uses a per-user, per-session mutex and a `CurrentUserOnly` named pipe. A later launch forwards absolute paths and exits. The running window opens them as tabs and comes to the front; a launch with no arguments adds an empty tab.
+- Open (now multi-select) and Recent use the same rule: activate the file's existing tab, reuse a blank untitled tab, otherwise open a new tab. Relative startup args are resolved before the working directory is reset.
+- `SettingsWindow` has a left sidebar (General, Editor, Appearance, About) modelled on the magnifier project. Changes apply live and are saved on close. It covers session restore, capture exclusion (also applied to the dialog), all system fonts, font size, word wrap, theme, and status bar (now persisted). It follows the dark title bar.
+- Open it from Edit > Settings, the gear in the menu row, or Ctrl+,. The old font, font-size, and session-restore submenus and their 10 resource keys were removed. 24 keys were added to all 12 resource sets.
+- Verified: isolated `dotnet test` with 144 passing tests and 0 warnings. In a real-app UIA smoke run, the 2nd and 3rd launches exited and one window held `smoke-a.txt | smoke-b.md | Untitled 3`. All 4 settings pages switched, and the font combo expanded in dark theme.
+- Not verified by a person: the look of the settings window, and Explorer multi-file "Open".
+
 2026-09-27: Locale override and RTL editor fix.
 - `MEMOJANG_UI_CULTURE=<lang>` forces a supported UI language for testing. Unknown or unsupported values fall back to the Windows display language.
 - Screenshots of ar/ja/ru/fr/id showed an RTL bug: in Arabic the editor itself turned RTL, which reversed the Markdown source and shaped digits (1 2 → ١ ٢).

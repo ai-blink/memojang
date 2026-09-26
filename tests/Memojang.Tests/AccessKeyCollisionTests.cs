@@ -15,8 +15,6 @@ public class AccessKeyCollisionTests
         ["MenuBar"] = ["MenuFile", "MenuEdit", "MenuView", "MenuMarkdown", "MenuPrivacy", "MenuHelp"],
         ["File"] = ["MenuRecent", "MenuNewTab", "MenuNewText", "MenuNewMarkdown", "MenuOpen", "MenuSave", "MenuSaveAs", "MenuSaveAll", "MenuExit"],
         ["Edit"] = ["MenuUndo", "MenuCut", "MenuCopy", "MenuPaste", "MenuFind", "MenuFindNext", "MenuFindPrevious", "MenuSelectAll", "MenuGoTo", "MenuTimeDate", "MenuSettings"],
-        ["Settings"] = ["MenuFont", "MenuFontSize", "MenuSessionRestore"],
-        ["FontSize"] = ["FontSizeSmall", "FontSizeMedium", "FontSizeLarge", "FontSizeCustom"],
         ["View"] = ["MenuWordWrap", "MenuStatusBar", "MenuZoom", "MenuMarkdownPreview", "MenuAppTheme"],
         ["Zoom"] = ["MenuZoomIn", "MenuZoomOut", "MenuResetZoom"],
         ["Theme"] = ["ThemeSystem", "ThemeLight", "ThemeDark"],

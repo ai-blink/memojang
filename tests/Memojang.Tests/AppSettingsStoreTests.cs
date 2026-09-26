@@ -36,7 +36,8 @@ public sealed class AppSettingsStoreTests : IDisposable
             EditorFontFamily = "Cascadia Mono",
             EditorFontSize = 18,
             ZoomPercent = 130,
-            WordWrap = false
+            WordWrap = false,
+            StatusBarVisible = false
         }));
 
         AppSettings loaded = store.Load();
@@ -45,6 +46,7 @@ public sealed class AppSettingsStoreTests : IDisposable
         Assert.Equal(18, loaded.EditorFontSize);
         Assert.Equal(130, loaded.ZoomPercent);
         Assert.False(loaded.WordWrap);
+        Assert.False(loaded.StatusBarVisible);
     }
 
     [Fact]
@@ -61,6 +63,7 @@ public sealed class AppSettingsStoreTests : IDisposable
         Assert.Equal(AppSettingsStore.DefaultFontSize, loaded.EditorFontSize);
         Assert.Equal(100, loaded.ZoomPercent);
         Assert.True(loaded.WordWrap);
+        Assert.True(loaded.StatusBarVisible);
     }
 
     [Fact]

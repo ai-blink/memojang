@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>Совпадений нет</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>Назад</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>Заменено: {0}</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>Размер шрифта</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>_Другой...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>_Крупный</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>_Средний</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>Размер шрифта ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>_Мелкий</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>Номер строки</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>_О программе Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Добавить _строку таблицы</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>_Найти</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Найти _далее</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>Найти _предыдущее</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>_Шрифт</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>_Размер шрифта</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>Пере_йти...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Справка</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Вставить _таблицу</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>Не удалось прикрепить изображение: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>Изображения можно прикреплять только к документам Markdown.</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>Введите номер строки от 1 до {0}.</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>Введите размер шрифта от {0:0} до {1:0}.</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>Не удалось открыть файл: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Не удалось сохранить файл: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Сохраните этот документ в формате Markdown, прежде чем прикреплять изображения.</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Нажмите, чтобы преобразовать окончания строк</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Сохранить как {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Преобразовать в {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>_Восстанавливать вкладки и несохранённый текст при запуске</value></data>
   <data name="ContextTable" xml:space="preserve"><value>Та_блица</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Добавить строку ниже</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Удалить строку</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>Светлая(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>Система(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>Безымянный.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>Настройки</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>Восстанавливать вкладки и несохранённый текст при запуске</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>Исключить окно из захвата</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>Шрифт</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>Размер шрифта</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>Перенос по словам</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>Тема приложения</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>Строка состояния</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>Система</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>Светлая</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>Темная</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>Общие</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>Редактор</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>Внешний вид</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>О программе</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>Запуск и конфиденциальность.</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>Если включено, при закрытии несохранённый текст сохраняется без запроса.</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>Просит Windows скрывать это окно на снимках и при демонстрации экрана. Некоторые средства захвата всё же могут его видеть.</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>Шрифт и расположение текста.</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}. Масштаб (Ctrl+колесо) задаётся отдельно.</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>Тема и элементы окна.</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Лёгкий редактор текста и Markdown для Windows.</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>Версия {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>Открыть папку настроек</value></data>
 </root>

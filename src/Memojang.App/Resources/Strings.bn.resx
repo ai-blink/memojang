@@ -15,12 +15,6 @@
   <data name="FindNoMatches" xml:space="preserve"><value>কোনো মিল নেই</value></data>
   <data name="FindPreviousButton" xml:space="preserve"><value>পূর্ববর্তী</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0}টি প্রতিস্থাপিত</value></data>
-  <data name="DialogFontSizeTitle" xml:space="preserve"><value>ফন্টের আকার</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>কাস্টম(_C)...</value></data>
-  <data name="FontSizeLarge" xml:space="preserve"><value>বড়(_L)</value></data>
-  <data name="FontSizeMedium" xml:space="preserve"><value>মাঝারি(_M)</value></data>
-  <data name="FontSizeNumberLabel" xml:space="preserve"><value>ফন্টের আকার ({0:0}-{1:0})</value></data>
-  <data name="FontSizeSmall" xml:space="preserve"><value>ছোট(_S)</value></data>
   <data name="GoToLineLabel" xml:space="preserve"><value>লাইন নম্বর</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>Memojang সম্পর্কে(_A)</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>টেবিলে সারি যুক্ত করুন(_R)</value></data>
@@ -34,8 +28,6 @@
   <data name="MenuFind" xml:space="preserve"><value>খুঁজুন(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>পরবর্তী খুঁজুন(_N)</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>পূর্ববর্তী খুঁজুন(_V)</value></data>
-  <data name="MenuFont" xml:space="preserve"><value>ফন্ট(_F)</value></data>
-  <data name="MenuFontSize" xml:space="preserve"><value>ফন্টের আকার(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>যান(_G)...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>সহায়তা(_H)</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>টেবিল সন্নিবেশ করুন(_T)</value></data>
@@ -69,7 +61,6 @@
   <data name="MessageAttachImageFailed" xml:space="preserve"><value>ছবি সংযুক্ত করা যায়নি: {0}</value></data>
   <data name="MessageImagesMarkdownOnly" xml:space="preserve"><value>ছবি শুধু Markdown ডকুমেন্টে সংযুক্ত করা যায়।</value></data>
   <data name="MessageInvalidLineNumber" xml:space="preserve"><value>1 থেকে {0} এর মধ্যে একটি লাইন নম্বর লিখুন।</value></data>
-  <data name="MessageInvalidFontSize" xml:space="preserve"><value>{0:0} থেকে {1:0} এর মধ্যে একটি ফন্টের আকার লিখুন।</value></data>
   <data name="MessageOpenFileFailed" xml:space="preserve"><value>ফাইলটি খোলা যায়নি: {0}</value></data>
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>ফাইলটি সংরক্ষণ করা যায়নি: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>ছবি সংযুক্ত করার আগে এই ডকুমেন্টটি Markdown হিসেবে সংরক্ষণ করুন।</value></data>
@@ -111,7 +102,6 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>লাইন এন্ডিং রূপান্তর করতে ক্লিক করুন</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} হিসেবে সংরক্ষণ করুন</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} এ রূপান্তর করুন</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>শুরুতে ট্যাব ও অসংরক্ষিত টেক্সট পুনরুদ্ধার করুন(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>টেবিল(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>নিচে সারি যুক্ত করুন</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>সারি মুছুন</value></data>
@@ -136,4 +126,28 @@
   <data name="ThemeLight" xml:space="preserve"><value>হালকা(_L)</value></data>
   <data name="ThemeSystem" xml:space="preserve"><value>সিস্টেম(_S)</value></data>
   <data name="UntitledFileName" xml:space="preserve"><value>শিরোনামহীন.txt</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>সেটিংস</value></data>
+  <data name="SettingsSessionRestore" xml:space="preserve"><value>শুরুতে ট্যাব ও অসংরক্ষিত টেক্সট পুনরুদ্ধার করুন</value></data>
+  <data name="SettingsCaptureExclusion" xml:space="preserve"><value>উইন্ডো ক্যাপচার থেকে বাদ দিন</value></data>
+  <data name="SettingsFontFamily" xml:space="preserve"><value>ফন্ট</value></data>
+  <data name="SettingsFontSize" xml:space="preserve"><value>ফন্টের আকার</value></data>
+  <data name="SettingsWordWrap" xml:space="preserve"><value>ওয়ার্ড র্যাপ</value></data>
+  <data name="SettingsTheme" xml:space="preserve"><value>অ্যাপ থিম</value></data>
+  <data name="SettingsStatusBar" xml:space="preserve"><value>স্ট্যাটাস বার</value></data>
+  <data name="SettingsThemeSystem" xml:space="preserve"><value>সিস্টেম</value></data>
+  <data name="SettingsThemeLight" xml:space="preserve"><value>হালকা</value></data>
+  <data name="SettingsThemeDark" xml:space="preserve"><value>গাঢ়</value></data>
+  <data name="SettingsNavGeneral" xml:space="preserve"><value>সাধারণ</value></data>
+  <data name="SettingsNavEditor" xml:space="preserve"><value>সম্পাদক</value></data>
+  <data name="SettingsNavAppearance" xml:space="preserve"><value>চেহারা</value></data>
+  <data name="SettingsNavAbout" xml:space="preserve"><value>সম্পর্কে</value></data>
+  <data name="SettingsGeneralSubtitle" xml:space="preserve"><value>শুরু ও গোপনীয়তা।</value></data>
+  <data name="SettingsSessionRestoreHint" xml:space="preserve"><value>চালু থাকলে, বন্ধ করার সময় সংরক্ষণের কথা জিজ্ঞেস না করে অসংরক্ষিত লেখা রেখে দেয়।</value></data>
+  <data name="SettingsCaptureExclusionHint" xml:space="preserve"><value>স্ক্রিনশট ও স্ক্রিন শেয়ারিং থেকে এই উইন্ডো লুকাতে Windows-কে অনুরোধ করে। কিছু ক্যাপচার টুল তবুও এটি দেখতে পারে।</value></data>
+  <data name="SettingsEditorSubtitle" xml:space="preserve"><value>ফন্ট ও লেখার বিন্যাস।</value></data>
+  <data name="SettingsFontSizeHint" xml:space="preserve"><value>{0}–{1}। জুম (Ctrl+হুইল) আলাদা।</value></data>
+  <data name="SettingsAppearanceSubtitle" xml:space="preserve"><value>থিম ও উইন্ডোর উপাদান।</value></data>
+  <data name="SettingsAboutSubtitle" xml:space="preserve"><value>Windows-এর জন্য হালকা টেক্সট ও Markdown সম্পাদক।</value></data>
+  <data name="SettingsVersion" xml:space="preserve"><value>সংস্করণ {0}</value></data>
+  <data name="SettingsOpenDataFolder" xml:space="preserve"><value>সেটিংস ফোল্ডার খুলুন</value></data>
 </root>
