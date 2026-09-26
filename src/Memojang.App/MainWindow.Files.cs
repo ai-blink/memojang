@@ -47,6 +47,11 @@ public partial class MainWindow
             return false;
         }
 
+        if (!PrepareTabForStartupOpen(filePath))
+        {
+            return true;
+        }
+
         try
         {
             AppDiagnostics.Log($"OpenDocument async start path={filePath}");

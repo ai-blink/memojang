@@ -111,6 +111,7 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Click to convert line endings</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Save as {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convert to {0}</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>_Restore tabs and unsaved text on start</value></data>
   <data name="ContextTable" xml:space="preserve"><value>_Table</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Add row below</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Delete row</value></data>

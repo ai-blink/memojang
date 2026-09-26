@@ -111,6 +111,7 @@
   <data name="StatusLineEndingHint" xml:space="preserve"><value>클릭해서 줄 끝 변환</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0}(으)로 저장</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0}(으)로 변환</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>시작할 때 탭과 저장 안 한 내용 복원(_R)</value></data>
   <data name="ContextTable" xml:space="preserve"><value>표(_T)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>아래에 행 추가</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>행 삭제</value></data>

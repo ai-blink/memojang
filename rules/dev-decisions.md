@@ -34,4 +34,5 @@
 - D-012: V1 Markdown images use a document-local sidecar assets folder with relative links; custom Memojang package extensions remain V2 candidates.
 - D-013: Markdown source remains unchanged for preview-only polish; list markers, fenced Markdown box rendering, emphasis styling, and empty-heading handling are renderer behavior only.
 - D-014: Files are saved in the encoding they were opened with. Detection order is BOM, then strict UTF-8, then the system ANSI code page; new documents are UTF-8 without BOM. Switching an ANSI document to UTF-8 because of non-representable characters requires user consent.
+- D-016: Session restore (hot exit) is on by default, like Windows 11 Notepad. Closing saves tabs and unsaved text to the app's session file instead of prompting, never auto-saves user files, and falls back to prompts if the session write fails.
 - D-015: Word wrap defaults to on like Notepad. Status bar and go-to-line always use logical file lines, not WPF visual lines.

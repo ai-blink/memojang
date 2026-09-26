@@ -29,8 +29,9 @@ Current state:
 Immediate next step (priority from the 2026-09-27 review):
 - Done 2026-09-27: encoding/BOM detection and preservation, word-wrap toggle (see `rules/dev-progress.md`). Save-encoding and line-ending menus are also done. Follow-up: "reopen with encoding" for a wrong ANSI guess.
 - Done 2026-09-27: capture-exclusion read-back and honest tooltips. Next is a human run of the `docs/CAPTURE_MATRIX.md` tool rows (Snipping, Print Screen, OBS, Teams/Zoom, open menu, Recall, RDP).
-- P1: Persist theme/font/zoom/wrap; Ctrl+wheel zoom, Ctrl+H/W/Tab; external file-change check on activation; session restore (hot exit).
-- P2: Preview italic/strike/link, localize hardcoded preview labels, table Tab navigation and row/column context menu, decide translation scope (11 locales at ~15%), toolbar `AutomationProperties.Name`.
+- Done 2026-09-27: all remaining P1/P2 code items (view settings, shortcuts, external changes, hot exit, preview inline rendering, table editing, accessibility names, line-ending/encoding menus). See `rules/dev-progress.md`.
+- Open, needs the user: decide translation scope (11 locales at ~15%: trim to en/ko or fill), and run the manual capture matrix.
+- V2 candidates: tab drag-out, detached preview, focus mode, unsaved-changes diff, Mica, periodic session backup (crash safety), reopen-with-encoding.
 - Still open: manual `.md` image drag/drop/menu check and `.txt` image blocking in a visible desktop session.
 
 Known blockers:

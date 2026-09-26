@@ -19,6 +19,8 @@ public sealed class AppSettings
     public double ZoomPercent { get; init; } = 100;
 
     public bool WordWrap { get; init; } = true;
+
+    public bool SessionRestore { get; init; } = true;
 }
 
 public sealed class AppSettingsStore
@@ -109,7 +111,8 @@ public sealed class AppSettingsStore
             EditorFontFamily = string.IsNullOrWhiteSpace(settings.EditorFontFamily) ? DefaultFontFamily : settings.EditorFontFamily,
             EditorFontSize = ClampOrDefault(settings.EditorFontSize, MinFontSize, MaxFontSize, DefaultFontSize),
             ZoomPercent = ClampOrDefault(settings.ZoomPercent, MinZoomPercent, MaxZoomPercent, 100),
-            WordWrap = settings.WordWrap
+            WordWrap = settings.WordWrap,
+            SessionRestore = settings.SessionRestore
         };
     }
 

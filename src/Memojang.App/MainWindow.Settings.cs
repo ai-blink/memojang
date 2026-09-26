@@ -22,6 +22,8 @@ public partial class MainWindow
         SetEditorFontSize(settings.EditorFontSize);
         SetZoom(settings.ZoomPercent);
         SetWordWrap(settings.WordWrap);
+        _sessionRestoreEnabled = settings.SessionRestore;
+        SessionRestoreMenuItem.IsChecked = _sessionRestoreEnabled;
         if (Enum.TryParse(settings.Theme, out AppTheme theme) && theme != AppTheme.System)
         {
             ApplyTheme(theme);
@@ -40,7 +42,8 @@ public partial class MainWindow
             EditorFontFamily = _editorFontFamilyName,
             EditorFontSize = _editorBaseFontSize,
             ZoomPercent = _zoomPercent,
-            WordWrap = WordWrapMenuItem.IsChecked
+            WordWrap = WordWrapMenuItem.IsChecked,
+            SessionRestore = _sessionRestoreEnabled
         });
     }
 }

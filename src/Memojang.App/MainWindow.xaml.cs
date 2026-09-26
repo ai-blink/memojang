@@ -243,9 +243,22 @@ public partial class MainWindow : Window
 
     private void MainWindow_Closing(object? sender, CancelEventArgs e)
     {
+        // With session restore, unsaved work goes to the session file instead of save prompts; if that write
+        // fails we fall back to prompting so nothing is lost silently.
+        if (_sessionRestoreEnabled && TrySaveSession())
+        {
+            SavePersistentSettings();
+            return;
+        }
+
         e.Cancel = !ConfirmCloseAllTabs();
         if (!e.Cancel)
         {
+            if (!_sessionRestoreEnabled)
+            {
+                _sessionStore.Clear();
+            }
+
             SavePersistentSettings();
         }
     }

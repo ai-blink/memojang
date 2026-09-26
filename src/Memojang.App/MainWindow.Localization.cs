@@ -37,6 +37,7 @@ public partial class MainWindow
         FontSizeMediumMenuItem.Header = UiText.Get("FontSizeMedium");
         FontSizeLargeMenuItem.Header = UiText.Get("FontSizeLarge");
         FontSizeCustomMenuItem.Header = UiText.Get("FontSizeCustom");
+        SessionRestoreMenuItem.Header = UiText.Get("MenuSessionRestore");
         ViewMenuItem.Header = UiText.Get("MenuView");
         WordWrapMenuItem.Header = UiText.Get("MenuWordWrap");
         StatusBarMenuItem.Header = UiText.Get("MenuStatusBar");

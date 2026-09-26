@@ -2,6 +2,14 @@
 
 ## Current
 
+2026-09-27: Session restore (hot exit) was added.
+- On close, open tabs and unsaved text are written to `%LOCALAPPDATA%\Memojang\session.json` (write-then-move) instead of prompting. The next start restores them.
+- Clean file tabs store only the path and are re-read from disk. User files are never auto-saved.
+- If the session write fails, closing falls back to the save prompts.
+- Settings > "Restore tabs and unsaved text on start" turns it off, and the session file is then cleared on close.
+- A startup file opens in a new tab, or re-activates its existing tab, so it never overwrites a restored tab.
+- Verified with the isolated `dotnet build` (0 warnings/errors), 111 passing tests, and a real-app check: typing text and closing exited without a prompt; the relaunch restored "hot exit test" and logged `Session restored tabs=1`. The test session file was removed afterward.
+
 2026-09-27: Line endings are preserved while editing, and the status bar has encoding and line-ending menus.
 - Enter and paste use the document's line ending, so an LF file no longer gains CRLF (WPF defaults to CRLF).
 - Clicking the encoding status picks the save encoding (UTF-8, UTF-8 BOM, UTF-16 LE/BE, ANSI).

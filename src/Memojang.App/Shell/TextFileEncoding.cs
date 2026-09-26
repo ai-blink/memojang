@@ -14,6 +14,22 @@ public sealed record TextFileEncoding(string DisplayName, Encoding Encoding, boo
 
     public bool IsUnicode => Encoding is UTF8Encoding or UnicodeEncoding;
 
+    public string Key =>
+        this == Utf8 ? "utf-8"
+        : this == Utf8Bom ? "utf-8-bom"
+        : this == Utf16Le ? "utf-16le"
+        : this == Utf16Be ? "utf-16be"
+        : $"ansi-{Encoding.CodePage}";
+
+    public static TextFileEncoding FromKey(string? key) => key switch
+    {
+        "utf-8-bom" => Utf8Bom,
+        "utf-16le" => Utf16Le,
+        "utf-16be" => Utf16Be,
+        string ansi when ansi.StartsWith("ansi-", StringComparison.Ordinal) && int.TryParse(ansi[5..], out int codePage) => Ansi(codePage),
+        _ => Utf8
+    };
+
     public static TextFileEncoding Ansi(int codePage)
     {
         TextFileCodec.EnsureCodePagesRegistered();

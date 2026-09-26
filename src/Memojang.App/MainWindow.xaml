@@ -239,6 +239,7 @@
                         <Separator />
                         <MenuItem x:Name="FontSizeCustomMenuItem" Header="_Custom..." Click="FontSizeCustomMenuItem_Click" />
                     </MenuItem>
+                    <MenuItem x:Name="SessionRestoreMenuItem" Header="_Restore tabs on start" IsCheckable="True" Click="SessionRestoreMenuItem_Click" />
                 </MenuItem>
             </MenuItem>
             <MenuItem x:Name="ViewMenuItem" Header="_View" ItemContainerStyle="{StaticResource MenuBarItemStyle}">

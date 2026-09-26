@@ -17,7 +17,11 @@ public partial class MainWindow
 
     private void InitializeTabs()
     {
-        CreateNewDocumentTab(DocumentMode.PlainText);
+        if (!TryRestoreSession())
+        {
+            CreateNewDocumentTab(DocumentMode.PlainText);
+        }
+
         UpdateRecentFilesMenu();
     }
 
