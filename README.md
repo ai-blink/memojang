@@ -2,7 +2,7 @@
 
 > Windows 11용 가벼운 텍스트·Markdown 편집기
 
-**현재 버전: `0.1.0-preview.1`**
+**현재 버전: `0.1.0-preview.2`**
 
 Memojang은 메모장처럼 빠르고 익숙한 편집 경험에 Markdown과 표 미리 보기, 이미지 삽입, 창 캡처 제외 기능을 더한 .NET 10 WPF 앱입니다.
 
@@ -15,8 +15,10 @@ Memojang은 메모장처럼 빠르고 익숙한 편집 경험에 Markdown과 표
 - 제목, 문단, 표, 이미지, 구분선, 코드 블록, 강조, 목록을 지원하는 Markdown 미리 보기
 - 저장한 Markdown 문서의 사이드카 자산 폴더를 활용한 이미지 삽입
 - 제목, 목록, 굵게, 기울임, 취소선, 링크, 표, 이미지, 미리 보기 도구 모음
-- 글꼴, 글자 크기, 찾기, 이동, 확대/축소 설정
-- 라이트·다크 테마, 다국어 UI 기반, 아랍어 RTL 레이아웃
+- 한 창에서 탭으로 열기(탐색기에서 연 문서도 실행 중인 창의 새 탭으로), 종료 시 탭·미저장 내용 복원
+- 인코딩·BOM·줄바꿈 보존, 외부 변경 감지, 표 Tab 이동·자동 정렬
+- 왼쪽 사이드바 설정 창(일반·편집기·모양·정보, `Ctrl+,`)과 찾기, 이동, 확대/축소
+- 라이트·다크 테마, 11개 언어 UI, 아랍어 RTL 레이아웃
 - Windows 창 캡처 제외 요청과 실제 적용 상태 표시
 
 ## 포터블 배포
@@ -30,13 +32,13 @@ dotnet publish .\src\Memojang.App\Memojang.App.csproj -p:PublishProfile=PreviewF
 게시 결과:
 
 ```text
-artifacts\publish\Memojang-0.1.0-preview.1-win-x64\
+artifacts\publish\Memojang-0.1.0-preview.2-win-x64\
 ```
 
 배포할 때는 결과 폴더 안의 모든 파일을 함께 제공하세요. 현재 배포본은 Windows x64 전용 미리 보기 버전입니다.
 
 ```powershell
-Start-Process .\artifacts\publish\Memojang-0.1.0-preview.1-win-x64\Memojang.App.exe
+Start-Process .\artifacts\publish\Memojang-0.1.0-preview.2-win-x64\Memojang.App.exe
 ```
 
 ## 개발 환경
@@ -66,6 +68,7 @@ Memojang은 워드프로세서나 스프레드시트 편집기가 아닙니다. 
 - `tests/Memojang.Tests/` - 파서, 문서 모드, 이미지, 표, 셸 도우미 테스트
 - `doc/INTENT.md` - 제품 목표와 비목표
 - `docs/PREVIEW_BUILD.md` - 포터블 미리 보기 빌드 안내
+- `CHANGELOG.md` - 버전별 패치 노트
 - `rules/` - 개발 진행 상황, 로드맵, 의사결정
 - `notes/plans/`, `notes/research/` - 계획과 리서치 기록
 
