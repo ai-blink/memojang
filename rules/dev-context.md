@@ -28,7 +28,7 @@ Current state:
 
 Immediate next step (priority from the 2026-09-27 review):
 - Done 2026-09-27: encoding/BOM detection and preservation, word-wrap toggle (see `rules/dev-progress.md`). Follow-up: a "Save with encoding" status-bar menu, and LF files gaining CRLF from Enter.
-- P0: Capture-exclusion honesty: re-check with `GetWindowDisplayAffinity`, explain the `WDA_MONITOR` "limited" black-box fallback, and add menu popups, Recall, RDP, and OBS rows to the manual capture matrix.
+- Done 2026-09-27: capture-exclusion read-back and honest tooltips. Next is a human run of the `docs/CAPTURE_MATRIX.md` tool rows (Snipping, Print Screen, OBS, Teams/Zoom, open menu, Recall, RDP).
 - P1: Persist theme/font/zoom/wrap; Ctrl+wheel zoom, Ctrl+H/W/Tab; external file-change check on activation; session restore (hot exit).
 - P2: Preview italic/strike/link, localize hardcoded preview labels, table Tab navigation and row/column context menu, decide translation scope (11 locales at ~15%), toolbar `AutomationProperties.Name`.
 - Still open: manual `.md` image drag/drop/menu check and `.txt` image blocking in a visible desktop session.

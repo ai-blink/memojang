@@ -2,6 +2,13 @@
 
 ## Current
 
+2026-09-27: Capture-exclusion status is now verified and explained.
+- After the set call, `CaptureExclusion.Apply` reads the affinity back with `GetWindowDisplayAffinity`, and the pure `Classify` function derives the status from that value.
+- The tooltip spells out what is covered and what is not (open menus/dialogs, phone cameras, other devices, same-user programs). The "limited" state explains the black-box fallback, and Win32 error 8 is shown as "not supported" instead of a memory error.
+- `docs/CAPTURE_MATRIX.md` gained a status-meaning table plus rows for menus/dialogs, Recall, RDP, and Teams/Zoom.
+- Verified with the isolated `dotnet build` (0 warnings/errors), 74 passing tests, and a launch smoke with privacy requested that logged `status=PrivacyStatusExcluded` from the read-back affinity. The user's `settings.json` was restored afterward.
+- The manual tool rows are still not run.
+
 2026-09-27: Encoding preservation and a real word-wrap toggle are complete.
 - Files are read as bytes and detected in order: BOM (UTF-8/UTF-16 LE/BE), then strict UTF-8, then the system ANSI code page (for example CP949).
 - Saving reuses the detected encoding and BOM. If the text no longer fits the ANSI code page, the user is asked before switching to UTF-8, so characters are never dropped silently.

@@ -9,16 +9,38 @@ public sealed record CaptureExclusionResult(
     string StatusKey,
     int? ErrorCode = null)
 {
+    // ERROR_NOT_ENOUGH_MEMORY is what Windows returns for unsupported windows (layered/transparent) or drivers,
+    // so showing its literal text would mislead the user.
+    private const int ErrorNotEnoughMemory = 8;
+
     public string StatusText => UiText.Get(StatusKey);
 
-    public string DetailText => ErrorCode is null ? StatusText : $"{StatusText} (Win32 {ErrorCode})";
+    public string DetailText
+    {
+        get
+        {
+            string detail = StatusKey switch
+            {
+                "PrivacyStatusExcluded" => UiText.Get("PrivacyDetailExcluded"),
+                "PrivacyStatusLimited" => UiText.Get("PrivacyDetailLimited"),
+                _ => StatusText
+            };
+
+            return ErrorCode switch
+            {
+                null => detail,
+                ErrorNotEnoughMemory => $"{detail}\n{UiText.Get("PrivacyErrorNotSupported")} (Win32 {ErrorCode})",
+                _ => $"{detail} (Win32 {ErrorCode})"
+            };
+        }
+    }
 }
 
 public static class CaptureExclusion
 {
-    private const uint WdaNone = 0x00000000;
-    private const uint WdaMonitor = 0x00000001;
-    private const uint WdaExcludeFromCapture = 0x00000011;
+    public const uint WdaNone = 0x00000000;
+    public const uint WdaMonitor = 0x00000001;
+    public const uint WdaExcludeFromCapture = 0x00000011;
 
     public static CaptureExclusionResult Apply(IntPtr windowHandle, bool enabled)
     {
@@ -27,27 +49,43 @@ public static class CaptureExclusion
             return new CaptureExclusionResult(enabled, false, "PrivacyStatusUnavailable");
         }
 
+        int? setError = null;
         if (!enabled)
         {
-            return SetWindowDisplayAffinity(windowHandle, WdaNone)
-                ? new CaptureExclusionResult(false, false, "PrivacyStatusVisible")
-                : new CaptureExclusionResult(false, false, "PrivacyStatusResetFailed", Marshal.GetLastWin32Error());
+            setError = SetAffinity(windowHandle, WdaNone);
         }
-
-        if (SetWindowDisplayAffinity(windowHandle, WdaExcludeFromCapture))
+        else if (SetAffinity(windowHandle, WdaExcludeFromCapture) is int excludeError)
         {
-            return new CaptureExclusionResult(true, true, "PrivacyStatusExcluded");
+            // Pre-2004 Windows only supports WDA_MONITOR, which captures the window as a black box.
+            setError = SetAffinity(windowHandle, WdaMonitor) is null ? null : excludeError;
         }
 
-        if (SetWindowDisplayAffinity(windowHandle, WdaMonitor))
-        {
-            return new CaptureExclusionResult(true, true, "PrivacyStatusLimited");
-        }
-
-        return new CaptureExclusionResult(true, false, "PrivacyStatusExclusionUnavailable", Marshal.GetLastWin32Error());
+        // The status reflects what Windows reports back, not what the set call claimed.
+        uint? actual = GetWindowDisplayAffinity(windowHandle, out uint affinity) ? affinity : null;
+        return Classify(enabled, actual, setError);
     }
+
+    public static CaptureExclusionResult Classify(bool requested, uint? actualAffinity, int? setError)
+    {
+        return actualAffinity switch
+        {
+            null => new CaptureExclusionResult(requested, false, "PrivacyStatusUnavailable", setError),
+            WdaExcludeFromCapture => new CaptureExclusionResult(requested, true, "PrivacyStatusExcluded"),
+            WdaMonitor => new CaptureExclusionResult(requested, true, "PrivacyStatusLimited"),
+            _ when requested => new CaptureExclusionResult(true, false, "PrivacyStatusExclusionUnavailable", setError),
+            WdaNone => new CaptureExclusionResult(false, false, "PrivacyStatusVisible"),
+            _ => new CaptureExclusionResult(false, false, "PrivacyStatusResetFailed", setError)
+        };
+    }
+
+    private static int? SetAffinity(IntPtr windowHandle, uint affinity) =>
+        SetWindowDisplayAffinity(windowHandle, affinity) ? null : Marshal.GetLastWin32Error();
 
     [DllImport("user32.dll", SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint dwAffinity);
+
+    [DllImport("user32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static extern bool GetWindowDisplayAffinity(IntPtr hWnd, out uint pdwAffinity);
 }

@@ -74,6 +74,9 @@
   <data name="MessageSaveFileFailed" xml:space="preserve"><value>Could not save the file: {0}</value></data>
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>Save this document as Markdown before attaching images.</value></data>
   <data name="PrivacyStatusExcluded" xml:space="preserve"><value>Capture excluded</value></data>
+  <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows reports this window is excluded from most screenshots and screen recording. Not covered: open menus, dialogs, phone cameras, other devices, and programs running as you.</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>Only the older Windows mode is available: captures show this window as a black box instead of omitting it.</value></data>
+  <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>Not supported for this window or display driver.</value></data>
   <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Capture exclusion unavailable</value></data>
   <data name="PrivacyStatusLimited" xml:space="preserve"><value>Capture limited</value></data>
   <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>Capture reset failed</value></data>

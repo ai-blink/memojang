@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Interop;
+using Memojang.App.Shell;
 using Memojang.App.WindowsInterop;
 
 namespace Memojang.App;
@@ -24,6 +25,7 @@ public partial class MainWindow
     {
         var helper = new WindowInteropHelper(this);
         CaptureExclusionResult result = CaptureExclusion.Apply(helper.Handle, _captureExclusionRequested);
+        AppDiagnostics.Log($"CaptureExclusion requested={_captureExclusionRequested} status={result.StatusKey} error={result.ErrorCode?.ToString() ?? "none"}");
 
         PrivacyStatusText.Text = result.StatusText;
         PrivacyStatusText.ToolTip = result.DetailText;
