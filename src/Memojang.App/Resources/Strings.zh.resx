@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>文件(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>查找(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>查找下一个(_N)</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>查找上一个(_P)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>查找上一个(_V)</value></data>
   <data name="MenuFont" xml:space="preserve"><value>字体(_F)</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>字号(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>转到(_G)...</value></data>
@@ -45,7 +45,7 @@
   <data name="MenuNew" xml:space="preserve"><value>新建(_N)</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>新建 Markdown(_M)</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>新建标签页(_T)</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>新建文本(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>新建文本(_E)</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>没有最近使用的文件</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>打开(_O)...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>粘贴(_P)</value></data>
@@ -58,7 +58,7 @@
   <data name="MenuSelectAll" xml:space="preserve"><value>全选(_A)</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>设置(_S)</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>状态栏(_S)</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>时间/日期(_T)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>时间/日期(_D)</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>撤消(_U)</value></data>
   <data name="MenuView" xml:space="preserve"><value>查看(_V)</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>自动换行(_W)</value></data>
@@ -86,7 +86,7 @@
   <data name="PreviewImageMissing" xml:space="preserve"><value>找不到图片: {0}</value></data>
   <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} 已被另一个程序更改。要从磁盘重新加载吗？选择“否”可保留你的编辑内容。</value></data>
   <data name="MessageFileMissing" xml:space="preserve"><value>{0} 已在磁盘上被移动或删除。你的文本内容仍会保留；保存即可留存一份副本。</value></data>
-  <data name="PromptSaveChanges" xml:space="preserve"><value>继续前保存更改吗?</value></data>
+  <data name="PromptSaveChanges" xml:space="preserve"><value>继续前保存更改吗？</value></data>
   <data name="PromptEncodingLossy" xml:space="preserve"><value>此文档中的部分字符无法保存为 {0}，将会丢失。是否改为保存为 UTF-8？</value></data>
   <data name="ReplaceAllButton" xml:space="preserve"><value>全部替换</value></data>
   <data name="ReplaceButton" xml:space="preserve"><value>替换</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>保存为 {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>转换为 {0}</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>启动时恢复标签页和未保存的内容(_R)</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>表格(_T)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>表格(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>在下方添加行</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>删除行</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>在左侧插入列</value></data>

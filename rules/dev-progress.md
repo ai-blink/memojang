@@ -2,6 +2,18 @@
 
 ## Current
 
+2026-09-27: Translation review fixes applied.
+- Three subagent reviews (ja/zh/id, es/fr/pt/ru, ar/hi/bn) found mostly access-key collisions. Some were inherited from the English source (New tab/New text = T, Cut/Time-Date = T, Paste/Find previous = P, context Cut/Table = T); others came from translation (worst: ru, fr, id).
+- `AccessKeyCollisionTests` now checks every menu group and the editor context menu for all 12 resource sets, and all collisions are fixed (en: New t_ext, Find pre_vious, Time/_Date, Ta_ble).
+- Content fixes:
+  - ar: capture-exclusion term aligned, and "deleted" corrected to "excluded" in the limited-mode detail.
+  - hi: capture-exclusion menu term aligned.
+  - hi and bn: dark-mode term aligned between menu and toolbar.
+  - zh: full-width question mark.
+  - id: shorter capture strings, "pengodean", and a grammar fix.
+- One review claim was wrong (zh already used curly quotes) and was not applied. Low-confidence suggestions were skipped.
+- Verified with the isolated `dotnet build` (0 warnings/errors) and 134 passing tests.
+
 2026-09-27: All 11 non-English locales are fully translated.
 - ar, bn, es, fr, hi, id, ja, pt, ru, and zh went from 15 of 132 keys to all 132.
 - `MenuPrivacy` was corrected from "privacy" to "capture exclusion" in 10 locales, and missing accents were fixed in pt/es/fr.

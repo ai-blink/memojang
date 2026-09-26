@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>ফাইল(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>খুঁজুন(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>পরবর্তী খুঁজুন(_N)</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>পূর্ববর্তী খুঁজুন(_P)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>পূর্ববর্তী খুঁজুন(_V)</value></data>
   <data name="MenuFont" xml:space="preserve"><value>ফন্ট(_F)</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>ফন্টের আকার(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>যান(_G)...</value></data>
@@ -45,7 +45,7 @@
   <data name="MenuNew" xml:space="preserve"><value>নতুন(_N)</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>নতুন Markdown(_M)</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>নতুন ট্যাব(_T)</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>নতুন টেক্সট(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>নতুন টেক্সট(_E)</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>কোনো সাম্প্রতিক ফাইল নেই</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>খুলুন(_O)...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>পেস্ট করুন(_P)</value></data>
@@ -58,7 +58,7 @@
   <data name="MenuSelectAll" xml:space="preserve"><value>সব নির্বাচন করুন(_A)</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>সেটিংস(_S)</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>স্ট্যাটাস বার(_S)</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>সময়/তারিখ(_T)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>সময়/তারিখ(_D)</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>পূর্বাবস্থায় ফিরুন(_U)</value></data>
   <data name="MenuView" xml:space="preserve"><value>দেখুন(_V)</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>ওয়ার্ড র্যাপ(_W)</value></data>
@@ -98,7 +98,7 @@
   <data name="StatusDocumentText" xml:space="preserve"><value>টেক্সট</value></data>
   <data name="StatusUnsavedChanges" xml:space="preserve"><value>অসংরক্ষিত পরিবর্তন</value></data>
   <data name="StatusZoom" xml:space="preserve"><value>জুম</value></data>
-  <data name="ToolbarDarkMode" xml:space="preserve"><value>ডার্ক মোড</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>গাঢ় মোড</value></data>
   <data name="ToolbarFontLarge" xml:space="preserve"><value>ফন্টের আকার বাড়ান</value></data>
   <data name="ToolbarFontMedium" xml:space="preserve"><value>মাঝারি টেক্সট</value></data>
   <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>ফন্টের আকারের সংখ্যা</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} হিসেবে সংরক্ষণ করুন</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} এ রূপান্তর করুন</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>শুরুতে ট্যাব ও অসংরক্ষিত টেক্সট পুনরুদ্ধার করুন(_R)</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>টেবিল(_T)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>টেবিল(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>নিচে সারি যুক্ত করুন</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>সারি মুছুন</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>বামে কলাম সন্নিবেশ করুন</value></data>

@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>ملف(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>بحث(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>البحث عن التالي(_N)</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>البحث عن السابق(_P)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>البحث عن السابق(_V)</value></data>
   <data name="MenuFont" xml:space="preserve"><value>الخط(_F)</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>حجم الخط(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>الانتقال إلى(_G)...</value></data>
@@ -45,11 +45,11 @@
   <data name="MenuNew" xml:space="preserve"><value>جديد(_N)</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>Markdown جديد(_M)</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>علامة تبويب جديدة(_T)</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>نص جديد(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>نص جديد(_E)</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>لا توجد ملفات حديثة</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>فتح(_O)...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>لصق(_P)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>الاستبعاد من الالتقاط(_X)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>استثناء الالتقاط(_X)</value></data>
   <data name="MenuRecent" xml:space="preserve"><value>الأخيرة(_R)</value></data>
   <data name="MenuResetZoom" xml:space="preserve"><value>إعادة ضبط التكبير(_R)</value></data>
   <data name="MenuSave" xml:space="preserve"><value>حفظ(_S)</value></data>
@@ -58,7 +58,7 @@
   <data name="MenuSelectAll" xml:space="preserve"><value>تحديد الكل(_A)</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>الإعدادات(_S)</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>شريط الحالة(_S)</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>الوقت/التاريخ(_T)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>الوقت/التاريخ(_D)</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>تراجع(_U)</value></data>
   <data name="MenuView" xml:space="preserve"><value>عرض(_V)</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>التفاف النص(_W)</value></data>
@@ -75,7 +75,7 @@
   <data name="MessageSaveMarkdownBeforeImages" xml:space="preserve"><value>احفظ هذا المستند بصيغة Markdown قبل إرفاق الصور.</value></data>
   <data name="PrivacyStatusExcluded" xml:space="preserve"><value>الالتقاط مستثنى</value></data>
   <data name="PrivacyDetailExcluded" xml:space="preserve"><value>يُشير Windows إلى أن هذه النافذة مستثناة من معظم لقطات الشاشة وتسجيل الشاشة. غير مشمول: القوائم المفتوحة، مربعات الحوار، كاميرات الهاتف، الأجهزة الأخرى، والبرامج التي تعمل بصلاحياتك.</value></data>
-  <data name="PrivacyDetailLimited" xml:space="preserve"><value>يتوفر فقط الوضع القديم في Windows: تُظهر لقطات الالتقاط هذه النافذة كمربع أسود بدلاً من حذفها.</value></data>
+  <data name="PrivacyDetailLimited" xml:space="preserve"><value>يتوفر فقط الوضع القديم في Windows: تُظهر لقطات الالتقاط هذه النافذة كمربع أسود بدلاً من استثنائها.</value></data>
   <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>غير مدعوم لهذه النافذة أو برنامج تشغيل العرض.</value></data>
   <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>استثناء الالتقاط غير متاح</value></data>
   <data name="PrivacyStatusLimited" xml:space="preserve"><value>الالتقاط محدود</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>حفظ بترميز {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>تحويل إلى {0}</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>استرجاع التبويبات والنص غير المحفوظ عند البدء(_R)</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>جدول(_T)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>جدول(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>إضافة صف أسفل</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>حذف الصف</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>إدراج عمود إلى اليسار</value></data>

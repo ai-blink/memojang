@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>파일(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>찾기(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>다음 찾기(_N)</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>이전 찾기(_P)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>이전 찾기(_V)</value></data>
   <data name="MenuFont" xml:space="preserve"><value>폰트(_F)</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>글자 크기(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>이동(_G)...</value></data>
@@ -45,7 +45,7 @@
   <data name="MenuNew" xml:space="preserve"><value>새로 만들기(_N)</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>새 마크다운(_M)</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>새 탭(_T)</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>새 txt(_X)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>새 txt(_E)</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>최근 파일 없음</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>열기(_O)...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>붙여넣기(_P)</value></data>
@@ -58,7 +58,7 @@
   <data name="MenuSelectAll" xml:space="preserve"><value>모두 선택(_A)</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>설정(_S)</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>상태 표시줄(_S)</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>시간/날짜(_T)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>시간/날짜(_D)</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>실행 취소(_U)</value></data>
   <data name="MenuView" xml:space="preserve"><value>보기(_V)</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>자동 줄 바꿈(_W)</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0}(으)로 저장</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0}(으)로 변환</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>시작할 때 탭과 저장 안 한 내용 복원(_R)</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>표(_T)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>표(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>아래에 행 추가</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>행 삭제</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>왼쪽에 열 삽입</value></data>

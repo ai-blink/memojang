@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>फ़ाइल(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>ढूँढें(_F)</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>आगे ढूँढें(_N)</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>पिछला ढूँढें(_P)</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>पिछला ढूँढें(_V)</value></data>
   <data name="MenuFont" xml:space="preserve"><value>फ़ॉन्ट(_F)</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>फ़ॉन्ट आकार(_S)</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>जाएँ(_G)...</value></data>
@@ -45,11 +45,11 @@
   <data name="MenuNew" xml:space="preserve"><value>नया(_N)</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>नया Markdown(_M)</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>नया टैब(_T)</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>नया टेक्स्ट(_T)</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>नया टेक्स्ट(_E)</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>कोई हाल की फ़ाइल नहीं</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>खोलें(_O)...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>चिपकाएँ(_P)</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>कैप्चर से बहिष्करण(_X)</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>कैप्चर से बाहर रखें(_X)</value></data>
   <data name="MenuRecent" xml:space="preserve"><value>हाल के(_R)</value></data>
   <data name="MenuResetZoom" xml:space="preserve"><value>ज़ूम रीसेट करें(_R)</value></data>
   <data name="MenuSave" xml:space="preserve"><value>सहेजें(_S)</value></data>
@@ -58,7 +58,7 @@
   <data name="MenuSelectAll" xml:space="preserve"><value>सभी चुनें(_A)</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>सेटिंग्स(_S)</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>स्टेटस बार(_S)</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>समय/तारीख(_T)</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>समय/तारीख(_D)</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>पूर्ववत करें(_U)</value></data>
   <data name="MenuView" xml:space="preserve"><value>दृश्य(_V)</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>वर्ड रैप(_W)</value></data>
@@ -98,7 +98,7 @@
   <data name="StatusDocumentText" xml:space="preserve"><value>टेक्स्ट</value></data>
   <data name="StatusUnsavedChanges" xml:space="preserve"><value>सहेजे न गए परिवर्तन</value></data>
   <data name="StatusZoom" xml:space="preserve"><value>ज़ूम</value></data>
-  <data name="ToolbarDarkMode" xml:space="preserve"><value>डार्क मोड</value></data>
+  <data name="ToolbarDarkMode" xml:space="preserve"><value>गहरा मोड</value></data>
   <data name="ToolbarFontLarge" xml:space="preserve"><value>फ़ॉन्ट आकार बढ़ाएँ</value></data>
   <data name="ToolbarFontMedium" xml:space="preserve"><value>मध्यम टेक्स्ट</value></data>
   <data name="ToolbarFontSizeNumber" xml:space="preserve"><value>फ़ॉन्ट आकार संख्या</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>{0} के रूप में सहेजें</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>{0} में बदलें</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>शुरू होने पर टैब और सहेजा न गया टेक्स्ट पुनर्स्थापित करें(_R)</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>तालिका(_T)</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>तालिका(_B)</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>नीचे पंक्ति जोड़ें</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>पंक्ति हटाएँ</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>बाईं ओर कॉलम डालें</value></data>

@@ -29,36 +29,36 @@
   <data name="MenuCopy" xml:space="preserve"><value>_Копировать</value></data>
   <data name="MenuCut" xml:space="preserve"><value>_Вырезать</value></data>
   <data name="MenuEdit" xml:space="preserve"><value>Правка(_E)</value></data>
-  <data name="MenuExit" xml:space="preserve"><value>_Выход</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>Вы_ход</value></data>
   <data name="MenuFile" xml:space="preserve"><value>Файл(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>_Найти</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Найти _далее</value></data>
   <data name="MenuFindPrevious" xml:space="preserve"><value>Найти _предыдущее</value></data>
   <data name="MenuFont" xml:space="preserve"><value>_Шрифт</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>_Размер шрифта</value></data>
-  <data name="MenuGoTo" xml:space="preserve"><value>_Перейти...</value></data>
+  <data name="MenuGoTo" xml:space="preserve"><value>Пере_йти...</value></data>
   <data name="MenuHelp" xml:space="preserve"><value>_Справка</value></data>
   <data name="MenuInsertTable" xml:space="preserve"><value>Вставить _таблицу</value></data>
   <data name="MenuInsertImage" xml:space="preserve"><value>Вставить _изображение...</value></data>
   <data name="MenuMarkdown" xml:space="preserve"><value>_Markdown</value></data>
-  <data name="MenuMarkdownPreview" xml:space="preserve"><value>_Просмотр Markdown</value></data>
+  <data name="MenuMarkdownPreview" xml:space="preserve"><value>П_росмотр Markdown</value></data>
   <data name="MenuNew" xml:space="preserve"><value>_Создать</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>Новый _Markdown</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>Новая _вкладка</value></data>
   <data name="MenuNewText" xml:space="preserve"><value>Новый _текст</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>Нет недавних файлов</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>Открыть(_O)...</value></data>
-  <data name="MenuPaste" xml:space="preserve"><value>_Вставить</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>Вст_авить</value></data>
   <data name="MenuPrivacy" xml:space="preserve"><value>Исключение из захвата(_X)</value></data>
   <data name="MenuRecent" xml:space="preserve"><value>_Последние</value></data>
   <data name="MenuResetZoom" xml:space="preserve"><value>_Сбросить масштаб</value></data>
   <data name="MenuSave" xml:space="preserve"><value>Сохранить(_S)</value></data>
-  <data name="MenuSaveAll" xml:space="preserve"><value>Сохранить _все</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Сохранить вс_е</value></data>
   <data name="MenuSaveAs" xml:space="preserve"><value>Сохранить _как...</value></data>
-  <data name="MenuSelectAll" xml:space="preserve"><value>Выделить _все</value></data>
-  <data name="MenuSettings" xml:space="preserve"><value>_Настройки</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>Выде_лить все</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>На_стройки</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>_Строка состояния</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>_Время/дата</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>Время/да_та</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>_Отменить</value></data>
   <data name="MenuView" xml:space="preserve"><value>Вид(_V)</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>_Перенос по словам</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Сохранить как {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Преобразовать в {0}</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>_Восстанавливать вкладки и несохранённый текст при запуске</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>_Таблица</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>Та_блица</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Добавить строку ниже</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Удалить строку</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>Вставить столбец слева</value></data>

@@ -16,7 +16,7 @@
   <data name="FindPreviousButton" xml:space="preserve"><value>Anterior</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} substituições</value></data>
   <data name="DialogFontSizeTitle" xml:space="preserve"><value>Tamanho da fonte</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>_Personalizado...</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>Pe_rsonalizado...</value></data>
   <data name="FontSizeLarge" xml:space="preserve"><value>_Grande</value></data>
   <data name="FontSizeMedium" xml:space="preserve"><value>_Médio</value></data>
   <data name="FontSizeNumberLabel" xml:space="preserve"><value>Tamanho da fonte ({0:0}-{1:0})</value></data>
@@ -29,7 +29,7 @@
   <data name="MenuCopy" xml:space="preserve"><value>_Copiar</value></data>
   <data name="MenuCut" xml:space="preserve"><value>Recor_tar</value></data>
   <data name="MenuEdit" xml:space="preserve"><value>Editar(_E)</value></data>
-  <data name="MenuExit" xml:space="preserve"><value>_Sair</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>Sa_ir</value></data>
   <data name="MenuFile" xml:space="preserve"><value>Arquivo(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>_Localizar</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Localizar _próxima</value></data>
@@ -48,15 +48,15 @@
   <data name="MenuNewText" xml:space="preserve"><value>Novo _texto</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>Nenhum arquivo recente</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>Abrir(_O)...</value></data>
-  <data name="MenuPaste" xml:space="preserve"><value>_Colar</value></data>
+  <data name="MenuPaste" xml:space="preserve"><value>C_olar</value></data>
   <data name="MenuPrivacy" xml:space="preserve"><value>Exclusão de captura(_X)</value></data>
   <data name="MenuRecent" xml:space="preserve"><value>_Recentes</value></data>
   <data name="MenuResetZoom" xml:space="preserve"><value>_Redefinir zoom</value></data>
   <data name="MenuSave" xml:space="preserve"><value>Salvar(_S)</value></data>
   <data name="MenuSaveAll" xml:space="preserve"><value>Salvar t_udo</value></data>
   <data name="MenuSaveAs" xml:space="preserve"><value>Salvar _como...</value></data>
-  <data name="MenuSelectAll" xml:space="preserve"><value>Selecionar _tudo</value></data>
-  <data name="MenuSettings" xml:space="preserve"><value>_Configurações</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>Selecionar t_udo</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>Co_nfigurações</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>_Barra de status</value></data>
   <data name="MenuTimeDate" xml:space="preserve"><value>_Hora/data</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>_Desfazer</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Salvar como {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Converter para {0}</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>_Restaurar abas e texto não salvo ao iniciar</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>_Tabela</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>Ta_bela</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Adicionar linha abaixo</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Excluir linha</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>Inserir coluna à esquerda</value></data>

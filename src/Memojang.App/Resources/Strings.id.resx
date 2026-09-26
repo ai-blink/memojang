@@ -16,7 +16,7 @@
   <data name="FindPreviousButton" xml:space="preserve"><value>Sebelumnya</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} diganti</value></data>
   <data name="DialogFontSizeTitle" xml:space="preserve"><value>Ukuran font</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>_Khusus...</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>K_husus...</value></data>
   <data name="FontSizeLarge" xml:space="preserve"><value>_Besar</value></data>
   <data name="FontSizeMedium" xml:space="preserve"><value>_Sedang</value></data>
   <data name="FontSizeNumberLabel" xml:space="preserve"><value>Ukuran font ({0:0}-{1:0})</value></data>
@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>_File</value></data>
   <data name="MenuFind" xml:space="preserve"><value>_Cari</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Cari _berikutnya</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>Cari se_belumnya</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Cari sebe_lumnya</value></data>
   <data name="MenuFont" xml:space="preserve"><value>_Font</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>_Ukuran font</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>_Menuju...</value></data>
@@ -45,19 +45,19 @@
   <data name="MenuNew" xml:space="preserve"><value>_Baru</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>_Markdown baru</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>_Tab baru</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>_Teks baru</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>T_eks baru</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>Tidak ada file terbaru</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>_Buka...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>Tem_pel</value></data>
-  <data name="MenuPrivacy" xml:space="preserve"><value>Pengecualian ta_ngkapan layar</value></data>
-  <data name="MenuRecent" xml:space="preserve"><value>_Terbaru</value></data>
+  <data name="MenuPrivacy" xml:space="preserve"><value>Pengecualian ta_ngkapan</value></data>
+  <data name="MenuRecent" xml:space="preserve"><value>Te_rbaru</value></data>
   <data name="MenuResetZoom" xml:space="preserve"><value>_Atur ulang zoom</value></data>
   <data name="MenuSave" xml:space="preserve"><value>_Simpan</value></data>
-  <data name="MenuSaveAll" xml:space="preserve"><value>Simpan semu_a</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Simpan sem_ua</value></data>
   <data name="MenuSaveAs" xml:space="preserve"><value>Simpan seb_agai...</value></data>
-  <data name="MenuSelectAll" xml:space="preserve"><value>Pilih sem_ua</value></data>
-  <data name="MenuSettings" xml:space="preserve"><value>_Pengaturan</value></data>
-  <data name="MenuStatusBar" xml:space="preserve"><value>_Bilah status</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>P_ilih semua</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>Pe_ngaturan</value></data>
+  <data name="MenuStatusBar" xml:space="preserve"><value>B_ilah status</value></data>
   <data name="MenuTimeDate" xml:space="preserve"><value>_Waktu/Tanggal</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>_Urungkan</value></data>
   <data name="MenuView" xml:space="preserve"><value>_Tampilan</value></data>
@@ -77,7 +77,7 @@
   <data name="PrivacyDetailExcluded" xml:space="preserve"><value>Windows melaporkan jendela ini dikecualikan dari sebagian besar tangkapan layar dan rekaman layar. Tidak tercakup: menu dan dialog yang terbuka, kamera ponsel, perangkat lain, serta program yang berjalan sebagai pengguna yang sama.</value></data>
   <data name="PrivacyDetailLimited" xml:space="preserve"><value>Hanya mode Windows yang lebih lama yang tersedia: tangkapan layar menampilkan jendela ini sebagai kotak hitam, bukan menghilangkannya.</value></data>
   <data name="PrivacyErrorNotSupported" xml:space="preserve"><value>Tidak didukung untuk jendela atau driver tampilan ini.</value></data>
-  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Pengecualian tangkapan layar tidak tersedia</value></data>
+  <data name="PrivacyStatusExclusionUnavailable" xml:space="preserve"><value>Pengecualian tangkapan tidak tersedia</value></data>
   <data name="PrivacyStatusLimited" xml:space="preserve"><value>Tangkapan layar terbatas</value></data>
   <data name="PrivacyStatusResetFailed" xml:space="preserve"><value>Reset tangkapan layar gagal</value></data>
   <data name="PrivacyStatusUnavailable" xml:space="preserve"><value>Status tangkapan layar tidak tersedia</value></data>
@@ -107,12 +107,12 @@
   <data name="WindowNewDocument" xml:space="preserve"><value>Dokumen baru</value></data>
   <data name="WindowMinimize" xml:space="preserve"><value>Perkecil</value></data>
   <data name="WindowMaximizeRestore" xml:space="preserve"><value>Maksimalkan atau kembalikan</value></data>
-  <data name="StatusEncodingHint" xml:space="preserve"><value>Klik untuk memilih enkode yang digunakan saat menyimpan</value></data>
+  <data name="StatusEncodingHint" xml:space="preserve"><value>Klik untuk memilih pengodean yang digunakan saat menyimpan</value></data>
   <data name="StatusLineEndingHint" xml:space="preserve"><value>Klik untuk mengonversi akhir baris</value></data>
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Simpan sebagai {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Konversi ke {0}</value></data>
-  <data name="MenuSessionRestore" xml:space="preserve"><value>_Pulihkan tab dan teks belum disimpan saat mulai</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>_Tabel</value></data>
+  <data name="MenuSessionRestore" xml:space="preserve"><value>_Pulihkan tab dan teks yang belum disimpan saat mulai</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>Ta_bel</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Tambah baris di bawah</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Hapus baris</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>Sisipkan kolom di kiri</value></data>
@@ -130,7 +130,7 @@
   <data name="ToolbarLink" xml:space="preserve"><value>Tautan</value></data>
   <data name="ToolbarTable" xml:space="preserve"><value>Sisipkan tabel</value></data>
   <data name="ToolbarPreview" xml:space="preserve"><value>Pratinjau</value></data>
-  <data name="ToolbarPrivacy" xml:space="preserve"><value>Kecualikan dari tangkapan layar</value></data>
+  <data name="ToolbarPrivacy" xml:space="preserve"><value>Kecualikan tangkapan</value></data>
   <data name="OkButton" xml:space="preserve"><value>OK</value></data>
   <data name="ThemeDark" xml:space="preserve"><value>_Gelap</value></data>
   <data name="ThemeLight" xml:space="preserve"><value>_Terang</value></data>

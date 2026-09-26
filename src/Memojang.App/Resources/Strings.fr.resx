@@ -16,7 +16,7 @@
   <data name="FindPreviousButton" xml:space="preserve"><value>Précédent</value></data>
   <data name="FindReplacedCount" xml:space="preserve"><value>{0} remplacements</value></data>
   <data name="DialogFontSizeTitle" xml:space="preserve"><value>Taille de police</value></data>
-  <data name="FontSizeCustom" xml:space="preserve"><value>_Personnalisé...</value></data>
+  <data name="FontSizeCustom" xml:space="preserve"><value>Pe_rsonnalisé...</value></data>
   <data name="FontSizeLarge" xml:space="preserve"><value>_Grande</value></data>
   <data name="FontSizeMedium" xml:space="preserve"><value>_Moyenne</value></data>
   <data name="FontSizeNumberLabel" xml:space="preserve"><value>Taille de police ({0:0}-{1:0})</value></data>
@@ -24,7 +24,7 @@
   <data name="GoToLineLabel" xml:space="preserve"><value>Numéro de ligne</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>À _propos de Memojang</value></data>
   <data name="MenuAddTableRow" xml:space="preserve"><value>Ajouter une _ligne au tableau</value></data>
-  <data name="MenuAppTheme" xml:space="preserve"><value>_Thème de l'application</value></data>
+  <data name="MenuAppTheme" xml:space="preserve"><value>T_hème de l&apos;application</value></data>
   <data name="MenuCaptureExclusion" xml:space="preserve"><value>_Exclure la fenêtre de la capture</value></data>
   <data name="MenuCopy" xml:space="preserve"><value>_Copier</value></data>
   <data name="MenuCut" xml:space="preserve"><value>Cou_per</value></data>
@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>Fichier(_F)</value></data>
   <data name="MenuFind" xml:space="preserve"><value>_Rechercher</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Rechercher le _suivant</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>Rechercher le _précédent</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Rechercher le précé_dent</value></data>
   <data name="MenuFont" xml:space="preserve"><value>_Police</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>_Taille de police</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>A_ller à...</value></data>
@@ -44,19 +44,19 @@
   <data name="MenuMarkdownPreview" xml:space="preserve"><value>A_perçu Markdown</value></data>
   <data name="MenuNew" xml:space="preserve"><value>_Nouveau</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>Nouveau _Markdown</value></data>
-  <data name="MenuNewTab" xml:space="preserve"><value>Nouvel _onglet</value></data>
+  <data name="MenuNewTab" xml:space="preserve"><value>Nouvel on_glet</value></data>
   <data name="MenuNewText" xml:space="preserve"><value>Nouveau _texte</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>Aucun fichier récent</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>Ouvrir(_O)...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>C_oller</value></data>
   <data name="MenuPrivacy" xml:space="preserve"><value>Exclusion de capture(_X)</value></data>
   <data name="MenuRecent" xml:space="preserve"><value>_Récents</value></data>
-  <data name="MenuResetZoom" xml:space="preserve"><value>_Réinitialiser le zoom</value></data>
+  <data name="MenuResetZoom" xml:space="preserve"><value>Réinitiali_ser le zoom</value></data>
   <data name="MenuSave" xml:space="preserve"><value>Enregistrer(_S)</value></data>
-  <data name="MenuSaveAll" xml:space="preserve"><value>Enregistrer _tout</value></data>
-  <data name="MenuSaveAs" xml:space="preserve"><value>Enregistrer _sous...</value></data>
-  <data name="MenuSelectAll" xml:space="preserve"><value>_Sélectionner tout</value></data>
-  <data name="MenuSettings" xml:space="preserve"><value>_Paramètres</value></data>
+  <data name="MenuSaveAll" xml:space="preserve"><value>Enregistrer to_ut</value></data>
+  <data name="MenuSaveAs" xml:space="preserve"><value>E_nregistrer sous...</value></data>
+  <data name="MenuSelectAll" xml:space="preserve"><value>Sélectionner _tout</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>Para_mètres</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>_Barre d'état</value></data>
   <data name="MenuTimeDate" xml:space="preserve"><value>_Heure/date</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>_Annuler</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Enregistrer en {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convertir en {0}</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>_Restaurer les onglets et le texte non enregistré au démarrage</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>_Tableau</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>Ta_bleau</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Ajouter une ligne en dessous</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Supprimer la ligne</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>Insérer une colonne à gauche</value></data>

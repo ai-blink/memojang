@@ -33,7 +33,7 @@
   <data name="MenuFile" xml:space="preserve"><value>_File</value></data>
   <data name="MenuFind" xml:space="preserve"><value>_Find</value></data>
   <data name="MenuFindNext" xml:space="preserve"><value>Find _next</value></data>
-  <data name="MenuFindPrevious" xml:space="preserve"><value>Find _previous</value></data>
+  <data name="MenuFindPrevious" xml:space="preserve"><value>Find pre_vious</value></data>
   <data name="MenuFont" xml:space="preserve"><value>_Font</value></data>
   <data name="MenuFontSize" xml:space="preserve"><value>Font _size</value></data>
   <data name="MenuGoTo" xml:space="preserve"><value>_Go to...</value></data>
@@ -45,7 +45,7 @@
   <data name="MenuNew" xml:space="preserve"><value>_New</value></data>
   <data name="MenuNewMarkdown" xml:space="preserve"><value>New _Markdown</value></data>
   <data name="MenuNewTab" xml:space="preserve"><value>New _tab</value></data>
-  <data name="MenuNewText" xml:space="preserve"><value>New _text</value></data>
+  <data name="MenuNewText" xml:space="preserve"><value>New t_ext</value></data>
   <data name="MenuNoRecentFiles" xml:space="preserve"><value>No recent files</value></data>
   <data name="MenuOpen" xml:space="preserve"><value>_Open...</value></data>
   <data name="MenuPaste" xml:space="preserve"><value>_Paste</value></data>
@@ -58,7 +58,7 @@
   <data name="MenuSelectAll" xml:space="preserve"><value>Select _all</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>_Settings</value></data>
   <data name="MenuStatusBar" xml:space="preserve"><value>_Status bar</value></data>
-  <data name="MenuTimeDate" xml:space="preserve"><value>_Time/Date</value></data>
+  <data name="MenuTimeDate" xml:space="preserve"><value>Time/_Date</value></data>
   <data name="MenuUndo" xml:space="preserve"><value>_Undo</value></data>
   <data name="MenuView" xml:space="preserve"><value>_View</value></data>
   <data name="MenuWordWrap" xml:space="preserve"><value>_Word wrap</value></data>
@@ -112,7 +112,7 @@
   <data name="StatusSaveWithEncoding" xml:space="preserve"><value>Save as {0}</value></data>
   <data name="StatusConvertLineEnding" xml:space="preserve"><value>Convert to {0}</value></data>
   <data name="MenuSessionRestore" xml:space="preserve"><value>_Restore tabs and unsaved text on start</value></data>
-  <data name="ContextTable" xml:space="preserve"><value>_Table</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>Ta_ble</value></data>
   <data name="TableAddRowBelow" xml:space="preserve"><value>Add row below</value></data>
   <data name="TableDeleteRow" xml:space="preserve"><value>Delete row</value></data>
   <data name="TableInsertColumnLeft" xml:space="preserve"><value>Insert column left</value></data>
