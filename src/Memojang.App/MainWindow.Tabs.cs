@@ -46,6 +46,7 @@ public partial class MainWindow
         _currentFilePath = tab.FilePath;
         _hasUnsavedChanges = tab.HasUnsavedChanges;
         _fileEncoding = tab.FileEncoding;
+        _fileStamp = tab.FileStamp;
         _lineEndingName = tab.LineEndingName;
         _documentMode = tab.Mode;
 
@@ -166,6 +167,7 @@ public partial class MainWindow
         _activeDocumentTab.FilePath = _currentFilePath;
         _activeDocumentTab.HasUnsavedChanges = _hasUnsavedChanges;
         _activeDocumentTab.FileEncoding = _fileEncoding;
+        _activeDocumentTab.FileStamp = _fileStamp;
         _activeDocumentTab.LineEndingName = _lineEndingName;
         _activeDocumentTab.Mode = _documentMode;
         PersistActiveDocumentSelection();
@@ -361,6 +363,7 @@ public partial class MainWindow
         public string? FilePath { get; set; }
         public bool HasUnsavedChanges { get; set; }
         public TextFileEncoding FileEncoding { get; set; } = TextFileEncoding.Utf8;
+        public FileStamp? FileStamp { get; set; }
         public string LineEndingName { get; set; } = LineEnding.Crlf;
         public DocumentMode Mode { get; set; } = DocumentMode.PlainText;
         public int CaretIndex { get; set; }

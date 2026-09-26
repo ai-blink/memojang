@@ -2,6 +2,13 @@
 
 ## Current
 
+2026-09-27: Preview inline rendering, accessibility names, and external-change detection were added.
+- `Shell/MarkdownInlineParser` renders the syntax the toolbar inserts (bold, italic, strike, link) plus inline code. Links are underlined with the URL in a tooltip and are never navigated. Missing/remote image labels are localized.
+- Toolbar glyph buttons, window buttons, and tab close buttons now have localized `AutomationProperties.Name` values and tooltips. Checked with UI Automation: the toolbar reads 제목, 굵게, 기울임, and so on.
+- View > Status bar now really hides and shows the status bar.
+- `Shell/FileStamp` checks the active file when the window is activated. A clean document reloads silently, a dirty one asks, and a deleted or moved file keeps the text as unsaved with a warning.
+- Verified with the isolated `dotnet build` (0 warnings/errors), 89 passing tests, and a launch check: the file was changed on disk, the window was minimized and restored, and the app logged `External change reloaded`.
+
 2026-09-27: View preferences persist and Notepad shortcuts were added.
 - `settings.json` now also stores theme, font family, font size, zoom, and word wrap. Older files get defaults, and invalid values are clamped or reset.
 - View preferences are saved whenever settings are saved and always on close.

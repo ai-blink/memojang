@@ -20,6 +20,7 @@ public partial class MainWindow
             AppDiagnostics.Log($"OpenDocument sync start path={filePath}");
             DecodedText decoded = TextFileCodec.Read(filePath);
             _currentFilePath = filePath;
+            _fileStamp = FileStamp.Read(filePath);
             SetEditorText(decoded.Text, hasUnsavedChanges: false, decoded.Encoding);
             AddRecentFile(filePath);
             AppDiagnostics.Log($"OpenDocument sync success path={filePath} length={decoded.Text.Length} encoding={decoded.Encoding.DisplayName}");
@@ -51,6 +52,7 @@ public partial class MainWindow
             AppDiagnostics.Log($"OpenDocument async start path={filePath}");
             DecodedText decoded = await TextFileCodec.ReadAsync(filePath);
             _currentFilePath = filePath;
+            _fileStamp = FileStamp.Read(filePath);
             SetEditorText(decoded.Text, hasUnsavedChanges: false, decoded.Encoding);
             AddRecentFile(filePath);
             Activate();
@@ -169,6 +171,7 @@ public partial class MainWindow
         _currentFilePath = targetPath;
         _hasUnsavedChanges = false;
         _fileEncoding = saveEncoding;
+        _fileStamp = FileStamp.Read(targetPath);
         _lineEndingName = LineEnding.Detect(EditorTextBox.Text);
         UpdateDocumentModeFromPath();
         PersistActiveDocumentState();

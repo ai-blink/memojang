@@ -84,6 +84,8 @@
   <data name="PrivacyStatusVisible" xml:space="preserve"><value>Capture visible</value></data>
   <data name="PreviewImageRemote" xml:space="preserve"><value>Remote image not loaded: {0}</value></data>
   <data name="PreviewImageMissing" xml:space="preserve"><value>Missing image: {0}</value></data>
+  <data name="PromptFileChangedReload" xml:space="preserve"><value>{0} was changed by another program. Reload it from disk? Choose No to keep your edits.</value></data>
+  <data name="MessageFileMissing" xml:space="preserve"><value>{0} was moved or deleted on disk. Your text is kept; save it to keep a copy.</value></data>
   <data name="PromptSaveChanges" xml:space="preserve"><value>Save changes before continuing?</value></data>
   <data name="PromptEncodingLossy" xml:space="preserve"><value>Some characters in this document cannot be saved as {0} and would be lost. Save as UTF-8 instead?</value></data>
   <data name="ReplaceAllButton" xml:space="preserve"><value>All</value></data>

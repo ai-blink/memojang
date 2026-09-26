@@ -32,6 +32,7 @@ public partial class MainWindow : Window
         InitializeTabs();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;
+        Activated += MainWindow_Activated;
         UpdateStatus(EditorStatus.Initial);
         UpdateTitle();
         EditorTextBox.Focus();
