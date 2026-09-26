@@ -29,6 +29,7 @@ public partial class MainWindow : Window
         InitializeViewControls();
         InitializeDocumentModeAndPreview();
         InitializePersistentSettings();
+        InitializeTableEditing();
         InitializeTabs();
         SourceInitialized += MainWindow_SourceInitialized;
         StateChanged += MainWindow_StateChanged;

@@ -107,6 +107,16 @@
   <data name="WindowNewDocument" xml:space="preserve"><value>새 문서</value></data>
   <data name="WindowMinimize" xml:space="preserve"><value>최소화</value></data>
   <data name="WindowMaximizeRestore" xml:space="preserve"><value>최대화 또는 이전 크기로</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>표(_T)</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>아래에 행 추가</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>행 삭제</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>왼쪽에 열 삽입</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>오른쪽에 열 삽입</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>열 삭제</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>왼쪽 정렬</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>가운데 정렬</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>오른쪽 정렬</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>표 정리</value></data>
   <data name="ToolbarHeading" xml:space="preserve"><value>제목</value></data>
   <data name="ToolbarList" xml:space="preserve"><value>글머리 목록</value></data>
   <data name="ToolbarBold" xml:space="preserve"><value>굵게</value></data>

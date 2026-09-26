@@ -2,6 +2,13 @@
 
 ## Current
 
+2026-09-27: Source-level table editing was added.
+- `Shell/MarkdownTableEditor` and `TableRegion` re-align pipe tables (Hangul/CJK counted as double width), move between cells, add/delete rows and columns, and set column alignment.
+- Only the table's own text range is replaced, through the editor selection, so outside text and line endings are untouched and each edit is one undo step.
+- In Markdown mode, Tab and Shift+Tab move between cells inside a table (Tab on the last cell adds a row). Outside a table, Tab still inserts a tab.
+- The right-click menu keeps Cut/Copy/Paste/Select All and shows a Table submenu only when the caret is in a table. Right-click moves the caret to the clicked cell.
+- Verified with the isolated `dotnet build` (0 warnings/errors), 98 passing tests, and a real-app check: UI Automation focused the editor, then Ctrl+Home, Tab, X, and Ctrl+S saved `| a   | bbX  |` with CRLF kept.
+
 2026-09-27: Preview inline rendering, accessibility names, and external-change detection were added.
 - `Shell/MarkdownInlineParser` renders the syntax the toolbar inserts (bold, italic, strike, link) plus inline code. Links are underlined with the URL in a tooltip and are never navigated. Missing/remote image labels are localized.
 - Toolbar glyph buttons, window buttons, and tab close buttons now have localized `AutomationProperties.Name` values and tooltips. Checked with UI Automation: the toolbar reads 제목, 굵게, 기울임, and so on.

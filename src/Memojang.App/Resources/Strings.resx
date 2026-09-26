@@ -107,6 +107,16 @@
   <data name="WindowNewDocument" xml:space="preserve"><value>New document</value></data>
   <data name="WindowMinimize" xml:space="preserve"><value>Minimize</value></data>
   <data name="WindowMaximizeRestore" xml:space="preserve"><value>Maximize or restore</value></data>
+  <data name="ContextTable" xml:space="preserve"><value>_Table</value></data>
+  <data name="TableAddRowBelow" xml:space="preserve"><value>Add row below</value></data>
+  <data name="TableDeleteRow" xml:space="preserve"><value>Delete row</value></data>
+  <data name="TableInsertColumnLeft" xml:space="preserve"><value>Insert column left</value></data>
+  <data name="TableInsertColumnRight" xml:space="preserve"><value>Insert column right</value></data>
+  <data name="TableDeleteColumn" xml:space="preserve"><value>Delete column</value></data>
+  <data name="TableAlignLeft" xml:space="preserve"><value>Align left</value></data>
+  <data name="TableAlignCenter" xml:space="preserve"><value>Align center</value></data>
+  <data name="TableAlignRight" xml:space="preserve"><value>Align right</value></data>
+  <data name="TableFormat" xml:space="preserve"><value>Tidy table</value></data>
   <data name="ToolbarHeading" xml:space="preserve"><value>Heading</value></data>
   <data name="ToolbarList" xml:space="preserve"><value>Bulleted list</value></data>
   <data name="ToolbarBold" xml:space="preserve"><value>Bold</value></data>
