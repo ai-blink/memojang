@@ -1,6 +1,6 @@
 # Session Handoff — memojang
 
-- Written: 2026-07-05T21:29:23.187784+00:00
+- Written: 2026-07-13T02:24:34.147275+00:00
 - Trigger: stop
 - Source: codex
 - CWD: C:\ai\projects\memojang
@@ -8,20 +8,22 @@
 
 ## Objective
 
-커밋 완료했습니다.
+정식 릴리스로 전환했습니다.
 
-커밋:
-`6019066 feat(app): add V1 preview editor shell`
-
-커밋에는 앱 코드, 테스트, preview build 문서/설정, dev 문서 갱신만 포함했습니다. `notes/transfers/memojang/*` 자동 handoff 파일들은 작업과 무관해서 커밋에서 제외했고, 현재 작업트리에 그대로 남아 있습니다.
+[Memojang v0.1.0-preview.1 릴리스](https://github.com/ai-blink/memojang/releases/tag/v0.1.0-preview.1)는 이제 사전 릴리스가 아닌 공개 릴리스이며, Windows x64 포터블 ZIP과 SHA-256 검증 파일이 포함돼 있습니다.
 
 ## Current state
 
 - CWD: C:\ai\projects\memojang
 - Changed files: notes/transfers/memojang/latest_context.md
-- Recent commits: 6019066 feat(app): add V1 preview editor shell
-8e3ab8e feat(project): scaffold Memojang WPF app
-e01bc2f first commit
+rules/dev-progress.md
+rules/dev-roadmap.md
+src/Memojang.App/MainWindow.CaptureExclusion.cs
+src/Memojang.App/MainWindow.Tabs.cs
+src/Memojang.App/MainWindow.xaml.cs
+- Recent commits: 5f2d059 docs(release): add portable preview guide
+010fbb9 fix(app): 시작 시 작업 디렉토리를 앱 기준 폴더로 리셋 (문서 폴더 CWD 잠금 해소)
+a0e5858 fix(ui): improve font size field readability
 
 ## Direct next action
 
@@ -30,6 +32,11 @@ Inspect the first files / first command below, then take an implementation, veri
 ## Allowed files
 
 notes/transfers/memojang/latest_context.md
+rules/dev-progress.md
+rules/dev-roadmap.md
+src/Memojang.App/MainWindow.CaptureExclusion.cs
+src/Memojang.App/MainWindow.Tabs.cs
+src/Memojang.App/MainWindow.xaml.cs
 
 ## Forbidden actions
 
@@ -47,6 +54,11 @@ Stop if the next action requires destructive/secret/OS/driver/cloud/prod/DB muta
 ## First files / first command
 
 notes/transfers/memojang/latest_context.md
+rules/dev-progress.md
+rules/dev-roadmap.md
+src/Memojang.App/MainWindow.CaptureExclusion.cs
+src/Memojang.App/MainWindow.Tabs.cs
+src/Memojang.App/MainWindow.xaml.cs
 
 ## Anti-loop clause
 
@@ -54,12 +66,9 @@ If two consecutive turns are proxy-only, the next action must be implementation,
 
 ## 현재 목표
 
-커밋 완료했습니다.
+정식 릴리스로 전환했습니다.
 
-커밋:
-`6019066 feat(app): add V1 preview editor shell`
-
-커밋에는 앱 코드, 테스트, preview build 문서/설정, dev 문서 갱신만 포함했습니다. `notes/transfers/memojang/*` 자동 handoff 파일들은 작업과 무관해서 커밋에서 제외했고, 현재 작업트리에 그대로 남아 있습니다.
+[Memojang v0.1.0-preview.1 릴리스](https://github.com/ai-blink/memojang/releases/tag/v0.1.0-preview.1)는 이제 사전 릴리스가 아닌 공개 릴리스이며, Windows x64 포터블 ZIP과 SHA-256 검증 파일이 포함돼 있습니다.
 
 ## 미해결 이슈
 
@@ -80,6 +89,11 @@ If two consecutive turns are proxy-only, the next action must be implementation,
 ## 변경/커밋
 
 - 미커밋: notes/transfers/memojang/latest_context.md
-- 최근 커밋: 6019066 feat(app): add V1 preview editor shell
-8e3ab8e feat(project): scaffold Memojang WPF app
-e01bc2f first commit
+rules/dev-progress.md
+rules/dev-roadmap.md
+src/Memojang.App/MainWindow.CaptureExclusion.cs
+src/Memojang.App/MainWindow.Tabs.cs
+src/Memojang.App/MainWindow.xaml.cs
+- 최근 커밋: 5f2d059 docs(release): add portable preview guide
+010fbb9 fix(app): 시작 시 작업 디렉토리를 앱 기준 폴더로 리셋 (문서 폴더 CWD 잠금 해소)
+a0e5858 fix(ui): improve font size field readability
